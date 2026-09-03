@@ -1,0 +1,385 @@
+@import "tailwindcss";
+
+/* Selbst gehostete Schriften: keine Anfrage an Google, kein DSGVO-Thema,
+   und die Seite funktioniert auch offline. */
+@import "@fontsource-variable/fraunces/full.css";
+@import "@fontsource-variable/fraunces/full-italic.css";
+@import "@fontsource-variable/karla/index.css";
+@import "@fontsource-variable/caveat/index.css";
+@import "@fontsource/courier-prime/400.css";
+@import "@fontsource/courier-prime/700.css";
+
+/* ───────────────────────────── Farbwelt ─────────────────────────────
+   „Poste Restante“ — warmes Papier, Luftpostrot, Tintenblau, Siegellack.
+   Hell zuerst; dunkel ist bewusst warmes Schwarz, nie #000.
+   ------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+
+  --papier: #faf4ea;
+  --papier-tief: #f1e7d6;
+  --karte: #fffcf6;
+  --tinte: #2e2a26;
+  --tinte-leise: #6b6257;
+  --tinte-flüstern: #a2957f;
+  --linie: #e2d6c2;
+  --luftpost-rot: #c1453c;
+  --luftpost-blau: #2f4b7c;
+  --siegel: #7b2233;
+  --siegel-hell: #a8394a;
+  --siegel-tief: #4d0d17;
+  --messing: #c9a227;
+  --marke-papier: #fffdf8;
+
+  --schatten-karte: 0 1px 2px rgb(46 42 38 / 0.06), 0 12px 28px -12px rgb(46 42 38 / 0.22);
+  --schatten-hoch: 0 2px 4px rgb(46 42 38 / 0.08), 0 34px 60px -22px rgb(46 42 38 / 0.34);
+
+  --korn-deckkraft: 0.4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-thema="hell"]) {
+    color-scheme: dark;
+
+    --papier: #17140f;
+    --papier-tief: #100e0a;
+    --karte: #241e17;
+    --tinte: #ede3d2;
+    --tinte-leise: #b3a68f;
+    --tinte-flüstern: #7d7365;
+    --linie: #3a3128;
+    --luftpost-rot: #e27469;
+    --luftpost-blau: #7ea0d6;
+    --siegel: #a83a4c;
+    --siegel-hell: #c95566;
+    --siegel-tief: #5e1622;
+    --messing: #e0be5c;
+    --marke-papier: #382e23;
+
+    --schatten-karte: 0 1px 2px rgb(0 0 0 / 0.5), 0 12px 28px -12px rgb(0 0 0 / 0.7);
+    --schatten-hoch: 0 2px 4px rgb(0 0 0 / 0.55), 0 34px 60px -22px rgb(0 0 0 / 0.8);
+
+    --korn-deckkraft: 0.22;
+  }
+}
+
+:root[data-thema="dunkel"] {
+  color-scheme: dark;
+
+  --papier: #17140f;
+  --papier-tief: #100e0a;
+  --karte: #241e17;
+  --tinte: #ede3d2;
+  --tinte-leise: #b3a68f;
+  --tinte-flüstern: #7d7365;
+  --linie: #3a3128;
+  --luftpost-rot: #e27469;
+  --luftpost-blau: #7ea0d6;
+  --siegel: #a83a4c;
+  --siegel-hell: #c95566;
+  --siegel-tief: #5e1622;
+  --messing: #e0be5c;
+  --marke-papier: #382e23;
+
+  --schatten-karte: 0 1px 2px rgb(0 0 0 / 0.5), 0 12px 28px -12px rgb(0 0 0 / 0.7);
+  --schatten-hoch: 0 2px 4px rgb(0 0 0 / 0.55), 0 34px 60px -22px rgb(0 0 0 / 0.8);
+
+  --korn-deckkraft: 0.22;
+}
+
+@theme inline {
+  --color-papier: var(--papier);
+  --color-papier-tief: var(--papier-tief);
+  --color-karte: var(--karte);
+  --color-tinte: var(--tinte);
+  --color-leise: var(--tinte-leise);
+  --color-fluestern: var(--tinte-flüstern);
+  --color-linie: var(--linie);
+  --color-rot: var(--luftpost-rot);
+  --color-blau: var(--luftpost-blau);
+  --color-siegel: var(--siegel);
+  --color-messing: var(--messing);
+
+  --font-display: "Fraunces Variable", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Karla Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-hand: "Caveat Variable", "Segoe Script", cursive;
+  --font-stempel: "Courier Prime", ui-monospace, "SFMono-Regular", monospace;
+
+  --shadow-karte: var(--schatten-karte);
+  --shadow-hoch: var(--schatten-hoch);
+}
+
+/* ───────────────────────────── Grundlagen ───────────────────────────── */
+
+html {
+  background: var(--papier-tief);
+}
+
+body {
+  background: var(--papier);
+  color: var(--tinte);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* iOS: verhindert, dass die Umschläge beim Tippen aufblitzen */
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 30, "WONK" 1, "opsz" 120;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--luftpost-rot) 26%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--luftpost-blau);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ─────────────────────── Papier: Korn & Faserstruktur ───────────────────
+   Als background-image (nicht als CSS-Filter), damit die 3D-Szene des
+   Umschlags nicht plattgedrückt wird. `stitchTiles` verhindert die Naht.
+   ---------------------------------------------------------------------- */
+
+.korn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: var(--korn-deckkraft);
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.38'/%3E%3C/svg%3E");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-thema="hell"]) .korn::after { mix-blend-mode: screen; }
+}
+:root[data-thema="dunkel"] .korn::after { mix-blend-mode: screen; }
+
+/* Der Hintergrund der ganzen Seite: weiche Aquarell-Waschungen plus Korn. */
+.buehne {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(58rem 40rem at 12% -6%, color-mix(in oklab, var(--luftpost-rot) 13%, transparent), transparent 62%),
+    radial-gradient(52rem 38rem at 92% 4%, color-mix(in oklab, var(--luftpost-blau) 12%, transparent), transparent 60%),
+    radial-gradient(64rem 46rem at 50% 108%, color-mix(in oklab, var(--messing) 14%, transparent), transparent 64%),
+    var(--papier);
+}
+
+/* ───────────────────────── Luftpost-Bordüre ─────────────────────────
+   Die rot-blauen Schrägstreifen am Rand eines Luftpostumschlags. */
+
+.luftpost-rand {
+  --streifen: 7px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--luftpost-rot) 0 var(--streifen),
+    transparent var(--streifen) calc(var(--streifen) * 2),
+    var(--luftpost-blau) calc(var(--streifen) * 2) calc(var(--streifen) * 3),
+    transparent calc(var(--streifen) * 3) calc(var(--streifen) * 4)
+  );
+}
+
+/* ───────────────────────────── 3D-Umschlag ─────────────────────────────
+   Wichtig: `perspective` sitzt auf der Szene, nicht auf dem Umschlag.
+   Und: kein overflow/filter/opacity auf .umschlag — das würde die
+   3D-Ebene flachdrücken (transform-style wird dann ignoriert). */
+
+.szene {
+  perspective: 1600px;
+  perspective-origin: 50% 34%;
+}
+
+.umschlag {
+  position: relative;
+  transform-style: preserve-3d;
+  aspect-ratio: 1.55 / 1;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.szene:hover .umschlag[data-status="bereit"] {
+  transform: translateY(-6px) rotateX(4deg);
+}
+
+.umschlag-flaeche {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+}
+
+/* Reihenfolge über echtes Z, nicht über z-index — innerhalb einer
+   preserve-3d-Ebene wird z-index ignoriert. */
+.u-ruecken { transform: translateZ(0px); }
+.u-brief   { transform: translateZ(1px); }
+.u-front   { transform: translateZ(2px); }
+.u-klappe  { transform: translateZ(3px); }
+
+.u-klappe {
+  transform-origin: 50% 0;
+  transform: translateZ(3px) rotateX(0deg);
+  transition: transform 0.85s cubic-bezier(0.5, -0.18, 0.4, 1.22);
+  clip-path: polygon(0 0, 100% 0, 50% 62%);
+}
+
+.umschlag[data-offen="true"] .u-klappe {
+  transform: translateZ(3px) rotateX(-172deg);
+}
+
+.u-front {
+  clip-path: polygon(0 0, 50% 44%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Die Banderole, die über einem noch verschlossenen Umschlag liegt */
+.banderole {
+  background: color-mix(in oklab, var(--papier-tief) 92%, var(--karte));
+  border-top: 1px solid color-mix(in oklab, var(--linie) 80%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--linie) 80%, transparent);
+  box-shadow: 0 3px 8px -4px rgb(0 0 0 / 0.28);
+}
+
+/* ───────────────────────────── Poststempel ───────────────────────────── */
+
+.poststempel {
+  color: var(--luftpost-blau);
+  opacity: 0.6;
+  transform: rotate(-11deg);
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-thema="hell"]) .poststempel { mix-blend-mode: screen; }
+}
+:root[data-thema="dunkel"] .poststempel { mix-blend-mode: screen; }
+
+/* ───────────────────────────── Handschrift ───────────────────────────── */
+
+.hand {
+  font-family: var(--font-hand);
+  font-size: 1.45em;
+  line-height: 1.35;
+  letter-spacing: 0.005em;
+}
+
+/* Linierte Briefzeilen, wie auf echtem Briefpapier */
+.liniert {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 calc(1.95rem - 1px),
+    color-mix(in oklab, var(--luftpost-blau) 16%, transparent) calc(1.95rem - 1px) 1.95rem
+  );
+  background-position: 0 0.62rem;
+}
+
+/* ───────────────────────── Bewegung & Barrierefreiheit ───────────────── */
+
+@keyframes aufsteigen {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes schimmer {
+  from { background-position: -140% 0; }
+  to   { background-position: 240% 0; }
+}
+
+/* Die Blütenblatt-Schicht beim Öffnen eines Briefes */
+.konfetti-schicht {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow: hidden;
+  pointer-events: none;
+  animation: konfetti-ausblenden 0.6s ease 4.6s both;
+}
+
+@keyframes konfetti-ausblenden {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes blatt-fall {
+  0%   { opacity: 0; transform: translate3d(0, -12vh, 0) rotate(0deg); }
+  8%   { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(var(--drift), 108vh, 0) rotate(var(--dreh)); }
+}
+
+@keyframes wackeln {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  20%  { transform: translateX(-5px) rotate(-1.6deg); }
+  45%  { transform: translateX(4px) rotate(1.2deg); }
+  70%  { transform: translateX(-3px) rotate(-0.8deg); }
+  88%  { transform: translateX(2px) rotate(0.4deg); }
+}
+
+.aufsteigen {
+  animation: aufsteigen 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.wackelt { animation: wackeln 0.5s ease-in-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .szene:hover .umschlag[data-status="bereit"] { transform: none; }
+  /* Blütenblätter komplett weglassen statt sie in 1 ms durchzujagen */
+  .konfetti-schicht { display: none; }
+}
+
+/* ───────────────────────────── Kleinkram ───────────────────────────── */
+
+.kapitaelchen {
+  font-family: var(--font-stempel);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  color: var(--tinte-leise);
+}
+
+/* Dünne Trennlinie mit einer kleinen Raute in der Mitte */
+.raute-trenner {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--tinte-flüstern);
+}
+.raute-trenner::before,
+.raute-trenner::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--linie), transparent);
+}
+
+/* Washi-Tape-Streifen für die Fotoplätze */
+.klebeband {
+  background: color-mix(in oklab, var(--messing) 30%, var(--karte));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.16);
+  opacity: 0.85;
+}
+
+.scrollbar-fein::-webkit-scrollbar { height: 6px; width: 6px; }
+.scrollbar-fein::-webkit-scrollbar-thumb {
+  background: var(--linie);
+  border-radius: 999px;
+}

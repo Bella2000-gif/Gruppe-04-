@@ -1,0 +1,14 @@
+Hier können Fotos hin.
+
+Lege einfach Bilder mit diesen Namen in diesen Ordner:
+
+  01.jpg  →  Brief 1 (Oktober 2026)
+  02.jpg  →  Brief 2 (November 2026)
+  ...
+  13.jpg  →  Brief 13 (Oktober 2027)
+
+Erlaubt sind .jpg, .jpeg, .png und .webp.
+Solange kein Bild da ist, zeigt die Seite einen gezeichneten Platzhalter —
+es sieht also auch ohne Fotos fertig aus.
+
+Empfehlung: ungefähr 1200 x 900 Pixel, Querformat.
