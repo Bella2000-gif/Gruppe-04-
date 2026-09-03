@@ -136,9 +136,17 @@ offline.
 | 4 Landschaften | geschichtete Hügel, Bäume, Sonne, Sterne — eine pro Jahreszeit |
 | Blütenblätter | 28 SVG-Blätter, per CSS fallend, deterministisch gestreut statt zufällig |
 
-Die einzige Stelle für echte Bilder ist `public/fotos/` — dort kann Bella
-Fotos von den beiden hineinlegen. Bis dahin steht ein gezeichneter
-Platzhalter, damit die Seite nie unfertig aussieht.
+Die einzige Stelle für echte Bilder ist `public/fotos/` — dort liegen die
+Fotos der beiden, eines pro Brief, aufgeteilt nach Jahreszeit. Sie werden
+also nicht auf einmal ausgeschüttet, sondern kommen Monat für Monat dazu:
+mit jedem Umschlag ein Brief, ein Date und ein Bild. Wo noch keins liegt,
+steht ein gezeichneter Platzhalter, damit die Seite nie unfertig aussieht.
+
+Die Abmessungen liest der Server selbst aus dem Dateikopf (JPEG, PNG und
+WebP, rund vierzig Zeilen in `lib/fotos.ts`, ohne zusätzliche Bibliothek).
+Dadurch bekommt jedes Polaroid das Seitenverhältnis seines Bildes: Hochformat
+bleibt hochkant, nichts wird beschnitten, und der Rahmen springt beim Laden
+nicht.
 
 ---
 

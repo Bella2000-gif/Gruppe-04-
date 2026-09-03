@@ -1,38 +1,61 @@
+import type { Foto } from "@/lib/fotos";
+
 /**
  * Ein Polaroid mit Klebeband.
  *
- * Ob ein Foto existiert, hat schon der Server geprüft (siehe `lib/fotos.ts`).
- * Ist keins da, steht hier ein gezeichneter Platzhalter — die Seite sieht
- * also von Anfang an fertig aus und wird schöner, sobald Bella Bilder in
- * `public/fotos/` legt.
+ * Das Bild wird in seinem echten Seitenverhältnis gezeigt — hochkant wie
+ * quer, nichts wird beschnitten. Die Abmessungen kommen vom Server, deshalb
+ * steht der Rahmen schon in der richtigen Form da, bevor das Bild geladen
+ * ist: die Seite springt beim Laden nicht.
+ *
+ * Ist kein Foto hinterlegt, steht hier ein gezeichneter Platzhalter — die
+ * Seite sieht also von Anfang an fertig aus und wird schöner, sobald Bella
+ * Bilder in `public/fotos/` legt.
  */
 export function FotoPlatz({
-  quelle,
+  foto,
   bildunterschrift,
   className = "",
 }: {
-  quelle: string | null;
+  foto: Foto | null;
   bildunterschrift: string;
   className?: string;
 }) {
+  // Die Breite wird aus der gewünschten Bildhöhe zurückgerechnet, damit ein
+  // hochkantes Handyfoto und ein Querformat nebeneinander gleich viel Gewicht
+  // haben — sonst überragt das Hochformat die halbe Seite.
+  const ZIELHOEHE = 25;
+  const breiteRem = foto
+    ? Math.min(22, Math.max(12, (ZIELHOEHE * foto.breite) / foto.hoehe))
+    : 20;
+
   return (
     <figure
-      className={`korn relative rounded-[2px] bg-karte p-3 pb-10 shadow-hoch ${className}`}
-      style={{ transform: "rotate(-1.6deg)" }}
+      className={`korn relative mx-auto w-full max-w-[20rem] rounded-[2px] bg-karte p-3 pb-10 shadow-hoch sm:max-w-[var(--polaroid-breite)] ${className}`}
+      style={{
+        transform: "rotate(-1.6deg)",
+        ["--polaroid-breite" as string]: `${breiteRem.toFixed(2)}rem`,
+      }}
     >
       <span
         aria-hidden="true"
         className="klebeband absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 -rotate-2 rounded-[1px]"
       />
 
-      <div className="relative aspect-[4/3] overflow-hidden bg-papier-tief">
-        {quelle ? (
+      <div
+        className="relative overflow-hidden bg-papier-tief"
+        style={{ aspectRatio: foto ? `${foto.breite} / ${foto.hoehe}` : "4 / 3" }}
+      >
+        {foto ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={quelle}
-            alt={bildunterschrift}
+            src={foto.quelle}
+            width={foto.breite}
+            height={foto.hoehe}
+            alt={`Bella und Marco — ${bildunterschrift}`}
             className="h-full w-full object-cover"
             loading="lazy"
+            decoding="async"
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-fluestern">

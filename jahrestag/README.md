@@ -109,24 +109,41 @@ Verfügbare Briefmarken-Motive: `herz`, `blatt`, `mond`, `tanne`,
 
 ## Fotos einsetzen
 
-Bilder mit diesen Namen in **`public/fotos/`** legen:
+Schon eingesetzt sind fünf eurer Bilder, jeweils dort, wo Jahreszeit und Date
+passen:
 
+| Datei | Brief | Monat | Bild |
+| --- | --- | --- | --- |
+| `01.webp` | 1 | Oktober 2026 | Strand, „Happy 7th anniversary“ |
+| `04.webp` | 4 | Januar 2027 | Bahnhof im Winter |
+| `08.webp` | 8 | Mai 2027 | Kopenhagen |
+| `10.webp` | 10 | Juli 2027 | Strand, schwarzweiß |
+| `12.webp` | 12 | September 2027 | Wiesn |
+
+Die übrigen acht Briefe zeigen einen gezeichneten Platzhalter, bis dort ein
+Bild liegt. Zum Tauschen oder Ergänzen gibt es zwei Wege.
+
+**Direkt:** Datei nach Briefnummer benannt in `public/fotos/` ablegen —
+`01.jpg`, `02.png`, `03.webp` … `13.jpg`. `.jpg`, `.jpeg`, `.png` und `.webp`
+funktionieren alle. Ein Foto nachträglich hineinlegen reicht, ein Neustart ist
+nicht nötig.
+
+**Bequemer bei Handyfotos:** Original nach `fotos-original/` legen, ebenfalls
+nach Briefnummer benannt, dann
+
+```bash
+npm run fotos
 ```
-01.jpg  →  Brief 1 (Oktober 2026)
-02.jpg  →  Brief 2 (November 2026)
-…
-13.jpg  →  Brief 13 (Oktober 2027)
-```
 
-`.jpg`, `.jpeg`, `.png` und `.webp` funktionieren alle. Empfehlung: rund
-1200 × 900 Pixel im Querformat. Solange kein Bild da ist, steht dort ein
-gezeichneter Platzhalter — die Seite sieht also auch komplett ohne Fotos
-fertig aus.
+Das dreht das Bild nach den EXIF-Daten richtig herum, verkleinert es auf
+1500 Pixel Höhe und speichert es als WebP in `public/fotos/`. Aus 4 MB werden
+so meist unter 200 KB, ohne sichtbaren Unterschied. Die Originale bleiben
+unangetastet.
 
-Der Server schaut beim Aufrufen nach, ob eine Datei da ist. Ein Foto
-nachträglich hineinlegen reicht also, ein Neustart ist nicht nötig.
-
----
+**Hoch- und Querformat funktionieren beide.** Der Server liest die
+Abmessungen aus dem Dateikopf, das Polaroid übernimmt das Seitenverhältnis
+des Bildes — nichts wird beschnitten, und der Rahmen steht schon in der
+richtigen Form da, bevor das Bild geladen ist.
 
 ## Veröffentlichen
 

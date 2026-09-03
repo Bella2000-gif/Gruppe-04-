@@ -205,7 +205,7 @@ export default async function BriefSeite({
 
         {/* ─────────── Foto & Tagebuch ─────────── */}
         <section className="aufsteigen mt-12 grid gap-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] sm:items-start" style={{ animationDelay: "180ms" }}>
-          <FotoPlatz quelle={fotoFuer(brief.id)} bildunterschrift={brief.monat} />
+          <FotoPlatz foto={fotoFuer(brief.id)} bildunterschrift={brief.monat} />
           <BriefAntwort
             briefId={brief.id}
             erledigtAmInitial={status.erledigtAm}

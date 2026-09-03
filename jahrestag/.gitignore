@@ -43,3 +43,7 @@ next-env.d.ts
 
 # Die Datenbank mit Marcos Notizen gehört nicht ins Repository
 /data
+
+# Original-Fotos: die verkleinerten Fassungen in public/fotos/ reichen
+/fotos-original/*
+!/fotos-original/LIES-MICH.txt

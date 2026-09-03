@@ -1,14 +1,28 @@
-Hier können Fotos hin.
+Hier liegen die Fotos, die auf den Briefseiten auftauchen.
 
-Lege einfach Bilder mit diesen Namen in diesen Ordner:
+Zurzeit eingesetzt:
 
-  01.jpg  →  Brief 1 (Oktober 2026)
-  02.jpg  →  Brief 2 (November 2026)
-  ...
-  13.jpg  →  Brief 13 (Oktober 2027)
+  01.webp  →  Brief 1   Oktober 2026    Strand, „Happy 7th anniversary“
+  04.webp  →  Brief 4   Januar 2027     Bahnhof im Winter
+  08.webp  →  Brief 8   Mai 2027        Kopenhagen
+  10.webp  →  Brief 10  Juli 2027       Strand, schwarzweiß
+  12.webp  →  Brief 12  September 2027  Wiesn
 
-Erlaubt sind .jpg, .jpeg, .png und .webp.
-Solange kein Bild da ist, zeigt die Seite einen gezeichneten Platzhalter —
-es sieht also auch ohne Fotos fertig aus.
+Die übrigen acht Briefe zeigen einen gezeichneten Platzhalter, bis dort ein
+Bild liegt.
 
-Empfehlung: ungefähr 1200 x 900 Pixel, Querformat.
+Ein Foto tauschen oder ergänzen — zwei Wege:
+
+  a) Datei direkt hier ablegen, benannt nach der Briefnummer:
+     01.jpg, 02.png, 03.webp … 13.jpg
+     (.jpg, .jpeg, .png und .webp funktionieren alle)
+
+  b) Bequemer bei Handyfotos: Original nach ../../fotos-original/ legen,
+     ebenfalls nach Briefnummer benannt, dann einmal
+
+         npm run fotos
+
+     ausführen. Das verkleinert die Bilder auf Webgröße.
+
+Hoch- und Querformat funktionieren beide. Die Seite übernimmt das
+Seitenverhältnis des Bildes und schneidet nichts ab.

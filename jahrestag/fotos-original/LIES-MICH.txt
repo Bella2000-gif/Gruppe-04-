@@ -1,0 +1,18 @@
+Hier kommen die Original-Fotos hinein.
+
+Benenne sie nach der Nummer des Briefes:
+
+  01.jpg  →  Brief 1  (Oktober 2026)
+  02.jpg  →  Brief 2  (November 2026)
+  ...
+  13.jpg  →  Brief 13 (Oktober 2027)
+
+Dann einmal
+
+  npm run fotos
+
+ausführen. Das verkleinert die Bilder und legt sie in public/fotos/ ab.
+Die Originale bleiben unverändert liegen.
+
+Hoch- und Querformat funktionieren beide — die Seite richtet sich nach dem
+Bild und schneidet nichts ab.
