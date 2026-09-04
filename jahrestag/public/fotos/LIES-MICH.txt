@@ -1,11 +1,13 @@
 Hier liegen die Fotos, die auf den Briefseiten auftauchen.
-
-Zurzeit eingesetzt — zehn von dreizehn:
+Alle dreizehn Briefe haben eines:
 
   01.webp  →  Brief  1   Oktober 2026    Strand, „Happy 7th anniversary“
   02.webp  →  Brief  2   November 2026   „vibes“, drinnen, albern
+  03.webp  →  Brief  3   Dezember 2026   Umarmung im Frost, schwarzweiß
   04.webp  →  Brief  4   Januar 2027     Bahnhof im Winter
+  05.webp  →  Brief  5   Februar 2027    Köpfe aneinander, blauer Himmel
   06.webp  →  Brief  6   März 2027       im grünen Wald
+  07.webp  →  Brief  7   April 2027      sonnig, mediterran
   08.webp  →  Brief  8   Mai 2027        Kopenhagen
   09.webp  →  Brief  9   Juni 2027       Strand im Sonnenuntergang
   10.webp  →  Brief 10   Juli 2027       Strand, schwarzweiß
@@ -13,10 +15,7 @@ Zurzeit eingesetzt — zehn von dreizehn:
   12.webp  →  Brief 12   September 2027  Wiesn
   13.webp  →  Brief 13   Oktober 2027    Sonnenuntergang, von hinten
 
-Noch frei: Brief 3 (Dezember), Brief 5 (Februar), Brief 7 (April).
-Dort steht bis dahin ein gezeichneter Platzhalter.
-
-Ein Foto tauschen oder ergänzen — zwei Wege:
+Ein Foto tauschen — zwei Wege:
 
   a) Datei direkt hier ablegen, benannt nach der Briefnummer:
      01.jpg, 02.png, 03.webp … 13.jpg

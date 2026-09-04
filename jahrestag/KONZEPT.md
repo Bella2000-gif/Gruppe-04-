@@ -137,10 +137,11 @@ offline.
 | Blütenblätter | 28 SVG-Blätter, per CSS fallend, deterministisch gestreut statt zufällig |
 
 Die einzige Stelle für echte Bilder ist `public/fotos/` — dort liegen die
-Fotos der beiden, eines pro Brief, aufgeteilt nach Jahreszeit. Sie werden
-also nicht auf einmal ausgeschüttet, sondern kommen Monat für Monat dazu:
-mit jedem Umschlag ein Brief, ein Date und ein Bild. Wo noch keins liegt,
-steht ein gezeichneter Platzhalter, damit die Seite nie unfertig aussieht.
+dreizehn Fotos der beiden, eines pro Brief, aufgeteilt nach Jahreszeit und
+Stimmung. Sie werden also nicht auf einmal ausgeschüttet, sondern kommen
+Monat für Monat dazu: mit jedem Umschlag ein Brief, ein Date und ein Bild.
+Fehlt eines, steht ein gezeichneter Platzhalter, damit die Seite nie
+unfertig aussieht.
 
 Die Abmessungen liest der Server selbst aus dem Dateikopf (JPEG, PNG und
 WebP, rund vierzig Zeilen in `lib/fotos.ts`, ohne zusätzliche Bibliothek).

@@ -110,15 +110,18 @@ Verfügbare Briefmarken-Motive: `herz`, `blatt`, `mond`, `tanne`,
 
 ## Fotos einsetzen
 
-Schon eingesetzt sind zehn eurer Bilder, jeweils dort, wo Jahreszeit, Date
-und Stimmung zusammenpassen:
+Alle dreizehn Briefe haben ein Bild, jeweils dort, wo Jahreszeit, Date und
+Stimmung zusammenpassen:
 
 | Datei | Brief | Monat | Bild | Passt zu |
 | --- | --- | --- | --- | --- |
 | `01.webp` | 1 | Oktober 2026 | Strand, „Happy 7th anniversary“ | dem siebten Jahrestag selbst |
 | `02.webp` | 2 | November 2026 | „vibes“, drinnen, albern | „Die Höhle“, dem Kinoabend |
+| `03.webp` | 3 | Dezember 2026 | Umarmung im Frost, schwarzweiß | „Zimt & Lichterketten“ |
 | `04.webp` | 4 | Januar 2027 | Bahnhof im Winter | „Kalte Nasen“ |
+| `05.webp` | 5 | Februar 2027 | Köpfe aneinander, blauer Himmel | „Vier Hände“, dem Keramikmalen |
 | `06.webp` | 6 | März 2027 | im grünen Wald | „Etwas, das wächst“ |
+| `07.webp` | 7 | April 2027 | sonnig, mediterran | „Marcolino Popolino kocht“ |
 | `08.webp` | 8 | Mai 2027 | Kopenhagen | „Rückenwind“ |
 | `09.webp` | 9 | Juni 2027 | Strand im Sonnenuntergang | „Sonnenuntergang, erste Reihe“ |
 | `10.webp` | 10 | Juli 2027 | Strand, schwarzweiß | „Salz auf der Haut“ |
@@ -126,9 +129,8 @@ und Stimmung zusammenpassen:
 | `12.webp` | 12 | September 2027 | Wiesn | „Erntedank“ |
 | `13.webp` | 13 | Oktober 2027 | Sonnenuntergang, von hinten | „Acht“, dem Schlussbrief |
 
-Frei sind noch Brief 3 (Dezember), 5 (Februar) und 7 (April) — dort steht ein
-gezeichneter Platzhalter, bis ein Bild dazukommt. Zum Tauschen oder Ergänzen
-gibt es zwei Wege.
+Ein Bild tauschen geht auf zwei Wegen. (Für einen Brief ohne Foto stünde ein
+gezeichneter Platzhalter — die Seite sieht also auch dann fertig aus.)
 
 **Direkt:** Datei nach Briefnummer benannt in `public/fotos/` ablegen —
 `01.jpg`, `02.png`, `03.webp` … `13.jpg`. `.jpg`, `.jpeg`, `.png` und `.webp`

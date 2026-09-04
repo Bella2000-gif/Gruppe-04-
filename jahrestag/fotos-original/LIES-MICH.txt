@@ -16,3 +16,9 @@ Die Originale bleiben unverändert liegen.
 
 Hoch- und Querformat funktionieren beide — die Seite richtet sich nach dem
 Bild und schneidet nichts ab.
+
+Falls ein Bild gespiegelt herauskommt (Schrift liest sich rückwärts):
+Dann trägt die Datei ein fehlerhaftes EXIF-Etikett — das passiert
+gelegentlich bei Fotos, die durch Bearbeitungs-Apps gelaufen sind. Öffne das
+Bild einmal in einer beliebigen App, spiegele es zurück, speichere es neu und
+lass `npm run fotos` nochmal laufen.
