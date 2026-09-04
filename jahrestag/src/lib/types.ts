@@ -20,7 +20,14 @@ export type StampMotif =
   | "welle"
   | "sternschnuppe"
   | "traube"
-  | "herz";
+  | "herz"
+  | "kino"
+  | "kaffee"
+  | "berg"
+  | "korb"
+  | "pinsel"
+  | "tier"
+  | "album";
 
 export interface DatePlan {
   /** Kurzer, plakativer Name des Dates */

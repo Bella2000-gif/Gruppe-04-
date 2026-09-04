@@ -101,33 +101,34 @@ Ein Brief sieht so aus:
 gehalten und so geschrieben, dass sie als Grundgerüst funktionieren — genau
 die persönlichen Stellen sind es aber, die so einen Brief unbezahlbar machen.
 
-Verfügbare Briefmarken-Motive: `herz`, `blatt`, `mond`, `tanne`,
-`schlittschuh`, `tasse`, `tulpe`, `pasta`, `fahrrad`, `sonne`, `welle`,
-`sternschnuppe`, `traube`. Gezeichnet sind sie in
-`src/components/Motive.tsx`.
+Verfügbare Briefmarken-Motive: `kino`, `schlittschuh`, `tanne`, `tasse`,
+`pasta`, `kaffee`, `berg`, `korb`, `pinsel`, `mond`, `fahrrad`, `tier`,
+`album`, `herz`, `blatt`, `tulpe`, `sonne`, `welle`, `sternschnuppe`,
+`traube`. Gezeichnet sind sie in `src/components/Motive.tsx` — dort kannst du
+auch neue dazumalen.
 
 ---
 
 ## Fotos einsetzen
 
-Alle dreizehn Briefe haben ein Bild, jeweils dort, wo Jahreszeit, Date und
+Alle dreizehn Briefe haben ein Bild, jeweils dort, wo Jahreszeit, Türchen und
 Stimmung zusammenpassen:
 
-| Datei | Brief | Monat | Bild | Passt zu |
+| Datei | Brief | Monat | Türchen | Bild |
 | --- | --- | --- | --- | --- |
-| `01.webp` | 1 | Oktober 2026 | Strand, „Happy 7th anniversary“ | dem siebten Jahrestag selbst |
-| `02.webp` | 2 | November 2026 | „vibes“, drinnen, albern | „Die Höhle“, dem Kinoabend |
-| `03.webp` | 3 | Dezember 2026 | Umarmung im Frost, schwarzweiß | „Zimt & Lichterketten“ |
-| `04.webp` | 4 | Januar 2027 | Bahnhof im Winter | „Kalte Nasen“ |
-| `05.webp` | 5 | Februar 2027 | Köpfe aneinander, blauer Himmel | „Vier Hände“, dem Keramikmalen |
-| `06.webp` | 6 | März 2027 | im grünen Wald | „Etwas, das wächst“ |
-| `07.webp` | 7 | April 2027 | sonnig, mediterran | „Marcolino Popolino kocht“ |
-| `08.webp` | 8 | Mai 2027 | Kopenhagen | „Rückenwind“ |
-| `09.webp` | 9 | Juni 2027 | Strand im Sonnenuntergang | „Sonnenuntergang, erste Reihe“ |
-| `10.webp` | 10 | Juli 2027 | Strand, schwarzweiß | „Salz auf der Haut“ |
-| `11.webp` | 11 | August 2027 | abends, warmes Licht | den Sternschnuppen |
-| `12.webp` | 12 | September 2027 | Wiesn | „Erntedank“ |
-| `13.webp` | 13 | Oktober 2027 | Sonnenuntergang, von hinten | „Acht“, dem Schlussbrief |
+| `01.webp` | 1 | Oktober 2026 | Kino | Strand, „Happy 7th anniversary“ |
+| `02.webp` | 2 | November 2026 | Schlittschuhfahren | Bahnhof im Winter, Mützen |
+| `03.webp` | 3 | Dezember 2026 | Weihnachtsmarkt-Hopping | Umarmung im Frost, schwarzweiß |
+| `04.webp` | 4 | Januar 2027 | Keramik bemalen | „vibes“, drinnen, albern |
+| `05.webp` | 5 | Februar 2027 | Ich koche für dich | abends, warmes Licht |
+| `06.webp` | 6 | März 2027 | Café-Tour | sonnig auf der Bank |
+| `07.webp` | 7 | April 2027 | Wandern mit Snacks | im grünen Wald, mit Rucksack |
+| `08.webp` | 8 | Mai 2027 | Picknick | Strand, schwarzweiß |
+| `09.webp` | 9 | Juni 2027 | Malabend | Köpfe aneinander |
+| `10.webp` | 10 | Juli 2027 | Open-Air-Kino | Strand im Sonnenuntergang |
+| `11.webp` | 11 | August 2027 | Radltour mit Proviant | Kopenhagen |
+| `12.webp` | 12 | September 2027 | Tierpark | Wiesn |
+| `13.webp` | 13 | Oktober 2027 | Album vom Jahr | Sonnenuntergang, von hinten |
 
 Ein Bild tauschen geht auf zwei Wegen. (Für einen Brief ohne Foto stünde ein
 gezeichneter Platzhalter — die Seite sieht also auch dann fertig aus.)
