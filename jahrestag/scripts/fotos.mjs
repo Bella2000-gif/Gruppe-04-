@@ -18,8 +18,21 @@ import sharp from "sharp";
 
 const QUELLE = "fotos-original";
 const ZIEL = path.join("public", "fotos");
-const MAX_HOEHE = 1500;
-const QUALITAET = 82;
+/**
+ * Stufen aus Höhe und Qualität, die nacheinander probiert werden, bis das
+ * Bild unter MAX_BYTES passt. Detailreiche Motive (Laub, Kies, Filmkorn)
+ * werden bei gleicher Qualität ein Vielfaches so groß wie glatte. Dann lieber
+ * die Auflösung senken als die Qualität: das Polaroid ist auf dem Bildschirm
+ * ohnehin nur rund 300 Pixel breit, ein 1000 Pixel hohes Bild reicht auch auf
+ * hochauflösenden Displays.
+ */
+const STUFEN = [
+  { hoehe: 1500, qualitaet: 82 },
+  { hoehe: 1250, qualitaet: 80 },
+  { hoehe: 1100, qualitaet: 78 },
+  { hoehe: 1000, qualitaet: 76 },
+];
+const MAX_BYTES = 300 * 1024;
 
 const erlaubt = new Set([".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff"]);
 
@@ -48,16 +61,25 @@ for (const datei of zuTun) {
   const ziel = path.join(ZIEL, `${nummer}.webp`);
   const vorher = statSync(path.join(QUELLE, datei)).size;
 
-  const info = await sharp(path.join(QUELLE, datei))
-    .rotate() // Ausrichtung aus den EXIF-Daten übernehmen
-    .resize({ height: MAX_HOEHE, withoutEnlargement: true })
-    .webp({ quality: QUALITAET })
-    .toFile(ziel);
+  let info;
+  let nachher = Infinity;
+  let stufe = STUFEN[0];
+  for (const s of STUFEN) {
+    stufe = s;
+    info = await sharp(path.join(QUELLE, datei))
+      .rotate() // Ausrichtung aus den EXIF-Daten übernehmen
+      .resize({ height: s.hoehe, withoutEnlargement: true })
+      .webp({ quality: s.qualitaet })
+      .toFile(ziel);
+    nachher = statSync(ziel).size;
+    if (nachher <= MAX_BYTES) break;
+  }
 
-  const nachher = statSync(ziel).size;
   const kb = (n) => `${Math.round(n / 1024)} KB`;
+  const verkleinert = stufe !== STUFEN[0] ? `   (Stufe ${stufe.hoehe}px/q${stufe.qualitaet})` : "";
   console.log(
-    `${datei.padEnd(12)} → ${ziel}   ${info.width}×${info.height}   ${kb(vorher)} → ${kb(nachher)}`,
+    `${datei.padEnd(12)} → ${ziel}   ${info.width}×${info.height}   ` +
+      `${kb(vorher)} → ${kb(nachher)}${verkleinert}`,
   );
 }
 

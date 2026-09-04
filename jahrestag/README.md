@@ -109,19 +109,25 @@ Verfügbare Briefmarken-Motive: `herz`, `blatt`, `mond`, `tanne`,
 
 ## Fotos einsetzen
 
-Schon eingesetzt sind fünf eurer Bilder, jeweils dort, wo Jahreszeit und Date
-passen:
+Schon eingesetzt sind zehn eurer Bilder, jeweils dort, wo Jahreszeit, Date
+und Stimmung zusammenpassen:
 
-| Datei | Brief | Monat | Bild |
-| --- | --- | --- | --- |
-| `01.webp` | 1 | Oktober 2026 | Strand, „Happy 7th anniversary“ |
-| `04.webp` | 4 | Januar 2027 | Bahnhof im Winter |
-| `08.webp` | 8 | Mai 2027 | Kopenhagen |
-| `10.webp` | 10 | Juli 2027 | Strand, schwarzweiß |
-| `12.webp` | 12 | September 2027 | Wiesn |
+| Datei | Brief | Monat | Bild | Passt zu |
+| --- | --- | --- | --- | --- |
+| `01.webp` | 1 | Oktober 2026 | Strand, „Happy 7th anniversary“ | dem siebten Jahrestag selbst |
+| `02.webp` | 2 | November 2026 | „vibes“, drinnen, albern | „Die Höhle“, dem Kinoabend |
+| `04.webp` | 4 | Januar 2027 | Bahnhof im Winter | „Kalte Nasen“ |
+| `06.webp` | 6 | März 2027 | im grünen Wald | „Etwas, das wächst“ |
+| `08.webp` | 8 | Mai 2027 | Kopenhagen | „Rückenwind“ |
+| `09.webp` | 9 | Juni 2027 | Strand im Sonnenuntergang | „Sonnenuntergang, erste Reihe“ |
+| `10.webp` | 10 | Juli 2027 | Strand, schwarzweiß | „Salz auf der Haut“ |
+| `11.webp` | 11 | August 2027 | abends, warmes Licht | den Sternschnuppen |
+| `12.webp` | 12 | September 2027 | Wiesn | „Erntedank“ |
+| `13.webp` | 13 | Oktober 2027 | Sonnenuntergang, von hinten | „Acht“, dem Schlussbrief |
 
-Die übrigen acht Briefe zeigen einen gezeichneten Platzhalter, bis dort ein
-Bild liegt. Zum Tauschen oder Ergänzen gibt es zwei Wege.
+Frei sind noch Brief 3 (Dezember), 5 (Februar) und 7 (April) — dort steht ein
+gezeichneter Platzhalter, bis ein Bild dazukommt. Zum Tauschen oder Ergänzen
+gibt es zwei Wege.
 
 **Direkt:** Datei nach Briefnummer benannt in `public/fotos/` ablegen —
 `01.jpg`, `02.png`, `03.webp` … `13.jpg`. `.jpg`, `.jpeg`, `.png` und `.webp`
@@ -135,10 +141,13 @@ nach Briefnummer benannt, dann
 npm run fotos
 ```
 
-Das dreht das Bild nach den EXIF-Daten richtig herum, verkleinert es auf
-1500 Pixel Höhe und speichert es als WebP in `public/fotos/`. Aus 4 MB werden
-so meist unter 200 KB, ohne sichtbaren Unterschied. Die Originale bleiben
-unangetastet.
+Das dreht das Bild nach den EXIF-Daten richtig herum, verkleinert es und
+speichert es als WebP in `public/fotos/`. Aus 4 MB werden so meist unter
+200 KB, ohne sichtbaren Unterschied. Bei sehr detailreichen Motiven — Laub,
+Kies, Filmkorn — senkt das Skript zusätzlich die Auflösung, bis das Bild unter
+300 KB bleibt; das sieht besser aus, als die Qualität immer weiter zu drücken,
+und das Polaroid ist auf dem Bildschirm ohnehin nur rund 300 Pixel breit. Die
+Originale bleiben unangetastet.
 
 **Hoch- und Querformat funktionieren beide.** Der Server liest die
 Abmessungen aus dem Dateikopf, das Polaroid übernimmt das Seitenverhältnis
