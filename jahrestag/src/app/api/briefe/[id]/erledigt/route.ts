@@ -9,7 +9,7 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
   if (!rolle) return NextResponse.json({ fehler: "Nicht angemeldet." }, { status: 401 });
 
   const id = Number((await ctx.params).id);
-  const zugriff = briefZugriff(id, rolle);
+  const zugriff = await briefZugriff(id, rolle);
   if (!zugriff.erlaubt) {
     return NextResponse.json({ fehler: "Dieser Brief ist noch zu." }, { status: 423 });
   }
@@ -22,6 +22,6 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
     return NextResponse.json({ fehler: "Ungültige Anfrage." }, { status: 400 });
   }
 
-  const status = setzeErledigt(id, erledigt);
+  const status = await setzeErledigt(id, erledigt);
   return NextResponse.json({ ok: true, status });
 }

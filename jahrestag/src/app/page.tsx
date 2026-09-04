@@ -18,9 +18,8 @@ export default async function Briefkasten({
 
   const { zeit } = await searchParams;
   const jetzt = jetztFuer(rolle, zeit);
-  const briefe = uebersicht(rolle, jetzt);
+  const [briefe, stand] = await Promise.all([uebersicht(rolle, jetzt), fortschritt()]);
   const naechster = naechsterBrief(jetzt);
-  const stand = fortschritt();
 
   const bereit = briefe.filter((b) => b.status === "bereit" && !b.vorschau).length;
   const heute = heuteInBerlin(jetzt);

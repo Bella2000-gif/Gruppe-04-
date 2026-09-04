@@ -38,8 +38,11 @@ function statusVon(l: Letter, st: BriefStatus | undefined, jetzt: Date, rolle: R
   return rolle === "bella" ? ("bereit" as const) : ("verschlossen" as const);
 }
 
-export function uebersicht(rolle: Rolle | null, jetzt = new Date()): BriefUebersicht[] {
-  const stati = alleStatus();
+export async function uebersicht(
+  rolle: Rolle | null,
+  jetzt = new Date(),
+): Promise<BriefUebersicht[]> {
+  const stati = await alleStatus();
   return LETTERS.map((l) => {
     const st = stati.get(l.id);
     const echtFrei = istFreigeschaltet(l.unlock, jetzt);
@@ -71,12 +74,16 @@ export type BriefZugriff =
  * Der Torwächter. Gibt den Brieftext nur heraus, wenn das Datum erreicht ist
  * (oder Bella in der Vorschau ist).
  */
-export function briefZugriff(id: number, rolle: Rolle | null, jetzt = new Date()): BriefZugriff {
+export async function briefZugriff(
+  id: number,
+  rolle: Rolle | null,
+  jetzt = new Date(),
+): Promise<BriefZugriff> {
   const brief = getLetter(id);
   if (!brief) return { erlaubt: false, grund: "unbekannt" };
 
   const frei = istFreigeschaltet(brief.unlock, jetzt);
-  const st = statusFuer(id);
+  const st = await statusFuer(id);
 
   if (frei || Boolean(st.geoeffnetAm)) {
     return { erlaubt: true, brief, status: st, vorschau: false };
@@ -98,8 +105,12 @@ export function naechsterBrief(jetzt = new Date()): { id: number; unlockMs: numb
   };
 }
 
-export function fortschritt(): { geoeffnet: number; erledigt: number; gesamt: number } {
-  const stati = alleStatus();
+export async function fortschritt(): Promise<{
+  geoeffnet: number;
+  erledigt: number;
+  gesamt: number;
+}> {
+  const stati = await alleStatus();
   let geoeffnet = 0;
   let erledigt = 0;
   for (const s of stati.values()) {

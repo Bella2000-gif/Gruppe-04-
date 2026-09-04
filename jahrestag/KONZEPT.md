@@ -173,7 +173,39 @@ das Date stattgefunden hat, was Marco dazu geschrieben hat. Selbst wenn sie
 verloren geht, funktioniert das Geschenk weiter; es fehlen dann nur die
 Notizen.
 
----
+### Sobald die Seite öffentlich steht
+
+Jeder Hoster vergibt eine Adresse, die grundsätzlich jeder aufrufen kann.
+„Privat" entsteht deshalb nicht durch die Wahl des Anbieters, sondern durch
+die Anmeldung — und die musste dafür etwas fester werden:
+
+- **Kein Codewort aus dem Quelltext.** Im Produktivbetrieb prüft die App die
+  Güte der eingetragenen Werte: mindestens zehn Zeichen, verschieden
+  voneinander, nicht die Beispiele aus `.env.example`. Ist etwas davon nicht
+  erfüllt, lässt sie *niemanden* herein und schreibt auf die Anmeldeseite,
+  was fehlt. Lieber eine Seite, die nicht aufgeht, als eine, die für alle
+  aufgeht.
+- **Sperre nach acht Fehlversuchen** je Absender, dann eine Viertelstunde
+  Pause; dazu eine halbe Sekunde Verzögerung pro Fehlversuch.
+- **Cookie** `httpOnly`, `sameSite=lax`, im Produktivbetrieb `secure`, mit
+  HMAC unterschrieben und nach 400 Tagen abgelaufen.
+- **`noindex` und `robots.txt`**, damit die Adresse nicht in Suchmaschinen
+  auftaucht.
+
+### Ein Speicher, zwei Rückseiten
+
+Für das Veröffentlichen zerfallen die Hoster in zwei Lager: serverlose ohne
+dauerhafte Festplatte (Vercel) und solche mit Volume (Railway, ein eigener
+Server). Statt sich für eines zu entscheiden, gibt es beide Rückseiten hinter
+derselben Schnittstelle — SQLite für die Datei, Postgres für alles Serverlose.
+Gewählt wird über die Umgebung: ist `DATABASE_URL` gesetzt, ist es Postgres,
+sonst eine Datei. Am übrigen Code ändert sich nichts.
+
+Beide legen ihre Tabelle beim ersten Zugriff selbst an, es gibt also keinen
+Migrationsschritt, den man beim Aufsetzen vergessen könnte. Und beide legen
+Zeitstempel als ISO-Zeichenkette ab statt als Datumstyp der Datenbank — das
+hält die Fassungen wirklich austauschbar und erspart Überraschungen mit
+Zeitzonen.
 
 ## 6. Über das Jahr wird ein Tagebuch daraus
 

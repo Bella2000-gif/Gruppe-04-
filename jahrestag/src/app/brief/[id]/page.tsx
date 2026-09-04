@@ -32,7 +32,7 @@ export default async function BriefSeite({
   if (!Number.isInteger(id)) notFound();
 
   const jetzt = jetztFuer(rolle, zeit);
-  const zugriff = briefZugriff(id, rolle, jetzt);
+  const zugriff = await briefZugriff(id, rolle, jetzt);
 
   if (!zugriff.erlaubt) {
     if (zugriff.grund === "unbekannt") notFound();

@@ -13,7 +13,7 @@ export async function POST(_: Request, ctx: { params: Promise<{ id: string }> })
   if (!rolle) return NextResponse.json({ fehler: "Nicht angemeldet." }, { status: 401 });
 
   const id = Number((await ctx.params).id);
-  const zugriff = briefZugriff(id, rolle);
+  const zugriff = await briefZugriff(id, rolle);
   if (!zugriff.erlaubt) {
     return NextResponse.json(
       { fehler: "Dieser Brief ist noch zu.", unlock: zugriff.unlock },
@@ -26,6 +26,6 @@ export async function POST(_: Request, ctx: { params: Promise<{ id: string }> })
     return NextResponse.json({ ok: true, notiert: false });
   }
 
-  const status = markiereGeoeffnet(id);
+  const status = await markiereGeoeffnet(id);
   return NextResponse.json({ ok: true, notiert: true, geoeffnetAm: status.geoeffnetAm });
 }

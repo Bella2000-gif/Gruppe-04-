@@ -34,12 +34,13 @@ npm start
 
 ## Die `.env.local`
 
-| Eintrag          | Wofür                                                                 |
-| ---------------- | --------------------------------------------------------------------- |
-| `MARCO_CODE`     | Marcos Codewort. Groß-/Kleinschreibung egal. Standard: `popolino`      |
-| `BELLA_CODE`     | Bellas Zugang mit Vorschau und Zeitreise. Standard: `bella`            |
-| `SESSION_SECRET` | Unterschreibt das Anmelde-Cookie. **Unbedingt ändern.**                |
-| `DATABASE_PATH`  | Optional. Wo die SQLite-Datei liegt. Standard: `./data/briefe.db`      |
+| Eintrag          | Wofür                                                                    |
+| ---------------- | ------------------------------------------------------------------------ |
+| `MARCO_CODE`     | Marcos Codewort, mindestens 10 Zeichen. Groß-/Kleinschreibung egal        |
+| `BELLA_CODE`     | Bellas Zugang mit Vorschau und Zeitreise. Muss ein anderes Wort sein      |
+| `SESSION_SECRET` | Unterschreibt das Anmelde-Cookie. Mindestens 24 zufällige Zeichen          |
+| `DATABASE_URL`   | Nur bei serverlosen Hostern: Postgres-Verbindung. Sonst weglassen         |
+| `DATABASE_PATH`  | Wo die SQLite-Datei liegt. Standard: `./data/briefe.db`                   |
 
 Ein gutes Geheimnis erzeugen:
 
@@ -47,10 +48,10 @@ Ein gutes Geheimnis erzeugen:
 openssl rand -base64 32
 ```
 
-> Ohne gesetztes `SESSION_SECRET` läuft alles, aber jeder Neustart des Servers
-> meldet beide wieder ab.
-
----
+> **Im Produktivbetrieb prüft die App das nach.** Fehlt eine Variable, ist ein
+> Codewort zu kurz oder steht noch der Beispielwert drin, lässt die Seite
+> niemanden herein und sagt auf der Anmeldeseite genau, was fehlt. Beim
+> Entwickeln (`npm run dev`) stört sie das nicht.
 
 ## Zwei Zugänge
 
@@ -156,26 +157,22 @@ richtigen Form da, bevor das Bild geladen ist.
 
 ## Veröffentlichen
 
-Die App braucht einen **Node-Server** (wegen der Datumsprüfung) und, wenn
-Marcos Notizen dauerhaft erhalten bleiben sollen, **einen Ort zum Schreiben**.
+Ausführlich steht das in **[HOSTING.md](./HOSTING.md)** — inklusive der Frage,
+warum die Seite auch auf Vercel privat bleibt, und einer Prüfliste zum Abhaken.
 
-**Empfohlen — Hosting mit Festplatte** (Railway, Render, Fly.io, Hetzner,
-Raspberry Pi zu Hause):
+Die Kurzfassung: die Privatsphäre kommt aus der Anmeldung in der App, nicht
+vom Hoster. Zu entscheiden ist nur, wo Marcos Häkchen und Notizen bleiben.
 
-1. `SESSION_SECRET`, `MARCO_CODE`, `BELLA_CODE` als Umgebungsvariablen setzen.
-2. `DATABASE_PATH` auf ein Verzeichnis legen, das Neustarts überlebt,
-   z. B. `/data/briefe.db`.
-3. `npm run build && npm start`.
+| Hoster | Speicher | Einzurichten |
+| --- | --- | --- |
+| **Vercel, Netlify** (serverlos) | Festplatte ist flüchtig | `DATABASE_URL` auf eine Postgres-Datenbank (z. B. Neon) — **Pflicht**, sonst ist nach jedem Deploy alles weg |
+| **Railway, Fly.io, eigener Server, Raspberry Pi** | Festplatte bleibt | Ein Volume, `DATABASE_PATH` daraufzeigen. Keine Datenbank nötig |
 
-**Auf Vercel & Co.** funktioniert das Geschenk ebenfalls — dort ist die
-Festplatte allerdings flüchtig. Die Freischaltung der Briefe hängt *nur* am
-Datum und bleibt deshalb korrekt; verloren gehen können nur die Häkchen und
-Tagebucheinträge. Wenn diese bleiben sollen, ist eine der oben genannten
-Optionen die bessere Wahl.
+Die App merkt selbst, was sie vor sich hat: ist `DATABASE_URL` gesetzt,
+benutzt sie Postgres, sonst eine SQLite-Datei. Am Code ändert sich nichts.
 
-Die Seite trägt `noindex` — sie taucht nicht in Suchmaschinen auf.
-
----
+Empfehlung für ein Jahr ohne Wartung: **Vercel + Neon**, beides kostenlos,
+`git push` genügt zum Aktualisieren.
 
 ## Wie es gebaut ist
 
@@ -191,8 +188,12 @@ src/
     letters.ts                ► HIER STEHT DAS GESCHENK
     briefkasten.ts            der Torwächter: wer darf was sehen
     zeit.ts                   Datumslogik, fest in Europe/Berlin
-    db.ts                     SQLite: geöffnet, erledigt, Notizen
-    auth.ts                   signiertes Cookie, zwei Codewörter
+    auth.ts                   signiertes Cookie, zwei Codewörter, Sperre
+    fotos.ts                  findet die Fotos und misst sie aus
+    db/
+      index.ts                wählt den Speicher anhand der Umgebung
+      sqlite.ts               Datei — für Hoster mit Festplatte
+      postgres.ts             Datenbank — für serverlose Hoster
 ```
 
 Die Gestaltung und die Gedanken dahinter stehen in **[KONZEPT.md](./KONZEPT.md)**.
@@ -213,7 +214,7 @@ um Mitternacht deutscher Zeit auf, im Sommer wie im Winter.
 ## Technik
 
 Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 ·
-SQLite (better-sqlite3)
+SQLite (better-sqlite3) oder Postgres (pg)
 
 Keine externen Bilder, keine Icon-Bibliothek, keine Animationsbibliothek:
 Briefmarken, Poststempel, Siegellack, Papierstruktur und die vier
