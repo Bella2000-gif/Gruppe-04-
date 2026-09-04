@@ -190,11 +190,13 @@ export default async function BriefSeite({
         {/* ─────────── Foto & Tagebuch ─────────── */}
         <section className="aufsteigen mt-12 grid gap-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] sm:items-start" style={{ animationDelay: "180ms" }}>
           <FotoPlatz foto={fotoFuer(brief.id)} bildunterschrift={brief.monat} />
+          {/* Auch in Bellas Vorschau schreibbar: das Tagebuch gehört beiden.
+              Gesperrt ist in der Vorschau nur das „Öffnen“ eines Briefes —
+              das soll nicht aus Versehen als gelesen zählen. */}
           <BriefAntwort
             briefId={brief.id}
             erledigtAmInitial={status.erledigtAm}
             notizInitial={status.notiz}
-            nurLesen={vorschau}
           />
         </section>
 
