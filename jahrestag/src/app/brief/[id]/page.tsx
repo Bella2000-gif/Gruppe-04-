@@ -149,23 +149,13 @@ export default async function BriefSeite({
             </h2>
             <p className="mt-2 font-hand text-[1.55rem] leading-snug text-rot">{brief.date.kurz}</p>
 
-            <dl className="mt-7 grid gap-x-8 gap-y-7 sm:grid-cols-2">
-              <div className="sm:col-span-2">
-                <dt className="kapitaelchen mb-3">So läuft es ab</dt>
-                <dd>
-                  <ol className="space-y-3">
-                    {brief.date.ablauf.map((schritt, i) => (
-                      <li key={i} className="flex gap-3.5">
-                        <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-rot/45 font-stempel text-[0.65rem] text-rot">
-                          {i + 1}
-                        </span>
-                        <span className="leading-relaxed">{schritt}</span>
-                      </li>
-                    ))}
-                  </ol>
-                </dd>
-              </div>
+            <div className="mt-7 space-y-5 text-[1.06rem] leading-[1.75] text-tinte">
+              {brief.date.text.map((absatz, i) => (
+                <p key={i}>{absatz}</p>
+              ))}
+            </div>
 
+            <dl className="mt-9 grid gap-x-8 gap-y-7 sm:grid-cols-2">
               <div>
                 <dt className="kapitaelchen mb-3">Das braucht ihr</dt>
                 <dd>
@@ -180,25 +170,19 @@ export default async function BriefSeite({
                 </dd>
               </div>
 
-              <div className="space-y-6">
-                <div>
-                  <dt className="kapitaelchen mb-1.5">Zeit</dt>
-                  <dd className="leading-relaxed">{brief.date.dauer}</dd>
-                </div>
-                {brief.date.soundtrack && (
-                  <div>
-                    <dt className="kapitaelchen mb-1.5">Dazu läuft</dt>
-                    <dd className="leading-relaxed">{brief.date.soundtrack}</dd>
-                  </div>
-                )}
+              <div>
+                <dt className="kapitaelchen mb-3">Zeit</dt>
+                <dd className="leading-relaxed">{brief.date.dauer}</dd>
               </div>
 
-              <div className="sm:col-span-2">
-                <div className="rounded-sm border border-blau/30 bg-papier px-5 py-4">
-                  <dt className="kapitaelchen mb-1.5 text-blau">Plan B</dt>
-                  <dd className="leading-relaxed text-leise">{brief.date.planB}</dd>
+              {brief.date.wetter && (
+                <div className="sm:col-span-2">
+                  <div className="rounded-sm border border-blau/30 bg-papier px-5 py-4">
+                    <dt className="kapitaelchen mb-1.5 text-blau">Wetter</dt>
+                    <dd className="leading-relaxed text-leise">{brief.date.wetter}</dd>
+                  </div>
                 </div>
-              </div>
+              )}
             </dl>
           </div>
         </section>

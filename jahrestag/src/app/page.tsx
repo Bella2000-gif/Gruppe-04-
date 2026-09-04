@@ -47,6 +47,25 @@ export default async function Briefkasten({
             Einer geht jeden Monat auf, immer am Zehnten — bis zum 10. Oktober 2027.
           </p>
 
+          {/* Bellas Zeilen — das Erste, was Marco liest, bevor er irgendwo klickt */}
+          <div className="korn relative mx-auto mt-10 max-w-lg rounded-sm border border-linie bg-karte px-7 py-7 text-left shadow-karte sm:px-9">
+            <span
+              aria-hidden="true"
+              className="klebeband absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 -rotate-2 rounded-[1px]"
+            />
+            <p className="hand text-[1.5rem] leading-[1.45] text-tinte">
+              Thailand, Neuseeland, Italien, Dänemark — und all die Tage
+              dazwischen hier in Deutschland. Ich liebe die letzten sieben Jahre
+              mit dir, jeden einzelnen davon.
+            </p>
+            <p className="hand mt-4 text-[1.5rem] leading-[1.45] text-tinte">
+              Du bist mein Herzensmensch.
+            </p>
+            <p className="hand mt-5 text-right text-[1.55rem] leading-none text-rot">
+              deine Bella
+            </p>
+          </div>
+
           {/* Countdown bzw. Hinweis auf einen wartenden Brief */}
           <div className="mt-10 flex flex-col items-center">
             {bereit > 0 ? (

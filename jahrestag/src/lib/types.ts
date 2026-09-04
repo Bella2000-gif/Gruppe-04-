@@ -30,20 +30,22 @@ export type StampMotif =
   | "album";
 
 export interface DatePlan {
-  /** Kurzer, plakativer Name des Dates */
+  /** Die Aktivität, schlicht benannt */
   titel: string;
   /** Ein Satz, der Lust darauf macht */
   kurz: string;
-  /** Der Ablauf in Schritten */
-  ablauf: string[];
-  /** Was ihr dafür braucht */
+  /**
+   * Ein bis zwei kurze Absätze über das Date — warm erzählt, aber bei der
+   * Sache. Bewusst keine nummerierten Regeln und keine ausgedachten Spiele:
+   * es soll klingen wie etwas, das man vorschlägt, nicht wie eine Anleitung.
+   */
+  text: string[];
+  /** Was ihr dafür braucht — nur das, was wirklich gebraucht wird */
   brauchtIhr: string[];
   /** Ungefähre Dauer, z. B. "ein halber Nachmittag" */
   dauer: string;
-  /** Alternative bei schlechtem Wetter / wenig Zeit */
-  planB: string;
-  /** Optionaler Songvorschlag für die Stimmung */
-  soundtrack?: string;
+  /** Optionaler Satz zum Wetter. Bleibt bei der Aktivität. */
+  wetter?: string;
 }
 
 export interface Letter {

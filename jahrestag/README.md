@@ -84,16 +84,23 @@ Ein Brief sieht so aus:
   unlock: "2026-11-10",     // Freischaltung, immer YYYY-MM-DD
   monat: "November 2026",
   stempel: "10 · XI · 26",
-  titel: "Novemberlicht",
-  motto: "Draußen grau. Drinnen wir.",
-  season: "herbst",         // herbst | winter | fruehling | sommer
-  stamp: "mond",            // Motiv der Briefmarke, siehe unten
+  titel: "Kalte Nasen",
+  motto: "Draußen wird es früh dunkel. Umso besser.",
+  season: "winter",         // herbst | winter | fruehling | sommer
+  stamp: "schlittschuh",    // Motiv der Briefmarke, siehe unten
   anrede: "Lieber Marcolino,",
   absaetze: ["…", "…"],     // die Absätze des Briefes
-  gruss: "Bis später auf dem Sofa,",
+  gruss: "Zieh dich warm an,",
   signatur: "deine Bella",
   ps: "…",                  // optional
-  date: { … },              // der Datevorschlag
+  date: {
+    titel: "Schlittschuhfahren",
+    kurz: "Kalte Nasen, wacklige Knie, und danach heiße Schokolade.",
+    text: ["…", "…"],       // ein bis zwei kurze Absätze über das Date
+    brauchtIhr: ["…"],      // nur, was wirklich gebraucht wird
+    dauer: "Ein Nachmittag",
+    wetter: "…",            // optional, bleibt bei der Aktivität
+  },
 }
 ```
 

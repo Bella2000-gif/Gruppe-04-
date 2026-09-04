@@ -45,22 +45,19 @@ export const LETTERS: Letter[] = [
     signatur: "deine Bella",
     ps: "Ja, du darfst jeden Brief so oft wieder lesen, wie du willst. Nur aufmachen darfst du einen pro Monat.",
     date: {
-      titel: "Erste Reihe",
-      kurz: "Ein Kinoabend zum Auftakt — mit der guten Portion Popcorn.",
-      ablauf: [
-        "Jeder sucht einen Film aus, ohne dem anderen zu verraten, welchen.",
-        "Beide Vorschläge aufschreiben, zusammenfalten, ziehen. Der andere kommt beim nächsten Mal dran.",
-        "Popcorn: einmal süß, einmal salzig. Nicht diskutieren, einfach beides.",
-        "Nach dem Abspann sitzen bleiben, bis das Licht angeht. Danach noch irgendwo etwas trinken und den Film auseinandernehmen.",
+      titel: "Kino",
+      kurz: "Dunkler Saal, viel zu viel Popcorn, du und ich nebeneinander.",
+      text: [
+        "Wir suchen uns einen Film aus, holen die große Tüte und lassen uns zwei Stunden lang von der Welt in Ruhe. Kein Handy, kein Reden, nur wir und die Leinwand.",
+        "Hinterher gehen wir noch irgendwo etwas trinken und zerreden den Film. Das ist fast der schönste Teil.",
       ],
       brauchtIhr: [
         "Zwei Kinokarten",
-        "Zwei Zettel und einen Stift für die Filmauswahl",
-        "Genug Zeit danach — der Teil hinterher gehört dazu",
+        "Popcorn — einmal süß, einmal salzig",
+        "Zeit danach, der Teil hinterher gehört dazu",
       ],
-      dauer: "Ein ganzer Abend",
-      planB: "Nichts Gutes im Programm? Dann Heimkino: Decken aufs Sofa, Lichterkette an, Karamellpopcorn selbst gemacht — Zucker in der Pfanne schmelzen, Popcorn rein, schnell schwenken.",
-      soundtrack: "Der Vorspann. Mehr braucht es nicht.",
+      dauer: "Ein Abend",
+      wetter: "Regen ist hier ausdrücklich willkommen.",
     },
   },
   {
@@ -81,22 +78,19 @@ export const LETTERS: Letter[] = [
     gruss: "Zieh dich warm an,",
     signatur: "deine Bella",
     date: {
-      titel: "Eis & Schokolade",
-      kurz: "Zwei Stunden draußen frieren, um sich danach richtig aufzuwärmen.",
-      ablauf: [
-        "Schlittschuhlaufen gehen. Wer sich öfter festhält, zahlt die heiße Schokolade.",
-        "Einmal muss jeder eine Runde ohne Festhalten schaffen. Einmal reicht.",
-        "Danach: heiße Schokolade, aber die gute — echte Schokolade in warmer Milch schmelzen, nicht aus der Tüte.",
-        "Den Rest des Abends nichts vorhaben. Das ist der Punkt.",
+      titel: "Schlittschuhfahren",
+      kurz: "Kalte Nasen, wacklige Knie, und danach heiße Schokolade.",
+      text: [
+        "Ein paar Runden auf dem Eis, so lange, bis uns die Füße wehtun. Ich halte mich sowieso die ganze Zeit an dir fest, das wissen wir beide.",
+        "Danach setzen wir uns irgendwo hin, wärmen uns die Hände an einer Tasse und haben den Rest des Abends nichts mehr vor.",
       ],
       brauchtIhr: [
-        "Handschuhe (Sturzgefahr, ehrlich)",
-        "Dicke Socken, zwei Paar",
-        "80 % Schokolade, Vollmilch, eine Prise Salz, Zimt",
+        "Handschuhe",
+        "Dicke Socken",
+        "Etwas Geld für die heiße Schokolade danach",
       ],
-      dauer: "Nachmittag bis in den Abend",
-      planB: "Keine Eisbahn offen? Dann eine Winterwanderung mit Taschenlampen im Dunkeln, danach die gleiche heiße Schokolade. Wirkt genauso und kostet nichts.",
-      soundtrack: "Stille und Schlittschuhkufen.",
+      dauer: "Ein Nachmittag, der in den Abend läuft",
+      wetter: "Je kälter, desto besser. Dann schmeckt die Schokolade hinterher mehr.",
     },
   },
   {
@@ -110,8 +104,8 @@ export const LETTERS: Letter[] = [
     stamp: "tanne",
     anrede: "Mein liebster Popolino,",
     absaetze: [
-      "Ich weiß noch, wie wir das erste Mal zusammen auf einem Weihnachtsmarkt standen. Es war voll, es war zu teuer, mir war kalt an den Füßen — und ich wollte trotzdem nirgendwo anders sein.",
-      "Genau das ist glaube ich der ganze Trick an uns: dass die unspektakulären Sachen mit dir irgendwie zählen.",
+      "Weihnachtsmärkte sind eigentlich immer dasselbe: zu voll, zu teuer, und nach zwanzig Minuten sind einem die Füße kalt.",
+      "Mit dir mag ich sie trotzdem. Das ist glaube ich der ganze Trick an uns — dass die unspektakulären Sachen zählen, wenn du dabei bist.",
       "Also machen wir das dieses Jahr im großen Stil. Nicht ein Markt, sondern so viele, wie an einen Abend passen.",
     ],
     gruss: "Mit kalten Händen und warmem Herzen,",
@@ -119,22 +113,18 @@ export const LETTERS: Letter[] = [
     ps: "Eine Tasse teilen statt zwei kaufen. Ist romantischer und wärmer.",
     date: {
       titel: "Weihnachtsmarkt-Hopping",
-      kurz: "Drei Märkte an einem Abend, und an jedem gibt es etwas anderes.",
-      ablauf: [
-        "Vorher heraussuchen, welche Märkte in eurer Stadt gleichzeitig offen haben. Drei ist eine gute Zahl.",
-        "Regel: An jedem Markt genau eine Sache. Erster Markt trinken, zweiter Markt essen, dritter Markt etwas Süßes.",
-        "Jeder gibt zehn Euro aus — aber nur für den anderen. Was, wird nicht vorher abgesprochen.",
-        "Am letzten Markt eine Runde stehen bleiben und nichts sagen. Nur gucken.",
+      kurz: "Nicht ein Markt, sondern so viele, wie an einen Abend passen.",
+      text: [
+        "Wir gehen von Markt zu Markt, trinken an jedem etwas anderes und essen uns einmal quer durch. Ohne Plan, ohne Eile.",
+        "Irgendwann bleiben wir zwischen den Lichtern stehen, sagen nichts und gucken einfach. Das ist der Moment, für den ich das Ganze mache.",
       ],
       brauchtIhr: [
-        "Zwei mal zehn Euro in bar",
-        "Handschuhe. Beide Paare.",
+        "Bargeld für die kleinen Buden",
+        "Handschuhe, beide Paare",
         "Dicke Socken — die Füße geben zuerst auf",
-        "Eine Liste mit drei Märkten und wie man zwischen ihnen hinkommt",
       ],
       dauer: "Ein ganzer Abend",
-      planB: "Zu kalt, zu voll oder alles abgesagt? Dann Glühwein selbst ansetzen, Lichter aus, nur Kerzen an, und Plätzchen backen — eine Sorte, die wir können, und eine, die wir noch nie gemacht haben.",
-      soundtrack: "Ella Fitzgerald, Christmas. Nicht verhandelbar.",
+      wetter: "Wenn es schneit, haben wir gewonnen.",
     },
   },
   {
@@ -158,22 +148,17 @@ export const LETTERS: Letter[] = [
     ps: "Du malst mir eine Tasse, ich male dir eine. Blind. Erst am Ende zeigen.",
     date: {
       titel: "Keramik bemalen",
-      kurz: "Zwei Tassen, zwei Stunden, und die Regel, dass keiner spickt.",
-      ablauf: [
-        "Ein Keramikstudio suchen (in fast jeder Stadt gibt es eins) und einen Termin machen.",
-        "Jeder nimmt eine Tasse. Du malst meine, ich male deine.",
-        "Nicht zeigen, bevor beide fertig sind.",
-        "Auf die Unterseite: das Datum. 10.01.2027.",
-        "Nach dem Brennen zusammen abholen — das ist quasi ein zweites, kleines Date.",
+      kurz: "Zwei Tassen, aus denen wir noch in zehn Jahren trinken.",
+      text: [
+        "Wir setzen uns in ein Keramikstudio und bemalen jeder eine Tasse. Meine wird ordentlich und langweilig, deine wird chaotisch und irgendwie besser. So wie immer.",
+        "Ein paar Tage später holen wir sie zusammen ab. Das ist dann quasi ein zweites, kleines Date.",
       ],
       brauchtIhr: [
         "Einen Termin im Keramikstudio",
         "Klamotten, die Farbe abkriegen dürfen",
-        "Etwas Geduld für die feinen Pinsel",
       ],
       dauer: "Zwei bis drei Stunden",
-      planB: "Kein Studio in der Nähe? Porzellanstifte aus dem Bastelladen, zwei weiße Tassen, im Backofen fixieren. Funktioniert wirklich.",
-      soundtrack: "Was im Studio läuft. Man hat da keine Wahl.",
+      wetter: "Ist drinnen — genau richtig für einen ungemütlichen Januartag.",
     },
   },
   {
@@ -196,22 +181,17 @@ export const LETTERS: Letter[] = [
     signatur: "deine Bella",
     ps: "Wirklich: Du darfst nicht abwaschen. Ich meine das ernst.",
     date: {
-      titel: "Tisch für zwei",
-      kurz: "Ich koche, du sitzt. Drei Gänge, ein Abend, keine Diskussion.",
-      ablauf: [
-        "Ich sage dir eine Uhrzeit. Du kommst, und mehr musst du nicht wissen.",
-        "Richtig gedeckter Tisch, Kerzen, das gute Geschirr. Kein Fernseher.",
-        "Drei Gänge. Zwischen den Gängen wird nicht aufgestanden, sondern geredet.",
-        "Deine einzige Aufgabe: Wein einschenken und mir sagen, wie es schmeckt.",
+      titel: "Ich koche für dich",
+      kurz: "Du musst nichts. Nur kommen und dich hinsetzen.",
+      text: [
+        "Ich sage dir eine Uhrzeit, du kommst, und mehr musst du nicht wissen. Ich mache alles — Einkauf, Kochen, Tisch decken, Abwasch.",
+        "Deine einzige Aufgabe ist, mit mir zu reden und mir zu sagen, wie es schmeckt. Und wirklich: Du darfst nicht abwaschen.",
       ],
       brauchtIhr: [
-        "Einen Abend, an dem keiner von uns danach noch etwas vorhat",
+        "Einen Abend, an dem wir danach nichts mehr vorhaben",
         "Kerzen und eine Flasche von dem Guten",
-        "Eine Küche, die danach aussehen darf wie ein Schlachtfeld",
       ],
       dauer: "Ein langer Abend",
-      planB: "Wenn ich es zeitlich nicht schaffe: dann kochen wir zusammen Pasta von Hand — 100 g Mehl und ein Ei pro Person, kneten, ruhen lassen, ausrollen. Aber der Plan ist, dass du sitzt.",
-      soundtrack: "Paolo Conte oder Mina.",
     },
   },
   {
@@ -232,23 +212,18 @@ export const LETTERS: Letter[] = [
     gruss: "Auf den zweiten Kaffee,",
     signatur: "deine Bella",
     date: {
-      titel: "Café-Tour",
-      kurz: "Drei Cafés, ein Nachmittag, und in jedem eine andere Frage.",
-      ablauf: [
-        "Drei Cafés aussuchen, in denen wir noch nie zusammen waren. Kann auch der Bäcker um die Ecke sein.",
-        "Erstes Café: Was war das Beste an diesem Winter?",
-        "Zweites Café: Was willst du dieses Jahr machen, das wir noch nie gemacht haben?",
-        "Drittes Café: Etwas Süßes teilen. Reden ist da optional.",
-        "Wer schneller austrinkt, sucht das nächste Café aus.",
+      titel: "Kaffee trinken",
+      kurz: "Zwei Tassen, viel Zeit, und einfach die Seele baumeln lassen.",
+      text: [
+        "Wir setzen uns irgendwo hin und trinken Kaffee. Nicht schnell einen zwischendurch, sondern richtig: so lange sitzen bleiben, dass der zweite noch dazukommt.",
+        "Wir reden sonst so oft im Vorbeigehen. Diesen Nachmittag reden wir im Sitzen — oder auch mal gar nicht.",
       ],
       brauchtIhr: [
-        "Drei Adressen, fußläufig auseinander",
-        "Bargeld für den kleinen Laden, der keine Karte nimmt",
-        "Eine Jacke — März täuscht",
+        "Ein Café, in dem man lange sitzen darf",
+        "Nichts, was danach ansteht",
       ],
       dauer: "Ein Nachmittag",
-      planB: "Zu ungemütlich draußen? Dann zuhause: guten Kaffee kaufen, zwei Sorten nebeneinander aufbrühen, blind probieren und raten. Die drei Fragen bleiben.",
-      soundtrack: "Was auch immer im dritten Café läuft.",
+      wetter: "Wenn die Sonne rauskommt, draußen. Sonst ans Fenster.",
     },
   },
   {
@@ -262,7 +237,7 @@ export const LETTERS: Letter[] = [
     stamp: "berg",
     anrede: "Mein Popolino,",
     absaetze: [
-      "Du bist derjenige von uns beiden, der bei „lass uns spazieren gehen“ immer die längere Strecke vorschlägt. Ich habe das früher als Zumutung empfunden und inzwischen als eine deiner besten Eigenschaften.",
+      "Im April riecht es das erste Mal wieder richtig nach draußen, und dann will ich nicht um den Block, sondern weiter weg.",
       "Also dieses Mal von vornherein richtig: eine Wanderung, keine Runde. Mit einem Rucksack, in dem mehr steckt, als wir brauchen.",
       "Das Beste an so einem Tag ist ja nicht der Gipfel. Das Beste ist die Pause auf halber Strecke, wenn man sich hinsetzt und alles schmeckt doppelt so gut.",
     ],
@@ -271,21 +246,17 @@ export const LETTERS: Letter[] = [
     date: {
       titel: "Wandern mit Snacks",
       kurz: "Eine echte Strecke, und ein Rucksack, der es wert ist.",
-      ablauf: [
-        "Eine Tour aussuchen, die für uns beide ein bisschen zu lang ist. Nur ein bisschen.",
-        "Ich packe den Proviant, du planst den Weg. Keiner redet dem anderen rein.",
-        "Auf halber Strecke: große Pause. Hinsetzen, alles auspacken, nichts überspringen.",
-        "Oben angekommen ein Foto machen — dasselbe wie beim nächsten Türchen mit Rad, dann haben wir eine Serie.",
+      text: [
+        "Wir suchen uns eine Tour raus und laufen los. Ich packe den Proviant, und zwar mehr, als wir brauchen.",
+        "Das Beste an so einem Tag ist nicht das Ankommen, sondern die Pause auf halber Strecke — wenn man sich hinsetzt und alles doppelt so gut schmeckt.",
       ],
       brauchtIhr: [
         "Feste Schuhe und einen Rucksack",
-        "Brot, Käse, hartgekochte Eier, Obst, Schokolade",
-        "Deutlich mehr Wasser als man denkt",
-        "Pflaster. Immer Pflaster.",
+        "Brot, Käse, Obst, Schokolade",
+        "Mehr Wasser, als man denkt",
       ],
       dauer: "Ein ganzer Tag",
-      planB: "Regen den ganzen Tag? Dann eine kürzere Runde im Wald mit Regenjacke und der gleichen Brotzeit — nass wandern ist unterschätzt. Oder verschieben auf das nächste Wochenende.",
-      soundtrack: "Nur Wind. Kopfhörer bleiben in der Tasche.",
+      wetter: "Bei Regen ziehen wir Jacken an und gehen trotzdem. Nass wandern ist unterschätzt.",
     },
   },
   {
@@ -307,22 +278,18 @@ export const LETTERS: Letter[] = [
     signatur: "deine Bella",
     date: {
       titel: "Picknick",
-      kurz: "Ein Korb, eine Decke, und ausdrücklich kein Plan.",
-      ablauf: [
-        "Einen Platz aussuchen, an dem wir noch nie waren. Park, Flussufer, Feldrand — egal.",
-        "Jeder packt drei Sachen ein, ohne dem anderen zu sagen, welche. Sechs Überraschungen.",
-        "Ankommen, ausbreiten, hinlegen. Handys bleiben im Korb.",
-        "Eine Stunde nichts tun. Das ist ein Programmpunkt, kein Leerlauf.",
+      kurz: "Eine Decke, eine Wiese, und ausdrücklich kein Plan.",
+      text: [
+        "Wir suchen uns einen Platz, breiten die Decke aus und legen uns hin. Die Handys bleiben im Korb.",
+        "Eine Stunde nichts tun. Das ist der Programmpunkt, nicht der Leerlauf dazwischen.",
       ],
       brauchtIhr: [
         "Eine Decke, die dreckig werden darf",
-        "Je drei geheime Mitbringsel",
-        "Etwas Kaltes zu trinken",
+        "Etwas zu essen und etwas Kaltes zu trinken",
         "Sonnencreme — der Mai wird unterschätzt",
       ],
       dauer: "Ein halber Tag, gemütlich",
-      planB: "Regen? Gleiches Picknick auf dem Wohnzimmerboden. Decke ausbreiten, Möbel ignorieren, komplett ernst gemeint.",
-      soundtrack: "Vogelgezwitscher, notfalls von Spotify.",
+      wetter: "Wenn es regnet, breiten wir die Decke im Wohnzimmer aus. Ernst gemeint.",
     },
   },
   {
@@ -346,22 +313,17 @@ export const LETTERS: Letter[] = [
     date: {
       titel: "Malabend",
       kurz: "Zwei Leinwände, viel zu viel Farbe, und niemand, der es bewertet.",
-      ablauf: [
-        "Tisch mit alten Zeitungen abdecken. Es wird kleckern.",
-        "Jeder bekommt eine Leinwand und dieselben Farben.",
-        "Thema: eine Erinnerung aus unseren sieben Jahren. Nicht verraten, welche.",
-        "Zwei Stunden malen, dabei etwas trinken, nicht rüberschauen.",
-        "Am Ende zeigen und raten. Beide Bilder werden aufgehängt, auch das schlechtere.",
+      text: [
+        "Wir decken den Tisch mit Zeitungen ab, machen die Farben auf und malen einfach los. Es geht ausdrücklich nicht darum, dass es gut wird.",
+        "Zwei Stunden nebeneinander sitzen und beide etwas anderes machen als aufs Handy schauen. Am Ende hängen wir beide Bilder auf, auch das schlechtere.",
       ],
       brauchtIhr: [
-        "Zwei Leinwände (Bastelladen, ein paar Euro)",
+        "Zwei Leinwände aus dem Bastelladen",
         "Acrylfarben und ein paar Pinsel",
         "Alte Zeitungen und Klamotten, die Farbe abkriegen dürfen",
-        "Etwas zu trinken",
       ],
       dauer: "Ein Abend",
-      planB: "Keine Leinwände zur Hand? Dickes Papier tut es auch. Oder wir malen uns gegenseitig — das wird garantiert schlecht und garantiert lustig.",
-      soundtrack: "Eine lange Playlist, die keiner von uns skippen muss.",
+      wetter: "Ist drinnen. Draußen darf es ruhig schütten.",
     },
   },
   {
@@ -382,23 +344,20 @@ export const LETTERS: Letter[] = [
     gruss: "Bis zum Sonnenuntergang,",
     signatur: "deine Bella",
     date: {
-      titel: "Open-Air-Kino",
-      kurz: "Ein Film unter freiem Himmel, und eine Stunde Warten davor.",
-      ablauf: [
-        "Vorher nachschauen, wo in eurer Nähe Open-Air-Kino läuft — Innenhöfe, Parks, Autokinos, Freibäder.",
-        "Eine Stunde vor Filmbeginn da sein und einen guten Platz nehmen. Das Warten gehört zum Date.",
-        "Abendessen mitnehmen statt vorher zu essen. Schmeckt draußen besser.",
-        "Nach dem Film noch bleiben, bis die meisten weg sind, und in Ruhe zurücklaufen.",
+      titel: "Movie Night im Outdoorkino",
+      kurz: "Wie im Oktober, nur ohne Dach.",
+      text: [
+        "Wir kommen früh, suchen uns einen guten Platz und warten, bis es dunkel genug ist. Im Juli dauert das bis halb elf — das Warten gehört dazu.",
+        "Eine Decke unter uns, eine über uns, und irgendwann fängt der Film an.",
       ],
       brauchtIhr: [
         "Eine Decke zum Sitzen und eine zum Drüberlegen",
         "Etwas zu essen zum Mitnehmen",
-        "Eine dünne Jacke — nach Sonnenuntergang wird es kühl",
+        "Eine dünne Jacke für später",
         "Mückenspray",
       ],
       dauer: "Ein langer Abend",
-      planB: "Kein Open-Air in der Nähe oder Regen angesagt? Dann Beamer oder Laptop auf den Balkon, Bettlaken an die Wand, Decke drunter. Zählt genauso.",
-      soundtrack: "Grillen, bis der Film anfängt.",
+      wetter: "Bei Regen fällt es aus — dann hängen wir zuhause ein Bettlaken auf.",
     },
   },
   {
@@ -420,23 +379,19 @@ export const LETTERS: Letter[] = [
     signatur: "deine Bella",
     ps: "Gleiches Foto wie im April, gleiche Pose. Dann haben wir zwei.",
     date: {
-      titel: "Radltour mit Proviant",
-      kurz: "Ein Kreis auf der Karte, ein Ort darin, den keiner von uns kennt.",
-      ablauf: [
-        "Auf der Karte einen Kreis um uns ziehen: alles im Umkreis von 25 km ist erlaubt.",
-        "Einen Ort aussuchen, an dem keiner von uns je war. Nach dem Namen entscheiden ist völlig legitim.",
-        "Proviant einpacken und losfahren. Unterwegs mindestens einmal grundlos anhalten.",
-        "Am Ziel essen, ausruhen, und erst zurückfahren, wenn es sich richtig anfühlt.",
+      titel: "Radltour mit Snacks",
+      kurz: "Weit genug, dass es sich am Abend nach etwas anfühlt.",
+      text: [
+        "Wir fahren irgendwohin, wo wir noch nie waren. Nicht weit — nur so weit, dass wir abends beide müde und zufrieden sind.",
+        "Unterwegs halten wir mindestens einmal grundlos an. Nicht weil da etwas ist, sondern weil wir gerade Lust haben.",
       ],
       brauchtIhr: [
         "Zwei Fahrräder und Luft in den Reifen",
-        "Brot, Käse, Tomaten, Obst, etwas Kaltes zu trinken",
-        "Flickzeug — einmal im Leben braucht man es",
+        "Brot, Käse, Obst, etwas Kaltes zu trinken",
         "Sonnencreme",
       ],
       dauer: "Ein ganzer Tag",
-      planB: "Platter Reifen oder Dauerregen? Dann dasselbe mit dem Zug: eine Station weiter als sonst, aussteigen, laufen, Proviant auspacken.",
-      soundtrack: "Nur Wind. Wieder.",
+      wetter: "Bei Gewitter verschieben wir aufs nächste Wochenende.",
     },
   },
   {
@@ -457,23 +412,19 @@ export const LETTERS: Letter[] = [
     gruss: "Bis vor dem Erdmännchengehege,",
     signatur: "deine Bella",
     date: {
-      titel: "Ein Tag im Tierpark",
-      kurz: "Jeder sucht sich ein Lieblingstier — und muss es begründen.",
-      ablauf: [
-        "Früh hin, bevor es voll wird. Vormittags sind die Tiere wacher.",
-        "Jeder sucht sich im Lauf des Tages ein Lieblingstier aus und muss am Ende begründen, warum.",
-        "Regel: Bei mindestens einem Gehege bleiben wir zehn Minuten stehen, auch wenn nichts passiert.",
-        "Zum Schluss noch ein Eis, egal wie das Wetter ist.",
+      titel: "Tierpark",
+      kurz: "Ein Tag, an dem wir beide wieder acht sein dürfen.",
+      text: [
+        "Wir gehen früh hin, bevor es voll wird, und lassen uns treiben. Tiernamen vorlesen, Stimmen erfinden, viel zu lange vor einem Gehege stehen, in dem gerade gar nichts passiert.",
+        "Und irgendwann ein Eis, egal wie das Wetter ist.",
       ],
       brauchtIhr: [
         "Eintritt und feste Schuhe",
-        "Eine Wasserflasche pro Person",
-        "Kleingeld für Futterautomaten oder Eis",
+        "Eine Wasserflasche",
         "Einen Pullover für später",
       ],
       dauer: "Ein ganzer Tag",
-      planB: "Strömender Regen? Dann Aquarium, Zoo mit Tropenhaus oder Naturkundemuseum. Drinnen zählt auch — nur die Regel mit dem Lieblingstier bleibt.",
-      soundtrack: "Erdmännchen.",
+      wetter: "Bei Regen sind die Tierhäuser offen — und angenehm leer.",
     },
   },
   {
@@ -497,24 +448,18 @@ export const LETTERS: Letter[] = [
     signatur: "I luv u — deine Bella",
     ps: "Es gibt tatsächlich noch etwas. Aber nicht auf dieser Website.",
     date: {
-      titel: "Das Album",
-      kurz: "Ein Jahr auf Papier bringen — und den Tag selbst legen wir zusammen fest.",
-      ablauf: [
-        "Vorher: Wir suchen aus jedem Monat ein Foto aus und lassen sie ausdrucken. Dreizehn Stück.",
-        "Am Tag selbst zuerst das, was wir uns gemeinsam ausgedacht haben. Dieses eine Türchen gehört uns beiden.",
-        "Abends dann das Album: Fotos einkleben, zu jedem Monat einen Satz dazuschreiben.",
-        "Die Notizen aus dem Tagebuch auf dieser Seite abschreiben — die sind schon da, wir müssen sie nur übertragen.",
-        "Zum Schluss: jeder schreibt dem anderen einen Brief für nächstes Jahr. Ungeöffnet weglegen bis 10.10.2028.",
+      titel: "Das legen wir zusammen fest",
+      kurz: "Das letzte Türchen gehört uns beiden.",
+      text: [
+        "Was wir an diesem Tag machen, entscheiden wir zusammen. Das erste Date seit einem Jahr, das nicht von mir kommt.",
+        "Abends machen wir dann aus dem Jahr ein Album: Fotos einkleben, zu jedem Monat einen Satz dazuschreiben. Was du hier ins Tagebuch getippt hast, kommt mit hinein.",
       ],
       brauchtIhr: [
         "Ein leeres Fotoalbum und Fotokleber",
         "Dreizehn ausgedruckte Fotos, eins pro Monat",
-        "Zwei Stifte, zwei Umschläge, zwei Blatt Papier",
-        "Einen sicheren Ort, an dem man Briefe ein Jahr lang vergisst",
+        "Zwei Stifte",
       ],
       dauer: "Ein Tag, der lang wird",
-      planB: "Keine Zeit für Ausdrucke? Dann erst das Album leer kaufen und die Fotos nachreichen. Der Abend gehört trotzdem dem Durchgehen — welches Türchen war das beste?",
-      soundtrack: "Euer Lied. Ihr wisst schon, welches.",
     },
   },
 ];
