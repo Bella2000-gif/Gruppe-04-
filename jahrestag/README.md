@@ -170,6 +170,10 @@ richtigen Form da, bevor das Bild geladen ist.
 Ausführlich steht das in **[HOSTING.md](./HOSTING.md)** — inklusive der Frage,
 warum die Seite auch auf Vercel privat bleibt, und einer Prüfliste zum Abhaken.
 
+Die Kurzform: bei Vercel das Repository importieren, **Root Directory** auf
+`jahrestag` stellen, vier Umgebungsvariablen eintragen, Deploy. Der Code liegt
+auf `main`, Vercel findet ihn also ohne weitere Einstellung.
+
 Die Kurzfassung: die Privatsphäre kommt aus der Anmeldung in der App, nicht
 vom Hoster. Zu entscheiden ist nur, wo Marcos Häkchen und Notizen bleiben.
 

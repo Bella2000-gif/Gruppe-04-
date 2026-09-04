@@ -74,7 +74,7 @@ Postgres. Alle sprechen dieselbe Sprache — die Zeichenkette einsetzen genügt.
 1. Auf [vercel.com](https://vercel.com) anmelden, **New Project**, dieses
    GitHub-Repository auswählen.
 2. Wichtig: bei **Root Directory** `jahrestag` eintragen — das Projekt liegt
-   in einem Unterordner.
+   in einem Unterordner. Sonst findet Vercel nichts.
 3. Unter **Environment Variables** eintragen:
 
    | Name | Wert |
@@ -93,6 +93,9 @@ Ruf die Adresse auf. Du solltest die Anmeldung sehen.
 - Steht dort stattdessen **„Noch nicht eingerichtet"**, fehlt eine der
   Variablen oder ein Codewort ist zu kurz. Der Kasten sagt genau, welche.
   Nach dem Nachtragen einmal **Redeploy** auslösen.
+- Melde dich mit **Bellas** Codewort an, nicht mit Marcos. Vor dem
+  10. Oktober 2026 sind alle Umschläge zu — mit Marcos Wort sähe man nur
+  dreizehn Countdowns und dächte, es sei kaputt.
 - Melde dich an, öffne einen Brief, setz ein Häkchen. Dann in Vercel ein
   **Redeploy** auslösen und nochmal nachsehen: Häkchen noch da? Dann sitzt
   die Datenbank richtig.
