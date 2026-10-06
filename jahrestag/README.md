@@ -160,10 +160,18 @@ Kies, Filmkorn — senkt das Skript zusätzlich die Auflösung, bis das Bild unt
 und das Polaroid ist auf dem Bildschirm ohnehin nur rund 300 Pixel breit. Die
 Originale bleiben unangetastet.
 
-**Hoch- und Querformat funktionieren beide.** Der Server liest die
-Abmessungen aus dem Dateikopf, das Polaroid übernimmt das Seitenverhältnis
-des Bildes — nichts wird beschnitten, und der Rahmen steht schon in der
-richtigen Form da, bevor das Bild geladen ist.
+**Hoch- und Querformat funktionieren beide.** Welche Fotos es gibt und wie
+groß sie sind, steht in `src/lib/fotos-manifest.json`. Die Datei wird beim
+Bauen automatisch geschrieben (`npm run build` ruft das mit auf) und von
+`npm run fotos` gleich mit aktualisiert. Dadurch übernimmt das Polaroid das
+Seitenverhältnis des Bildes, nichts wird beschnitten, und der Rahmen steht
+schon in der richtigen Form da, bevor das Bild geladen ist.
+
+> Warum eine Liste statt im Ordner nachzusehen? Bei serverlosen Hostern wie
+> Vercel liefert ein CDN den `public`-Ordner aus — die Serverfunktion sieht
+> ihn gar nicht und fände dort nie ein Foto. Legst du ein Bild von Hand in
+> `public/fotos/`, lauf einmal `npm run fotos` (oder `npm run build`), damit
+> es in der Liste landet.
 
 ## Veröffentlichen
 

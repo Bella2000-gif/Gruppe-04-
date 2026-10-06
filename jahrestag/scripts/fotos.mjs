@@ -15,6 +15,7 @@ import { readdir, mkdir } from "node:fs/promises";
 import { statSync } from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
+import { schreibeManifest } from "./fotos-manifest.mjs";
 
 const QUELLE = "fotos-original";
 const ZIEL = path.join("public", "fotos");
@@ -83,4 +84,7 @@ for (const datei of zuTun) {
   );
 }
 
-console.log(`\nFertig. ${zuTun.length} Foto(s) verkleinert.`);
+// Die Liste, aus der die Seite ihre Fotos kennt, gleich mit aktualisieren.
+await schreibeManifest({ still: true });
+
+console.log(`\nFertig. ${zuTun.length} Foto(s) verkleinert, Liste aktualisiert.`);

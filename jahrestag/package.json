@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "node scripts/fotos-manifest.mjs",
     "start": "next start",
     "lint": "eslint",
     "fotos": "node scripts/fotos.mjs"

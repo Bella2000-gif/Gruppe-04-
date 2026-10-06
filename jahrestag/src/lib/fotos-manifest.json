@@ -1,0 +1,67 @@
+{
+  "1": {
+    "quelle": "/fotos/01.webp",
+    "breite": 839,
+    "hoehe": 1500
+  },
+  "2": {
+    "quelle": "/fotos/02.webp",
+    "breite": 1030,
+    "hoehe": 1500
+  },
+  "3": {
+    "quelle": "/fotos/03.webp",
+    "breite": 844,
+    "hoehe": 1500
+  },
+  "4": {
+    "quelle": "/fotos/04.webp",
+    "breite": 1047,
+    "hoehe": 1500
+  },
+  "5": {
+    "quelle": "/fotos/05.webp",
+    "breite": 844,
+    "hoehe": 1500
+  },
+  "6": {
+    "quelle": "/fotos/06.webp",
+    "breite": 844,
+    "hoehe": 1500
+  },
+  "7": {
+    "quelle": "/fotos/07.webp",
+    "breite": 750,
+    "hoehe": 1000
+  },
+  "8": {
+    "quelle": "/fotos/08.webp",
+    "breite": 810,
+    "hoehe": 1500
+  },
+  "9": {
+    "quelle": "/fotos/09.webp",
+    "breite": 844,
+    "hoehe": 1500
+  },
+  "10": {
+    "quelle": "/fotos/10.webp",
+    "breite": 844,
+    "hoehe": 1500
+  },
+  "11": {
+    "quelle": "/fotos/11.webp",
+    "breite": 844,
+    "hoehe": 1500
+  },
+  "12": {
+    "quelle": "/fotos/12.webp",
+    "breite": 773,
+    "hoehe": 1500
+  },
+  "13": {
+    "quelle": "/fotos/13.webp",
+    "breite": 1170,
+    "hoehe": 1500
+  }
+}
