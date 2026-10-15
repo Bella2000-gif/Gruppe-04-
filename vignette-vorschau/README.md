@@ -39,7 +39,7 @@ keinen Server-Code. Über GitHub Pages:
 
 1. Im Repository auf **Settings → Pages**.
 2. Unter *Build and deployment* als Source **Deploy from a branch** wählen,
-   als Branch den Branch mit diesem Ordner, als Ordner **/ (root)**.
+   als Branch **main**, als Ordner **/ (root)**, dann **Save**.
 3. Nach ein bis zwei Minuten ist die Seite erreichbar unter
    `https://bella2000-gif.github.io/Gruppe-04-/vignette-vorschau/`
 
