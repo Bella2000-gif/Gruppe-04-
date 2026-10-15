@@ -1,0 +1,628 @@
+<meta name="robots" content="noindex, nofollow">
+<title>Vignettenstudie Vorschau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root{
+  --ground:#e6e9ef; --card:#ffffff; --card-2:#f3f5f8;
+  --ink:#1a212b; --ink-2:#5b6573; --ink-3:#8b95a3;
+  --rule:#d7dce3; --rule-2:#e8ebf0;
+  --blue:#2560c4; --blue-soft:#e8f0fc;
+  --regie:#8c4a2f; --regie-soft:#f7ece5; --regie-rule:#e0c7b6;
+  --ok:#2f7049; --warn:#b4522e; --violet:#5b4fc7;
+  --sans:"Source Sans 3",system-ui,sans-serif;
+  --serif:"Newsreader",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#12151a; --card:#1b2029; --card-2:#232a34;
+    --ink:#e6eaf0; --ink-2:#99a3b1; --ink-3:#717d8c;
+    --rule:#2d343f; --rule-2:#262d37;
+    --blue:#76abf0; --blue-soft:#1b2a3f;
+    --regie:#e3a37c; --regie-soft:#2b2019; --regie-rule:#4a382c;
+    --ok:#73b68d; --warn:#e0906b; --violet:#9b91ea;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#12151a; --card:#1b2029; --card-2:#232a34;
+  --ink:#e6eaf0; --ink-2:#99a3b1; --ink-3:#717d8c;
+  --rule:#2d343f; --rule-2:#262d37;
+  --blue:#76abf0; --blue-soft:#1b2a3f;
+  --regie:#e3a37c; --regie-soft:#2b2019; --regie-rule:#4a382c;
+  --ok:#73b68d; --warn:#e0906b; --violet:#9b91ea;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+
+/* ---------- Regieleiste ---------- */
+.leiste{position:sticky;top:0;z-index:40;background:var(--card);border-bottom:1px solid var(--rule)}
+.leiste-innen{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.marke{display:flex;flex-direction:column;line-height:1.2;margin-right:auto}
+.marke b{font-family:var(--serif);font-size:17px;font-weight:600}
+.marke span{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--regie)}
+.gruppen{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.gruppen .gl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-right:4px}
+button{font-family:inherit;font-size:inherit;cursor:pointer}
+.gbtn{font-family:var(--mono);font-size:12px;font-weight:500;padding:6px 11px;border-radius:3px;
+  border:1px solid var(--rule);background:var(--card-2);color:var(--ink-2);transition:all .12s}
+.gbtn:hover{border-color:var(--regie);color:var(--ink)}
+.gbtn[aria-pressed="true"]{background:var(--regie);border-color:var(--regie);color:#fff}
+.gbtn.wuerfel{background:transparent;border-style:dashed}
+.schalter{display:flex;gap:4px;border:1px solid var(--rule);border-radius:3px;padding:2px;background:var(--card-2)}
+.schalter button{font-size:13px;padding:5px 11px;border:0;border-radius:2px;background:transparent;color:var(--ink-2)}
+.schalter button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12);font-weight:600}
+.regieschalter{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-2);cursor:pointer;user-select:none}
+.regieschalter input{accent-color:var(--regie);width:15px;height:15px}
+.zustand{width:100%;display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;
+  font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px solid var(--rule-2);padding-top:9px}
+.zustand b{color:var(--ink-2);font-weight:500}
+.fortschritt{flex:1 1 140px;height:4px;background:var(--rule);border-radius:2px;overflow:hidden;min-width:100px}
+.fortschritt i{display:block;height:100%;background:var(--blue);transition:width .25s}
+
+/* ---------- Bühne ---------- */
+.buehne{max-width:1080px;margin:0 auto;padding:26px 20px 90px}
+.karte{background:var(--card);border:1px solid var(--rule);border-radius:4px;overflow:hidden;margin:0 auto;max-width:620px}
+.ueber{max-width:620px;margin:0 auto 14px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.ueber .block{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
+.ueber .zaehler{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-left:auto}
+.karte-innen{padding:30px 34px}
+h1{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.2;margin:0 0 16px;text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:21px;margin:26px 0 10px;text-wrap:balance}
+p{margin:0 0 13px}
+p:last-child{margin-bottom:0}
+.intro{color:var(--ink-2)}
+.anrede{font-size:17px}
+hr{border:0;border-top:1px solid var(--rule-2);margin:22px 0}
+
+/* ---------- Items ---------- */
+.item{padding:17px 0;border-top:1px solid var(--rule-2)}
+.item:first-of-type{border-top:0}
+.item.versteckt{display:none}
+.frage{display:flex;gap:9px;align-items:baseline;margin-bottom:11px}
+.frage .nr{font-family:var(--mono);font-size:11px;color:var(--ink-3);flex:none;padding-top:3px;min-width:26px}
+.frage .txt{font-size:16px;flex:1}
+.frage .txt em{font-style:normal;color:var(--ink-3);font-size:13px;display:block;margin-top:2px}
+.pflicht{color:var(--warn)}
+.opts{display:flex;flex-direction:column;gap:7px;padding-left:35px}
+.opt{display:flex;gap:9px;align-items:flex-start;font-size:15.5px;cursor:pointer;color:var(--ink)}
+.opt input{accent-color:var(--blue);margin:3px 0 0;width:16px;height:16px;flex:none}
+.opt span{flex:1}
+input[type="number"],input[type="text"]{font-family:var(--sans);font-size:15.5px;color:var(--ink);
+  background:var(--card-2);border:1px solid var(--rule);border-radius:3px;padding:7px 10px;max-width:180px;width:100%}
+input:focus-visible,button:focus-visible,.opt input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* Skala */
+.skala{padding-left:35px}
+.pole{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;color:var(--ink-3);margin-bottom:7px}
+.punkte{display:flex;gap:4px}
+.punkt{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;
+  padding:7px 2px;border:1px solid var(--rule-2);border-radius:3px;background:var(--card-2);transition:border-color .12s}
+.punkt:hover{border-color:var(--blue)}
+.punkt input{accent-color:var(--blue);width:16px;height:16px;margin:0}
+.punkt .n{font-family:var(--mono);font-size:11.5px;color:var(--ink-2)}
+.punkt .lab{font-size:10.5px;color:var(--ink-3);text-align:center;line-height:1.25;min-height:2.4em}
+.punkt:has(input:checked){border-color:var(--blue);background:var(--blue-soft)}
+@media (max-width:700px){ .punkt .lab{display:none} .skala,.opts{padding-left:0} .frage .nr{min-width:0} }
+
+/* Einwilligung */
+.einwilligung{display:flex;gap:11px;align-items:flex-start;background:var(--card-2);border:1px solid var(--rule);
+  border-left:3px solid var(--blue);border-radius:0 3px 3px 0;padding:14px 16px;font-size:15.5px;cursor:pointer}
+.einwilligung input{accent-color:var(--blue);width:18px;height:18px;margin:2px 0 0;flex:none}
+
+/* Vignette */
+.bild{margin:18px 0;border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:var(--card-2)}
+.bild img{display:block;width:100%;height:auto}
+.bildunter{font-size:13px;color:var(--ink-3);margin-top:-6px;margin-bottom:18px;font-style:italic}
+.audio{display:flex;gap:12px;align-items:center;background:var(--card-2);border:1px solid var(--rule);
+  border-radius:3px;padding:12px 15px;margin:4px 0 16px;font-size:14px;color:var(--ink-2)}
+.audio .sym{width:34px;height:34px;border-radius:50%;background:var(--blue);display:grid;place-items:center;flex:none}
+.transkript{border-left:3px solid var(--rule);padding:2px 0 2px 16px;margin:0 0 16px;color:var(--ink);font-size:15.5px}
+.transkript .kopf{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:7px}
+textarea{width:100%;min-height:92px;font-family:var(--sans);font-size:15.5px;color:var(--ink);
+  background:var(--card-2);border:1px solid var(--rule);border-radius:3px;padding:10px 12px;resize:vertical}
+
+/* Regie-Einschübe */
+.regie{background:var(--regie-soft);border:1px solid var(--regie-rule);border-left:3px solid var(--regie);
+  border-radius:0 3px 3px 0;padding:13px 16px;margin:16px 0;font-size:14px;color:var(--ink)}
+.regie .kopf{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--regie);margin-bottom:6px}
+.regie p{margin:0 0 7px}
+.regie ul{margin:6px 0 0;padding-left:18px}
+.regie li{margin-bottom:5px}
+.regie code{font-family:var(--mono);font-size:12.5px;background:var(--card);padding:1px 5px;border-radius:2px;border:1px solid var(--regie-rule)}
+body.ohne-regie .regie,
+body.ohne-regie .nur-regie,
+body.ohne-regie .frage .nr{display:none}
+
+/* Navigation */
+.nav{max-width:620px;margin:18px auto 0;display:flex;gap:12px;align-items:center}
+.nav .rest{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.knopf{padding:10px 20px;border-radius:3px;border:1px solid var(--blue);background:var(--blue);color:#fff;font-weight:600;font-size:15px}
+.knopf.sek{background:transparent;color:var(--ink-2);border-color:var(--rule)}
+.knopf[disabled]{opacity:.42;cursor:not-allowed}
+
+/* Gesamtübersicht */
+.uebersicht .karte{margin-bottom:22px}
+.kennzahlen{max-width:620px;margin:0 auto 24px;display:flex;flex-wrap:wrap;border:1px solid var(--rule);border-radius:4px;background:var(--card);overflow:hidden}
+.kennzahlen div{flex:1 1 130px;padding:13px 16px;border-right:1px solid var(--rule-2)}
+.kennzahlen div:last-child{border-right:0}
+.kennzahlen dt{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.kennzahlen dd{margin:3px 0 0;font-family:var(--serif);font-size:21px;font-weight:600;font-variant-numeric:tabular-nums}
+.kennzahlen dd small{font-size:13px;font-family:var(--sans);font-weight:400;color:var(--ink-2)}
+.trenner{max-width:620px;margin:30px auto 14px;display:flex;align-items:center;gap:13px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--regie)}
+.trenner::after{content:"";flex:1;height:1px;background:var(--regie-rule)}
+@media (max-width:620px){ .karte-innen{padding:22px 18px} .leiste-innen{padding:9px 14px} .buehne{padding:18px 14px 70px} }
+</style>
+
+<div class="leiste">
+  <div class="leiste-innen">
+    <span class="marke"><b>Vignettenstudie Wissenslücke × KI</b><span>Vorschau für die Begutachtung</span></span>
+    <span class="gruppen" id="gruppen"><span class="gl">Gruppe</span></span>
+    <span class="schalter" id="modus">
+      <button data-modus="klick" aria-pressed="true">Durchklicken</button>
+      <button data-modus="alles" aria-pressed="false">Gesamtübersicht</button>
+    </span>
+    <label class="regieschalter"><input type="checkbox" id="regieAn" checked> Regie-Notizen</label>
+    <div class="zustand">
+      <span>Bedingung: <b id="zBedingung"></b></span>
+      <span>Seite <b id="zSeite"></b></span>
+      <span class="fortschritt"><i id="zBalken"></i></span>
+    </div>
+  </div>
+</div>
+
+<div class="buehne" id="buehne"></div>
+
+<script>
+/* ====================== Bedingungen ====================== */
+const GRUPPEN = {
+  V1: { luecke: "hoch",    tool: "ohne", kurz: "hohe Lücke · ohne Tool" },
+  V2: { luecke: "hoch",    tool: "mit",  kurz: "hohe Lücke · mit Tool" },
+  V3: { luecke: "niedrig", tool: "ohne", kurz: "niedrige Lücke · ohne Tool" },
+  V4: { luecke: "niedrig", tool: "mit",  kurz: "niedrige Lücke · mit Tool" },
+};
+
+/* ====================== Skalen ====================== */
+const S_KI   = { n: 7, links: "Gar nicht", rechts: "Auf jeden Fall" };
+const S_BFI  = { n: 5, links: "trifft überhaupt nicht zu", rechts: "trifft voll und ganz zu",
+                 labels: ["trifft überhaupt nicht zu", "trifft eher nicht zu", "weder noch", "eher zutreffend", "trifft voll und ganz zu"] };
+const S_PASA = { n: 6, links: "ganz falsch", rechts: "ganz richtig",
+                 labels: ["ganz falsch", "ziemlich falsch", "etwas falsch", "etwas richtig", "ziemlich richtig", "ganz richtig"] };
+const S_5    = { n: 5, links: "gar nicht", rechts: "sehr stark" };
+
+/* ====================== Items ====================== */
+const BLOCK_A = [
+  { id: "A1", text: "Wie alt sind Sie?", typ: "zahl", einheit: "Jahre", pflicht: true,
+    hinweis: "unter 18 → Ausschluss" },
+  { id: "A2", text: "Welchem Geschlecht ordnen Sie sich zu?", typ: "radio", pflicht: true,
+    optionen: ["männlich", "weiblich", "divers", "keine Angabe"] },
+  { id: "A3", text: "Was ist Ihr höchster Bildungsabschluss?", typ: "radio", pflicht: true,
+    optionen: ["Kein Abschluss", "Haupt- bzw. Volksschulabschluss", "Mittlere Reife",
+               "Abitur bzw. Fachhochschulreife", "Abgeschlossene Berufsausbildung",
+               "Bachelor", "Master bzw. Diplom", "Promotion"] },
+  { id: "A4", text: "Was trifft derzeit auf Sie zu?", hinweis: "Mehrfachauswahl möglich", typ: "check", pflicht: true,
+    optionen: ["Studium", "Ausbildung", "Berufstätig in Vollzeit", "Berufstätig in Teilzeit",
+               "Werkstudent:in bzw. Minijob", "Nicht berufstätig"] },
+  { id: "A5", text: "In welchem Bereich sind Sie (hauptsächlich) tätig?", typ: "radio", pflicht: true, filter: "beruf",
+    optionen: ["Vertrieb bzw. Key Account", "Einkauf", "Finanzen bzw. Controlling", "Personal",
+               "Marketing", "Logistik bzw. Supply Chain", "IT", "Kundenservice", "Sonstiges"] },
+  { id: "A6", text: "Wie viele Jahre Berufserfahrung haben Sie insgesamt?", typ: "zahl", einheit: "Jahre", pflicht: true, filter: "beruf" },
+  { id: "A7", text: "Wie lange sind Sie bereits bei Ihrem aktuellen Arbeitgeber beschäftigt?", typ: "radio", pflicht: true, filter: "beruf",
+    optionen: ["unter 1 Jahr", "1–3 Jahre", "4–10 Jahre", "mehr als 10 Jahre"] },
+  { id: "A8", text: "Wie viele Mitarbeitende hat Ihr aktuelles Unternehmen ungefähr?", typ: "radio", filter: "beruf",
+    hinweis: "freiwillig", optionen: ["unter 50", "50–249", "250–999", "1.000 und mehr", "weiß nicht"] },
+  { id: "A9", text: "Haben Sie in Ihrem Berufsleben bereits eine größere organisationale Veränderung erlebt (z. B. Umstrukturierung, neue Zuständigkeiten, neue Prozesse)?",
+    typ: "radio", pflicht: true, optionen: ["ja", "nein", "unsicher"] },
+  { id: "A10", text: "Wie stark waren Sie persönlich von dieser Veränderung betroffen?", typ: "skala", skala: S_5, pflicht: true, filter: "A9ja" },
+  { id: "A11", text: "Sind Ihnen die Begriffe „künstliche Intelligenz“ oder „KI“ vertraut?", typ: "radio", pflicht: true,
+    optionen: ["ja", "nein", "unsicher"] },
+  { id: "A12", text: "Wie häufig nutzen Sie KI-Anwendungen (z. B. ChatGPT, Copilot)?", typ: "radio", pflicht: true,
+    optionen: ["nie", "seltener als monatlich", "monatlich", "wöchentlich", "täglich"] },
+];
+
+const BLOCK_B = [
+  ["B1", "Inwieweit sind Sie der Meinung, dass künstliche Intelligenz die Welt verbessern wird?"],
+  ["B2", "Wie sehr möchten Sie Technologien nutzen, die auf künstlicher Intelligenz basieren?"],
+  ["B3", "Wie sehr freuen Sie sich auf zukünftige Entwicklungen im Bereich künstliche Intelligenz?"],
+  ["B4", "Inwieweit glauben Sie, dass künstliche Intelligenz Lösungen für globale Probleme bietet?"],
+  ["B5", "Haben Sie hauptsächlich positive Gefühle, wenn Sie an künstliche Intelligenz denken?"],
+  ["B6", "Inwieweit würden Sie sich eher für eine Technologie mit künstlicher Intelligenz entscheiden als für eine ohne?"],
+].map(([id, text]) => ({ id, text, typ: "skala", skala: S_KI, pflicht: true }));
+
+const BLOCK_C = [
+  ["C1", "… bin eher zurückhaltend, reserviert."],
+  ["C2", "… schenke anderen leicht Vertrauen, glaube an das Gute im Menschen."],
+  ["C3", "… bin bequem, neige zur Faulheit."],
+  ["C4", "… bin entspannt, lasse mich durch Stress nicht aus der Ruhe bringen."],
+  ["C5", "… habe nur wenig künstlerisches Interesse."],
+  ["C6", "… gehe aus mir heraus, bin gesellig."],
+  ["C7", "… neige dazu, andere zu kritisieren."],
+  ["C8", "… erledige Aufgaben gründlich."],
+  ["C9", "… werde leicht nervös und unsicher."],
+  ["C10", "… habe eine aktive Vorstellungskraft, bin fantasievoll."],
+].map(([id, text]) => ({ id, text, typ: "skala", skala: S_BFI, pflicht: true }));
+
+const PASA = [
+  "Ich fühle mich durch die Situation nicht bedroht.",
+  "Die Situation ist für mich von Bedeutung (relevant).",
+  "In dieser Situation weiß ich, was ich tun kann.",
+  "Es hängt hauptsächlich von mir ab, ob ich die Situation bewältige.",
+  "Diese Situation ist mir sehr unangenehm.",
+  "Diese Situation lässt mich kalt.",
+  "Ich weiß überhaupt nicht, was ich jetzt machen soll.",
+  "Ich kann mich am besten selbst durch mein Verhalten vor Misserfolg in dieser Situation schützen.",
+  "Ich fühle mich nicht beunruhigt, da die Situation keine Bedrohung für mich darstellt.",
+  "Die Situation ist keine Herausforderung für mich.",
+  "In dieser Situation fallen mir viele Handlungsalternativen ein.",
+  "Ich kann sehr viel von dem, was in dieser Situation passiert, selbst bestimmen.",
+  "Diese Situation macht mir Angst.",
+  "Diese Situation fordert mich heraus.",
+  "Für diese Situation fallen mir viele Lösungen ein.",
+  "Wenn ich die Situation bewältige, ist das Folge meiner Anstrengung und meines persönlichen Einsatzes.",
+].map((text, i) => ({ id: "PASA" + (i + 1), text, typ: "skala", skala: S_PASA, pflicht: true }));
+
+function manipulation(g) {
+  const items = [
+    { id: "MC1", text: "Ich wüsste, wie ich bei der Reklamation vorgehen muss.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC2", text: "Ich wüsste, an wen ich mich wenden kann.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC3", text: "Ich wüsste, was dem Kunden bisher zugesagt wurde.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC4", text: "In der beschriebenen Situation stand mir ein KI-Assistent zur Verfügung.", typ: "radio", optionen: ["ja", "nein"], pflicht: true },
+  ];
+  if (GRUPPEN[g].tool === "mit")
+    items.push({ id: "MC5", text: "Das beschriebene KI-Tool würde mir in dieser Situation helfen.", typ: "skala", skala: S_PASA, pflicht: true });
+  return items;
+}
+
+/* ====================== Seiten ====================== */
+const SEITEN = [
+  {
+    block: "Einstieg", titel: "Begrüßung und Einwilligung", min: 0.5,
+    text: () => `
+      <p class="anrede">Liebe Teilnehmerin, lieber Teilnehmer,</p>
+      <p>vielen Dank, dass Sie sich Zeit für diese Studie nehmen. Im Rahmen meiner Bachelorarbeit an der FOM Hochschule untersuche ich, wie Menschen Arbeitssituationen in Unternehmen erleben, die sich gerade verändern.</p>
+      <p>Sie werden zunächst einige Fragen zu Ihrer Person beantworten und sich anschließend in eine kurze Arbeitssituation hineinversetzen. Die Bearbeitung dauert etwa <strong>12 Minuten</strong>. Es gibt keine richtigen oder falschen Antworten; uns interessiert allein Ihre persönliche Einschätzung.</p>
+      <p>Ihre Teilnahme ist freiwillig und kann jederzeit ohne Angabe von Gründen abgebrochen werden. Alle Angaben werden anonym erhoben, ausschließlich für wissenschaftliche Zwecke ausgewertet und nicht an Dritte weitergegeben. Rückschlüsse auf einzelne Personen sind nicht möglich.</p>
+      <p>Bei Fragen erreichen Sie mich unter: <strong>[E-Mail]</strong></p>
+      <p>Isabella Dietrich</p>
+      <hr>
+      <label class="einwilligung"><input type="checkbox" id="consent">
+        <span>Ich bin mindestens 18 Jahre alt, habe die Informationen gelesen und bin mit der Teilnahme einverstanden.</span></label>
+      <div class="regie"><div class="kopf">Regie</div>
+        <p>Pflichtfeld. Ohne Haken führt der Weiter-Knopf direkt auf die Abschlussseite (Screen-out) — hier nachgebaut: der Knopf bleibt gesperrt.</p>
+        <p>Der Zweck ist bewusst allgemein gehalten. „Stress“, „KI“ und „Wissensverlust“ kommen an dieser Stelle nicht vor, sonst entsteht ein Demand-Effekt. Die Dauer <code>[X]</code> aus deinem Entwurf ist hier mit 12 Minuten gefüllt — siehe Kennzahlen in der Gesamtübersicht.</p></div>`,
+    items: () => [],
+  },
+  {
+    block: "Block A", titel: "Angaben zu Ihrer Person", min: 1.5,
+    text: () => `<p class="intro">Zunächst bitten wir Sie um einige Angaben zu Ihrer Person.</p>`,
+    items: () => BLOCK_A,
+    regie: `<div class="regie"><div class="kopf">Regie · Filter und Kontrollvariablen</div>
+      <ul>
+        <li><strong>A5–A8</strong> erscheinen nur, wenn bei A4 „Berufstätig“ oder „Werkstudent:in“ angekreuzt ist. Probier es aus — die Fragen klappen live auf.</li>
+        <li><strong>A10</strong> erscheint nur bei A9 = ja.</li>
+        <li><strong>A9/A10</strong> sind Kontrollvariablen: Change-Vorerfahrung kann beeinflussen, wie bedrohlich die Vignette wirkt. Wenn dir das zu viel Priming vor der Vignette ist, können beide ans Ende.</li>
+        <li><strong>A11/A12</strong> ordnen den von Novotny et al. berichteten Bodeneffekt bei KI-Unerfahrenen ein.</li>
+        <li><strong>Offen:</strong> nur Berufstätige oder auch reine Studierende? Davon hängt ab, ob A5–A8 Pflicht oder gefiltert sind.</li>
+      </ul></div>`,
+  },
+  {
+    block: "Block B", titel: "Ihre Einstellung zu künstlicher Intelligenz", min: 1,
+    text: () => `
+      <p class="intro">Im Folgenden interessieren wir uns für Ihre Einstellungen gegenüber Künstlicher Intelligenz (KI). Künstliche Intelligenz kann Aufgaben ausführen, die üblicherweise menschliche Intelligenz erfordern. Sie befähigt Maschinen dazu, selbstständig und ähnlich dem Menschen, ihre Umwelt wahrzunehmen, zu handeln, zu lernen und sich anzupassen. Künstliche Intelligenz kann Teil eines Computers oder einer Onlineplattform sein – man kann ihr aber auch in verschiedenen anderen technischen Geräten, wie etwa Robotern, begegnen.</p>`,
+    items: () => BLOCK_B,
+    regie: `<div class="regie"><div class="kopf">Regie · Quelle und Auswertung</div>
+      <p>Novotny, Weber, Kern &amp; Kreuter (2025), Anhang A1, nach Stein et al. (2024). 7-stufig, nur die Endpunkte beschriftet.</p>
+      <p>Auswertung: Mittelwert über B1–B6, keine Umpolung, hoher Wert = positive Einstellung. Reliabilität im Original α = .95. Die Facetten (kognitiv / affektiv / behavioral) gehören nur in deine Auswertung, nicht in den Fragebogen — deshalb stehen sie hier auch nicht an den Items.</p></div>`,
+  },
+  {
+    block: "Block C", titel: "Inwieweit treffen die folgenden Aussagen auf Sie zu?", min: 1.25,
+    text: () => `<p class="intro">Ich …</p>`,
+    items: () => BLOCK_C,
+    regie: `<div class="regie"><div class="kopf">Regie · BFI-10 — was dieser Block erhebt</div>
+      <p>Rammstedt, Kemper, Klein, Beierlein &amp; Kovaleva (2014), ZIS. Die Big Five mit je zwei Items: Extraversion (C1, C6), Verträglichkeit (C2, C7), Gewissenhaftigkeit (C3, C8), Neurotizismus (C4, C9), Offenheit (C5, C10).</p>
+      <p><strong>Drei Aufgaben hat der Block — „Puffer“ allein trägt zehn Items nicht:</strong></p>
+      <ul>
+        <li><strong>Randomisierungskontrolle.</strong> Bei vier Gruppen à 30–40 Personen kann die Zufallszuteilung schiefgehen. Im Ergebnisteil zeigst du, dass sich die Gruppen in Alter, KI-Einstellung und Persönlichkeit nicht unterscheiden — erst dann sind Unterschiede im PASA auf die Vignette zurückzuführen.</li>
+        <li><strong>Kovariate, vor allem Neurotizismus.</strong> Der stabilste Einzelprädiktor dafür, wie bedrohlich jemand eine Situation bewertet. Als Kovariate aufgenommen senkt er die Fehlervarianz im Stressindex und schärft den Test der Manipulation.</li>
+        <li><strong>Puffer.</strong> Trennt die explizite KI-Abfrage in Block B von der Vignette, damit das Tool in Szene 4 nicht als deren Fortsetzung gelesen wird.</li>
+      </ul>
+      <p><strong>Grenze:</strong> zwei Items pro Dimension, entsprechend niedrige interne Konsistenzen — beim BFI-10 bekannt und bewusst in Kauf genommen, berichtet wird dort die Retest-Reliabilität. Als Kovariate vertretbar, als Moderator nicht: dafür reichen weder Messgenauigkeit noch Fallzahl.</p>
+      <p><strong>Haken an der Pufferlogik:</strong> C4 („lasse mich durch Stress nicht aus der Ruhe bringen“) und C9 („werde leicht nervös und unsicher“) sprechen Stressreaktivität direkt an — unmittelbar vor einer Vignette, deren Erleben der PASA misst. Der Wortlaut gehört zum Instrument und ist nicht änderbar. Also entweder in die Limitationen, oder der Block wandert hinter die Manipulationschecks — dann entfällt die Pufferwirkung und die Demand-Gefahr bei MC5 steigt.</p>
+      <p>Auswertung: C1, C3, C4, C5, C7 umpolen (6 − x), dann je Dimension der Mittelwert aus zwei Items. Wortlaut vor Übernahme gegen den ZIS-Eintrag prüfen.</p></div>`,
+  },
+  {
+    block: "Überleitung", titel: "Gleich geht es weiter", min: 0.25,
+    text: () => `
+      <p>Vielen Dank! Im nächsten Teil stellen wir Ihnen eine kurze Situation aus dem Arbeitsalltag vor. Bitte versetzen Sie sich so gut wie möglich in die beschriebene Person hinein und lesen bzw. hören Sie sich alle Inhalte aufmerksam an. Anschließend beantworten Sie einige Fragen dazu, wie Sie diese Situation erleben würden.</p>
+      <div class="regie"><div class="kopf">Regie · Hier wird randomisiert</div>
+        <p>An dieser Stelle — nach Block C, vor der Vignette — werden die Teilnehmenden gleichverteilt auf die vier Bedingungen gezogen. Alles davor ist in allen vier Gruppen wortgleich; dies ist die erste Seite, ab der sich die Gruppen unterscheiden.</p>
+        <p>Im Umfragetool: zufällige Zuweisung mit Gleichverteilung, Bearbeitungszeit pro Seite mitspeichern (Novotny et al. schlossen die schnellsten 3 % aus).</p></div>`,
+    items: () => [],
+  },
+  {
+    block: "Vignette · Szene 1", titel: "Ihr Unternehmen im Wandel", min: 0.75, variiert: "Wissenslücke",
+    text: (g) => `
+      <p class="intro">Auf den folgenden Seiten erleben Sie eine Situation aus dem Arbeitsalltag. Bitte versetzen Sie sich so gut wie möglich in die beschriebene Person, als wären Sie es selbst. Wenn möglich, schalten Sie bitte den Ton ein.</p>
+      <div class="bild"><img src="bilder/szene1-arbeitsplatz.webp" alt="Person am Schreibtisch in einem Großraumbüro, im Hintergrund ein Organigramm am Whiteboard."></div>
+      <p>Sie arbeiten bei der <strong>Lumora Cosmetics GmbH</strong>, einem Hersteller von Haut- und Körperpflegeprodukten mit rund 1.100 Beschäftigten. Die Geschäftsführung hat vor einigen Monaten eine umfassende Neuorganisation beschlossen. Der Vertrieb wurde neu aufgestellt: Kundenzuständigkeiten wurden neu verteilt, Teams neu zusammengesetzt und neue Rollen geschaffen. Unter anderem wurde ein telefonischer Vertrieb für regionale Handelskunden aufgebaut, den es bei Lumora bisher nicht gab.</p>
+      ${GRUPPEN[g].luecke === "niedrig" ? `
+      <p>Sie arbeiten seit mehreren Jahren als <strong>Key Account Manager/in</strong>. Ihre Rolle und Ihre Führungskraft sind durch die Neuorganisation gleich geblieben, Ihr Team wurde aber neu zusammengesetzt, sodass Sie nun auch mit einigen neuen Kolleginnen und Kollegen zusammenarbeiten. Sie kennen Ihre Aufgaben und Abläufe, wissen, wer intern wofür zuständig ist und wo Unterlagen abgelegt werden. Vor zwei Wochen haben Sie zusätzlich die <strong>Velto Drogeriemärkte</strong> übernommen, eine regionale Drogeriekette mit 85 Filialen.</p>` : `
+      <p>Sie wurden vor zwei Wochen in die neu geschaffene Rolle als <strong>Tele Sales Manager/in</strong> versetzt. Die Aufgaben, die Abläufe und Ihr Team sind für Sie neu. Oft wissen Sie noch nicht genau, wie bestimmte Dinge hier gehandhabt werden, wer wofür zuständig ist und wo Unterlagen abgelegt sind. Zu Ihren Kunden gehören seitdem die <strong>Velto Drogeriemärkte</strong>, eine regionale Drogeriekette mit 85 Filialen.</p>`}`,
+    items: () => [],
+    regie: (g) => `<div class="regie"><div class="kopf">Regie · hier variiert die Wissenslücke</div>
+      <p>Der erste Absatz (Unternehmen und Neuorganisation) ist in allen vier Gruppen wortgleich. Der zweite Absatz trägt die Manipulation:</p>
+      <ul>
+        <li><strong>Niedrig (V3, V4):</strong> Key Account Manager/in seit Jahren, Rolle und Führungskraft unverändert, Aufgaben bekannt.</li>
+        <li><strong>Hoch (V1, V2):</strong> Tele Sales Manager/in seit zwei Wochen, Rolle und Aufgaben neu — Kompetenzlücke nach Nicholson (1984).</li>
+      </ul>
+      <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "niedrige Wissenslücke" : "hohe Wissenslücke"}</strong>. Konstant in beiden: derselbe Wandel, dieselbe Kundenübernahme vor zwei Wochen.</p></div>`,
+  },
+  {
+    block: "Vignette · Szene 2", titel: "Donnerstag, 15:42 Uhr", min: 1.25,
+    text: () => `
+      <p>Sie kommen aus einem Meeting zurück. Auf Ihrem Telefon wartet eine Sprachnachricht von <strong>Thomas Krämer</strong>, Einkäufer bei Velto.</p>
+      <div class="bild"><img src="bilder/szene2-sprachnachricht.webp" alt="Person kommt mit Tasche an den Arbeitsplatz zurück und hört auf dem Smartphone eine Sprachnachricht ab."></div>
+      <div class="bild"><img src="bilder/szene2-mailbox.webp" alt="Mailbox-Fenster mit der Sprachnachricht von Thomas Krämer, Abspielleiste und vollständiger Transkription."></div>
+      <div class="audio"><span class="sym">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><polygon points="7,5 19,12 7,19" fill="#fff"/></svg></span>
+        <span>Sprachnachricht · 0:46 Min. — das Transkript bleibt für Teilnehmende ohne Ton immer sichtbar.</span></div>
+      <div class="transkript"><div class="kopf">Transkription</div>
+        „Guten Tag, hier spricht Thomas Krämer von Velto. Es geht um Ihre Lieferung von heute Morgen. Vier von vierzehn Paletten sind durchnässt angekommen, die Kartons sind eingedrückt, und bei der Winterpflege-Handcreme sind die Faltschachteln kaputt. Die Tuben selbst sind in Ordnung. Wir behalten die Ware, weil morgen unsere Winter-Pflegewochen in allen 85 Filialen starten und die Regale voll sein müssen. Aber meine Leute müssen heute Abend umpacken, und beschädigte Schachteln verkaufen sich schlecht. Frau Berger hat uns bei so einem Fall im Frühjahr eine Gutschrift zugesagt, und ich gehe davon aus, dass wir das wieder so regeln. Ich muss das morgen Vormittag meiner Geschäftsleitung berichten. <strong>Rufen Sie mich bitte morgen um 10 Uhr an.</strong> Danke.“</div>`,
+    items: () => [],
+    regie: () => `<div class="regie"><div class="kopf">Regie · in allen vier Gruppen identisch</div>
+      <p>Derselbe Schaden, dieselbe Sprachnachricht, derselbe Zeitdruck (Rückruf morgen 10 Uhr). Der Kunde ist sachlich und bestimmt, aber nicht aggressiv — es soll kein zusätzlicher Konflikt entstehen, der die Belastung erklärt.</p>
+      <p><strong>Noch zu produzieren:</strong> die Audiodatei. Regieanweisung aus deinem Dokument: ca. 45 Sekunden, Sprecher männlich, 45–55 Jahre, bestimmt und unter Zeitdruck, freundlich-sachlich, nicht wütend.</p></div>`,
+  },
+  {
+    block: "Vignette · Szene 3", titel: "Frau Berger", min: 0.5, variiert: "Wissenslücke",
+    text: (g) => GRUPPEN[g].luecke === "niedrig" ? `
+      <p>Velto wurde bisher von Ihrer Kollegin <strong>Katrin Berger</strong> betreut. Sie ist im Zuge der Neuorganisation intern ins Produktmanagement gewechselt. Vor ihrem Wechsel hat sie Ihnen den Kunden in einem ausführlichen Gespräch übergeben und eine Übergabenotiz mit offenen Vorgängen, Ansprechpartnern und Ablageorten hinterlassen. Sie ist bei Rückfragen weiterhin erreichbar. Sie schreiben ihr kurz:</p>
+      <div class="bild"><img src="bilder/szene3-chat-berger.webp" alt="Chatfenster mit Katrin Berger, Status verfügbar. Sie antwortet, die Unterlagen lägen im Kundenordner unter Velto, Reklamationen."></div>` : `
+      <p>Velto wurde bisher von Ihrer Kollegin <strong>Katrin Berger</strong> betreut. Sie hat das Unternehmen kurz vor Ihrem Wechsel verlassen. Eine Übergabe hat nicht stattgefunden. Sie versuchen trotzdem, sie zu erreichen:</p>
+      <div class="bild"><img src="bilder/szene3-unzustellbar.webp" alt="Posteingang mit einer Unzustellbarkeitsmeldung: das Postfach von Katrin Berger ist nicht mehr aktiv."></div>`,
+    items: () => [],
+    regie: (g) => `<div class="regie"><div class="kopf">Regie · zweite Ursache der Wissenslücke</div>
+      <p>Hier wird nicht die Rolle variiert, sondern der <strong>Wissensverlust durch den Weggang der Vorgängerin</strong> (Ren &amp; Argote, 2011; Probst et al., 2010):</p>
+      <ul>
+        <li><strong>Niedrig (V3, V4):</strong> intern gewechselt, erreichbar, Übergabegespräch und Übergabenotiz.</li>
+        <li><strong>Hoch (V1, V2):</strong> ausgeschieden, nicht erreichbar, keine Übergabe.</li>
+      </ul>
+      <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "Chat mit Frau Berger, sie antwortet" : "Unzustellbarkeits-Meldung"}</strong>. In beiden Fällen ist das Wissen im Unternehmen dokumentiert vorhanden — es ist nur unterschiedlich leicht zugänglich.</p></div>`,
+  },
+  {
+    block: "Vignette · Szene 4", titel: "Sie bereiten den Rückruf vor", min: 1, variiert: "KI-Tool",
+    text: (g) => `
+      <p>Für Reklamationen gibt es bei Lumora einen festgelegten Ablauf, und die bisherige Korrespondenz mit Velto ist in den Systemen gespeichert. Um den Rückruf vorzubereiten, müssen Sie klären, <strong>wie Sie bei der Reklamation vorgehen</strong>, <strong>wer intern zuständig ist</strong> und <strong>was Velto bereits zugesagt wurde</strong>. Mit der Suche haben Sie noch nicht begonnen.</p>
+      ${GRUPPEN[g].tool === "ohne" ? `
+      <p>Für die Suche stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente.</p>
+      <div class="bild"><img src="bilder/szene4-ohne-tool.webp" alt="Drei Fenster nebeneinander: Laufwerksablage mit zehn Ordnern, E-Mail-Archiv mit 247 E-Mails zum Kunden, Kundensystem mit den Stammdaten von Velto."></div>
+      <p>Um die drei Fragen zu klären, müssten Sie diese E-Mails und Dokumente nacheinander öffnen und durchlesen. Welche davon für Ihren Fall relevant und aktuell sind und wer die Gutschrift freigeben muss, müssen Sie selbst herausfinden.</p>` : `
+      <p>Für die Suche stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente. Zusätzlich gibt es seit der Neuorganisation einen <strong>KI-gestützten Wissensassistenten</strong>. Er durchsucht Ablage, E-Mails und Kundensystem, berücksichtigt bereits die neuen Abläufe und Zuständigkeiten, beantwortet Fragen in normaler Sprache, greift nur auf dokumentierte Informationen zurück und nennt seine Quellen.</p>
+      <div class="bild"><img src="bilder/szene4-mit-tool.webp" alt="Dieselben drei Fenster, zusätzlich das Fenster des KI-Wissensassistenten mit Beschreibung, drei Beispielfragen und einem Eingabefeld."></div>
+      <p>Statt die E-Mails und Dokumente nacheinander zu öffnen und durchzulesen, können Sie dem Assistenten Ihre Fragen stellen. Welche Unterlagen für Ihren Fall relevant und aktuell sind und wer die Gutschrift freigeben muss, sucht er für Sie heraus.</p>`}`,
+    items: () => [],
+    regie: (g) => `<div class="regie"><div class="kopf">Regie · hier variiert das KI-Tool</div>
+      <p>Die drei Fenster sind in beiden Bildern identisch; mit Tool kommt nur das Assistentenfenster hinzu. <strong>Keines der Bilder zeigt ein Suchergebnis oder eine Antwort.</strong> Variiert wird die verfügbare Ressource, nicht das Wissen selbst — die Wissenslücke ist in beiden Bedingungen noch offen.</p>
+      <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].tool === "ohne" ? "nur die Arbeitsmittel" : "Arbeitsmittel plus KI-Assistent"}</strong>.</p>
+      <p>Das ist zugleich die wichtigste Limitation: Die Teilnehmenden nutzen das Tool nicht selbst. Erfasst wird die Bewertung der Situation bei <em>verfügbarer</em> Ressource, nicht die Wirkung tatsächlicher Nutzung.</p></div>`,
+  },
+  {
+    block: "Vignette · Abschluss", titel: "Es ist 16:30 Uhr", min: 0.75,
+    text: () => `
+      <p>Bis zum Rückruf morgen um 10 Uhr müssen Sie noch klären, ob und in welcher Höhe Sie Velto eine Gutschrift anbieten, die nötige interne Freigabe einholen und das Gespräch mit Herrn Krämer vorbereiten, der seiner Geschäftsleitung berichten muss.</p>`,
+    items: () => [{ id: "OF1", text: "Was würden Sie als Nächstes tun? Notieren Sie kurz Ihre ersten Schritte.", typ: "text", hinweis: "freiwillig" }],
+    regie: () => `<div class="regie"><div class="kopf">Regie</div>
+      <p>Die offene Frage ist in deinem Dokument als optional markiert. Sie kostet Bearbeitungszeit, liefert dir aber qualitatives Material für die Diskussion — und sie zwingt zur Auseinandersetzung mit der Situation, bevor der PASA kommt. Wenn du sie behältst: als freiwilliges Textfeld, nicht als Pflichtfeld.</p></div>`,
+  },
+  {
+    block: "PASA", titel: "Wie würden Sie die Situation erleben?", min: 2,
+    text: () => `
+      <p>Wenn Sie an den morgigen Rückruf denken: Bitte beantworten Sie die folgenden Fragen so, wie Sie sich jetzt fühlen würden.</p>
+      <p class="intro">Die folgenden Aussagen beziehen sich auf die konkrete Situation. Bitte geben Sie bei jeder Aussage an, wie stark sie im Augenblick für Sie persönlich zutrifft. Dabei haben Sie die Möglichkeit, jede Aussage als «ganz falsch», «ziemlich falsch» oder «etwas falsch» zurückzuweisen oder ihr mit «etwas richtig», «ziemlich richtig» oder «ganz richtig» zuzustimmen. Die Zustimmung nimmt damit von links nach rechts kontinuierlich zu.</p>
+      <p><strong>Diese Aussage ist für mich zur Zeit …</strong></p>`,
+    items: () => PASA,
+    regie: () => `<div class="regie"><div class="kopf">Regie · PASA (Gaab, 2009)</div>
+      <p>Originalitems in Originalreihenfolge, identisch in allen vier Gruppen. Umpolen: Items 1, 6, 7, 9, 10 (1↔6, 2↔5, 3↔4).</p>
+      <ul>
+        <li>Bedrohung: 1, 5, 9, 13 · Herausforderung: 2, 6, 10, 14</li>
+        <li>Selbstkonzept: 3, 7, 11, 15 · Kontrollüberzeugung: 4, 8, 12, 16</li>
+        <li>Erstbewertung = (Bedrohung + Herausforderung) / 2 · Zweitbewertung = (Selbstkonzept + Kontrollüberzeugung) / 2</li>
+        <li><strong>Stressindex = Erstbewertung − Zweitbewertung</strong> — das ist deine abhängige Variable.</li>
+      </ul>
+      <p>16 Items auf einer Seite sind viel. Im Tool als Matrix setzen und unbedingt am Smartphone prüfen; hier siehst du die Smartphone-Variante mit einzeln untereinander stehenden Items.</p></div>`,
+  },
+  {
+    block: "Manipulationscheck", titel: "Noch ein paar Fragen zur Situation", min: 0.75, variiert: "KI-Tool",
+    text: () => `<p class="intro">Bitte beziehen Sie sich weiterhin auf die beschriebene Situation.</p>`,
+    items: (g) => manipulation(g),
+    regie: (g) => `<div class="regie"><div class="kopf">Regie · Manipulationschecks</div>
+      <ul>
+        <li><strong>MC1–MC3</strong> prüfen die Wissenslücke. Erwartung: niedriger bei hoher Lücke (V1, V2).</li>
+        <li><strong>MC4</strong> prüft die Tool-Bedingung. Erwartung: „ja“ nur in V2 und V4.</li>
+        <li><strong>MC5</strong> wird nur in V2 und V4 gezeigt — ${GRUPPEN[g].tool === "mit" ? "diese Gruppe sieht das Item" : "diese Gruppe sieht es nicht"}.</li>
+      </ul>
+      <p><strong>Noch zu entscheiden:</strong> das Antwortformat für MC1–MC3 und MC5. Hier sind sie der Einfachheit halber im PASA-Format (1–6) dargestellt. Eine fünfstufige Zustimmungsskala wäre genauso vertretbar — nur einheitlich sollte es sein.</p></div>`,
+  },
+  {
+    block: "Abschluss", titel: "Vielen Dank für Ihre Teilnahme", min: 0.25,
+    text: () => `
+      <p>Ihre Angaben wurden gespeichert. In dieser Studie ging es darum, wie Menschen eine Arbeitssituation in einem Unternehmen erleben, das sich gerade neu organisiert hat, und welche Rolle dabei der Zugang zu Wissen spielt. Dazu wurden vier Varianten derselben Situation eingesetzt; welche Sie gesehen haben, wurde zufällig bestimmt.</p>
+      <p>Wenn Sie Fragen zur Studie oder Interesse an den Ergebnissen haben, erreichen Sie mich unter <strong>[E-Mail]</strong>.</p>
+      <p>Isabella Dietrich · FOM Hochschule</p>
+      <div class="regie"><div class="kopf">Regie</div>
+        <p>Diese Seite ist zugleich das Debriefing. Weil die Teilnehmenden nicht erfahren haben, dass es vier Varianten gibt, gehört die Aufklärung hierhin — kurz, ohne die Hypothese zu nennen, damit niemand sie weitererzählt.</p></div>`,
+    items: () => [],
+  },
+];
+
+/* ====================== Zustand ====================== */
+let gruppe = "V1", modus = "klick", seite = 0;
+const antworten = {};
+
+const istBeruf = () => ["Berufstätig in Vollzeit", "Berufstätig in Teilzeit", "Werkstudent:in bzw. Minijob"]
+  .some((x) => (antworten.A4 || []).includes(x));
+const sichtbar = (it) =>
+  it.filter === "beruf" ? istBeruf() : it.filter === "A9ja" ? antworten.A9 === "ja" : true;
+
+/* ====================== Bausteine ====================== */
+function skalaHtml(it) {
+  const s = it.skala, p = [];
+  for (let i = 1; i <= s.n; i++)
+    p.push(`<label class="punkt"><span class="n">${i}</span>
+      <input type="radio" name="${it.id}" value="${i}" data-id="${it.id}">
+      ${s.labels ? `<span class="lab">${s.labels[i - 1]}</span>` : ""}</label>`);
+  return `<div class="skala">
+    <div class="pole"><span>${s.links}</span><span>${s.rechts}</span></div>
+    <div class="punkte">${p.join("")}</div></div>`;
+}
+
+function itemHtml(it) {
+  let koerper = "";
+  if (it.typ === "zahl")
+    koerper = `<div class="opts"><input type="number" min="0" max="120" data-id="${it.id}" placeholder="${it.einheit || ""}"></div>`;
+  else if (it.typ === "radio" || it.typ === "check")
+    koerper = `<div class="opts">${it.optionen.map((o) =>
+      `<label class="opt"><input type="${it.typ === "radio" ? "radio" : "checkbox"}" name="${it.id}" value="${o}" data-id="${it.id}"><span>${o}</span></label>`).join("")}</div>`;
+  else if (it.typ === "skala") koerper = skalaHtml(it);
+  else if (it.typ === "text")
+    koerper = `<div class="opts"><textarea data-id="${it.id}" placeholder="Ihre Antwort …"></textarea></div>`;
+  return `<div class="item${sichtbar(it) ? "" : " versteckt"}" data-item="${it.id}" data-filter="${it.filter || ""}">
+    <div class="frage"><span class="nr">${it.id}</span><span class="txt">${it.text}${
+      it.pflicht ? ' <span class="pflicht">*</span>' : ""}${it.hinweis ? `<em>${it.hinweis}</em>` : ""}</span></div>
+    ${koerper}</div>`;
+}
+
+function seiteHtml(s, idx) {
+  const items = s.items(gruppe).map(itemHtml).join("");
+  const regie = typeof s.regie === "function" ? s.regie(gruppe) : s.regie || "";
+  return `<div class="ueber">
+      <span class="block">${s.block}</span>
+      ${s.variiert ? `<span class="block nur-regie" style="color:var(--regie)">variiert: ${s.variiert}</span>` : ""}
+      <span class="zaehler">Seite ${idx + 1} von ${SEITEN.length}</span></div>
+    <section class="karte"><div class="karte-innen">
+      <h1>${s.titel}</h1>
+      ${s.text(gruppe)}
+      ${items ? `<div class="items">${items}</div>` : ""}
+      ${regie}
+    </div></section>`;
+}
+
+/* ====================== Kennzahlen ====================== */
+function kennzahlen() {
+  const items = SEITEN.reduce((n, s) => n + s.items(gruppe).length, 0);
+  const pflicht = SEITEN.reduce((n, s) => n + s.items(gruppe).filter((i) => i.pflicht).length, 0);
+  const min = SEITEN.reduce((n, s) => n + s.min, 0);
+  const vig = SEITEN.filter((s) => s.block.startsWith("Vignette")).reduce((n, s) => n + s.min, 0);
+  return { items, pflicht, min, vig };
+}
+
+/* ====================== Zeichnen ====================== */
+const buehne = document.getElementById("buehne");
+
+function zeichnen() {
+  if (modus === "klick") {
+    buehne.className = "buehne";
+    const s = SEITEN[seite];
+    const rest = SEITEN.slice(seite).reduce((n, x) => n + x.min, 0);
+    buehne.innerHTML = seiteHtml(s, seite) + `
+      <div class="nav">
+        <button class="knopf sek" id="zurueck"${seite === 0 ? " disabled" : ""}>Zurück</button>
+        <button class="knopf" id="weiter"${seite === SEITEN.length - 1 ? " disabled" : ""}>Weiter</button>
+        <span class="rest">noch ca. ${Math.max(1, Math.round(rest))} Min.</span>
+      </div>`;
+    document.getElementById("zurueck").onclick = () => { seite = Math.max(0, seite - 1); zeichnen(); scrollTo({ top: 0 }); };
+    document.getElementById("weiter").onclick = () => { seite = Math.min(SEITEN.length - 1, seite + 1); zeichnen(); scrollTo({ top: 0 }); };
+    const c = document.getElementById("consent");
+    if (c) {
+      const w = document.getElementById("weiter");
+      w.disabled = !c.checked;
+      c.onchange = () => { w.disabled = !c.checked; };
+    }
+  } else {
+    buehne.className = "buehne uebersicht";
+    const k = kennzahlen();
+    buehne.innerHTML = `
+      <dl class="kennzahlen">
+        <div><dt>Seiten</dt><dd>${SEITEN.length}</dd></div>
+        <div><dt>Items</dt><dd>${k.items} <small>davon ${k.pflicht} Pflicht</small></dd></div>
+        <div><dt>Dauer gesamt</dt><dd>≈ ${Math.round(k.min)} <small>Min.</small></dd></div>
+        <div><dt>davon Vignette</dt><dd>≈ ${Math.round(k.vig)} <small>Min.</small></dd></div>
+      </dl>` +
+      SEITEN.map((s, i) => seiteHtml(s, i)).join("");
+  }
+  verdrahten();
+  zustand();
+}
+
+function verdrahten() {
+  buehne.querySelectorAll("input[data-id], textarea[data-id]").forEach((el) => {
+    el.addEventListener("change", () => {
+      const id = el.dataset.id;
+      if (el.type === "checkbox") {
+        antworten[id] = [...buehne.querySelectorAll(`input[data-id="${id}"]:checked`)].map((x) => x.value);
+      } else antworten[id] = el.value;
+      filterPruefen();
+    });
+  });
+  filterPruefen();
+}
+
+function filterPruefen() {
+  buehne.querySelectorAll(".item[data-filter]").forEach((el) => {
+    const f = el.dataset.filter;
+    if (!f) return;
+    const zeigen = f === "beruf" ? istBeruf() : f === "A9ja" ? antworten.A9 === "ja" : true;
+    el.classList.toggle("versteckt", !zeigen);
+  });
+}
+
+function zustand() {
+  document.getElementById("zBedingung").textContent = gruppe + " · " + GRUPPEN[gruppe].kurz;
+  document.getElementById("zSeite").textContent =
+    modus === "klick" ? `${seite + 1} / ${SEITEN.length}` : `alle ${SEITEN.length}`;
+  document.getElementById("zBalken").style.width =
+    modus === "klick" ? ((seite + 1) / SEITEN.length) * 100 + "%" : "100%";
+}
+
+/* ====================== Bedienung ====================== */
+const gBox = document.getElementById("gruppen");
+Object.keys(GRUPPEN).forEach((k) => {
+  const b = document.createElement("button");
+  b.className = "gbtn"; b.textContent = k; b.title = GRUPPEN[k].kurz;
+  b.setAttribute("aria-pressed", String(k === gruppe));
+  b.onclick = () => { gruppe = k; markieren(); zeichnen(); };
+  gBox.appendChild(b);
+});
+const wuerfel = document.createElement("button");
+wuerfel.className = "gbtn wuerfel"; wuerfel.textContent = "Zufall";
+wuerfel.title = "So wie im echten Fragebogen: zufällige Zuweisung";
+wuerfel.onclick = () => {
+  const k = Object.keys(GRUPPEN);
+  gruppe = k[Math.floor(Math.random() * k.length)];
+  markieren(); zeichnen();
+};
+gBox.appendChild(wuerfel);
+
+function markieren() {
+  gBox.querySelectorAll(".gbtn").forEach((b) =>
+    b.setAttribute("aria-pressed", String(b.textContent === gruppe)));
+}
+
+document.getElementById("modus").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-modus]");
+  if (!b) return;
+  modus = b.dataset.modus;
+  document.querySelectorAll("#modus button").forEach((x) =>
+    x.setAttribute("aria-pressed", String(x === b)));
+  zeichnen(); scrollTo({ top: 0 });
+});
+
+document.getElementById("regieAn").addEventListener("change", (e) => {
+  document.body.classList.toggle("ohne-regie", !e.target.checked);
+});
+
+zeichnen();
+</script>
