@@ -430,7 +430,7 @@ const SEITEN = [
         <span>Ich bin mindestens 18 Jahre alt, habe die Informationen gelesen und bin mit der Teilnahme einverstanden.</span></label>
       <div class="regie"><div class="kopf">Regie</div>
         <p>Pflichtfeld. Ohne Haken führt der Weiter-Knopf direkt auf die Abschlussseite (Screen-out) — hier nachgebaut: der Knopf bleibt gesperrt.</p>
-        <p>Der Zweck ist bewusst allgemein gehalten. „Stress“, „KI“ und „Wissensverlust“ kommen an dieser Stelle nicht vor, sonst entsteht ein Demand-Effekt. Die Dauer <code>[X]</code> aus deinem Entwurf ist hier mit 12 Minuten gefüllt — siehe Kennzahlen in der Gesamtübersicht.</p></div>`,
+        <p>Der Zweck ist bewusst allgemein gehalten. „Stress“, „KI“ und „Wissensverlust“ kommen an dieser Stelle nicht vor, sonst entsteht ein Demand-Effekt. Die Dauerangabe steht hier bei 12 Minuten; die Kennzahlen in der Gesamtübersicht weisen sie aus. Nach dem Pretest ist sie durch den gemessenen Median zu ersetzen.</p></div>`,
     items: () => [],
   },
   {
@@ -439,9 +439,9 @@ const SEITEN = [
     items: () => BLOCK_A,
     regie: `<div class="regie"><div class="kopf">Regie · Filter und Kontrollvariablen</div>
       <ul>
-        <li><strong>A5–A8</strong> erscheinen nur, wenn bei A4 „Berufstätig“ oder „Werkstudent:in“ angekreuzt ist. Probier es aus — die Fragen klappen live auf.</li>
+        <li><strong>A5–A8</strong> erscheinen nur, wenn bei A4 „Berufstätig“ oder „Werkstudent:in“ angekreuzt ist. In dieser Vorschau klappen die Fragen beim Ankreuzen live auf.</li>
         <li><strong>A10</strong> erscheint nur bei A9 = ja.</li>
-        <li><strong>A9/A10</strong> sind Kontrollvariablen: Change-Vorerfahrung kann beeinflussen, wie bedrohlich die Vignette wirkt. Wenn dir das zu viel Priming vor der Vignette ist, können beide ans Ende.</li>
+        <li><strong>A9/A10</strong> sind Kontrollvariablen: Change-Vorerfahrung kann beeinflussen, wie bedrohlich die Vignette wirkt. Beide sprechen das Thema Wandel allerdings schon vor der Vignette an; wiegt das als Priming zu schwer, rücken sie ans Ende.</li>
         <li><strong>A11/A12</strong> ordnen den von Novotny et al. berichteten Bodeneffekt bei KI-Unerfahrenen ein.</li>
         <li><strong>Offen:</strong> nur Berufstätige oder auch reine Studierende? Davon hängt ab, ob A5–A8 Pflicht oder gefiltert sind.</li>
       </ul></div>`,
@@ -453,7 +453,7 @@ const SEITEN = [
     items: () => BLOCK_B,
     regie: `<div class="regie"><div class="kopf">Regie · Quelle und Auswertung</div>
       <p>Novotny, Weber, Kern &amp; Kreuter (2025), Anhang A1, nach Stein et al. (2024). 7-stufig, nur die Endpunkte beschriftet.</p>
-      <p>Auswertung: Mittelwert über B1–B6, keine Umpolung, hoher Wert = positive Einstellung. Reliabilität im Original α = .95. Die Facetten (kognitiv / affektiv / behavioral) gehören nur in deine Auswertung, nicht in den Fragebogen.</p></div>`,
+      <p>Auswertung: Mittelwert über B1–B6, keine Umpolung, hoher Wert = positive Einstellung. Reliabilität im Original α = .95. Die Facetten (kognitiv / affektiv / behavioral) gehören in die Auswertung, nicht in den Fragebogen.</p></div>`,
   },
   {
     block: "Block C", titel: "Inwieweit treffen die folgenden Aussagen auf Sie zu?", min: 1.25,
@@ -463,12 +463,12 @@ const SEITEN = [
       <p>Rammstedt, Kemper, Klein, Beierlein &amp; Kovaleva (2014), ZIS. Die Big Five mit je zwei Items: Extraversion (C1, C6), Verträglichkeit (C2, C7), Gewissenhaftigkeit (C3, C8), Neurotizismus (C4, C9), Offenheit (C5, C10).</p>
       <p><strong>Drei Aufgaben hat der Block — „Puffer“ allein trägt zehn Items nicht:</strong></p>
       <ul>
-        <li><strong>Randomisierungskontrolle.</strong> Bei vier Gruppen à 30–40 Personen kann die Zufallszuteilung schiefgehen. Im Ergebnisteil zeigst du, dass sich die Gruppen in Alter, KI-Einstellung und Persönlichkeit nicht unterscheiden — erst dann sind Unterschiede im PASA auf die Vignette zurückzuführen.</li>
+        <li><strong>Randomisierungskontrolle.</strong> Bei vier Gruppen à 30–40 Personen kann die Zufallszuteilung schiefgehen. Der Ergebnisteil weist nach, dass sich die Gruppen in Alter, KI-Einstellung und Persönlichkeit nicht unterscheiden — erst dann sind Unterschiede im PASA auf die Vignette zurückzuführen.</li>
         <li><strong>Kovariate, vor allem Neurotizismus.</strong> Der stabilste Einzelprädiktor dafür, wie bedrohlich jemand eine Situation bewertet. Als Kovariate aufgenommen senkt er die Fehlervarianz im Stressindex und schärft den Test der Manipulation.</li>
         <li><strong>Puffer.</strong> Trennt die explizite KI-Abfrage in Block B von der Vignette, damit das Tool in Szene 4 nicht als deren Fortsetzung gelesen wird.</li>
       </ul>
       <p><strong>Grenze:</strong> zwei Items pro Dimension, entsprechend niedrige interne Konsistenzen — beim BFI-10 bekannt und bewusst in Kauf genommen, berichtet wird dort die Retest-Reliabilität. Als Kovariate vertretbar, als Moderator nicht.</p>
-      <p><strong>Haken an der Pufferlogik:</strong> C4 („lasse mich durch Stress nicht aus der Ruhe bringen“) und C9 („werde leicht nervös und unsicher“) sprechen Stressreaktivität direkt an — unmittelbar vor einer Vignette, deren Erleben der PASA misst. Der Wortlaut gehört zum Instrument und ist nicht änderbar. Steht bei dir als offene Entscheidung: vor der Vignette lassen und in die Limitationen, oder hinter die Manipulationschecks schieben — dann entfällt die Pufferwirkung.</p>
+      <p><strong>Haken an der Pufferlogik:</strong> C4 („lasse mich durch Stress nicht aus der Ruhe bringen“) und C9 („werde leicht nervös und unsicher“) sprechen Stressreaktivität direkt an — unmittelbar vor einer Vignette, deren Erleben der PASA misst. Der Wortlaut gehört zum Instrument und ist nicht änderbar. Noch offen: vor der Vignette lassen und in die Limitationen aufnehmen, oder hinter die Manipulationschecks schieben — dann entfällt allerdings die Pufferwirkung.</p>
       <p>Auswertung: C1, C3, C4, C5, C7 umpolen (6 − x), dann je Dimension der Mittelwert aus zwei Items. Wortlaut vor Übernahme gegen den ZIS-Eintrag prüfen.</p></div>`,
   },
   {
@@ -551,7 +551,7 @@ const SEITEN = [
       <p><strong>KI-Tool:</strong> dieselben drei Arbeitsmittel in allen Gruppen; mit Tool kommt nur das Assistentenfenster hinzu — ohne Suchergebnis, ohne Antwort. Variiert wird die verfügbare Ressource, nicht das Wissen selbst. Diese Gruppe sieht: <strong>${GRUPPEN[g].tool === "ohne" ? "nur die Arbeitsmittel" : "Arbeitsmittel plus KI-Assistent"}</strong>.</p>
       <p><strong>Wissenslücke:</strong> bei niedriger Lücke steht hier ein zusätzlicher Satz („Mit der Übergabenotiz … wissen Sie, wo Sie anfangen“). Das löst den Widerspruch der vorigen Fassung auf: Wer in Szene 3 eine brauchbare Auskunft bekommen hat, kann in Szene 4 nicht völlig ratlos vor derselben Ablage stehen. Diese Gruppe sieht den Satz: <strong>${GRUPPEN[g].luecke === "niedrig" ? "ja" : "nein"}</strong>.</p>
       <p><strong>Gestrichen:</strong> der Aufwand-Kontrast („nacheinander öffnen und durchlesen“ gegen „statt … einfach fragen“). Der hat die Bewertung vorweggenommen, die der PASA erst messen soll.</p>
-      <p><strong>Zu den Bildern:</strong> hier sind die Fenster für diese Vorschau in HTML nachgebaut, damit sie den neuen Stand zeigen — Ordner „05_Aktionen“ ergänzt, E-Mail-Betreffs angepasst, Kundensystem mit der Einstufung als Schlüsselkunde. Für die Erhebung brauchst du sie als Bilder; diese Ansicht kannst du als Vorlage dafür nehmen. In der Erhebung stehen die drei Fenster nebeneinander, das Assistentenfenster liegt darüber.</p>
+      <p><strong>Zu den Bildern:</strong> hier sind die Fenster für diese Vorschau in HTML nachgebaut, damit sie den neuen Stand zeigen — Ordner „05_Aktionen“ ergänzt, E-Mail-Betreffs angepasst, Kundensystem mit der Einstufung als Schlüsselkunde. Für die Erhebung werden sie als Bilder benötigt; diese Ansicht dient dafür als Vorlage. In der Erhebung stehen die drei Fenster nebeneinander, das Assistentenfenster liegt darüber.</p>
       <p>In den E-Mail-Betreffs stehen Wochentage statt Datumsangaben — sonst wäre die Vignette doch wieder an einen Kalender gebunden.</p></div>`,
   },
   {
@@ -561,7 +561,7 @@ const SEITEN = [
     items: () => [{ id: "OF1", text: "Was würden Sie als Nächstes tun? Notieren Sie kurz Ihre ersten Schritte.", typ: "text", hinweis: "freiwillig" }],
     regie: () => `<div class="regie"><div class="kopf">Regie</div>
       <p>Die Zeitachse schließt sich hier: 16:30 Uhr jetzt, 17:30 Uhr Rückruf, 18 Uhr letzte Express-Abholung. Die Freigabe muss also vor der Abholung stehen — das macht die interne Zuständigkeitsfrage aus Szene 4 handlungsrelevant statt nur lästig.</p>
-      <p>Die offene Frage bleibt freiwillig. Sie kostet Bearbeitungszeit, liefert dir aber qualitatives Material und zwingt zur Auseinandersetzung mit der Situation, bevor der PASA kommt.</p></div>`,
+      <p>Die offene Frage bleibt freiwillig. Sie kostet Bearbeitungszeit, liefert aber qualitatives Material für die Diskussion und zwingt zur Auseinandersetzung mit der Situation, bevor der PASA kommt.</p></div>`,
   },
   {
     block: "PASA", titel: "Wie würden Sie die Situation erleben?", min: 2,
@@ -578,8 +578,8 @@ const SEITEN = [
         <li>Erstbewertung = (Bedrohung + Herausforderung) / 2 · Zweitbewertung = (Selbstkonzept + Kontrollüberzeugung) / 2</li>
         <li>Stressindex = Erstbewertung − Zweitbewertung</li>
       </ul>
-      <p><strong>Offene Entscheidung:</strong> ob der Stressindex deine abhängige Variable wird oder Bedrohung und Selbstkonzept getrennt. Der Index ist kompakter, verdeckt aber, ob ein Effekt von der Anforderungs- oder von der Ressourcenseite kommt — und genau das ist bei einem KI-Tool die interessantere Frage. Das sollte zu deinen Hypothesen passen, nicht umgekehrt.</p>
-      <p>16 Items auf einer Seite sind viel. Im Tool als Matrix setzen und am Smartphone prüfen; hier siehst du die Smartphone-Variante mit einzeln untereinander stehenden Items.</p></div>`,
+      <p><strong>Offene Entscheidung:</strong> Stressindex als abhängige Variable, oder Bedrohung und Selbstkonzept getrennt. Der Index ist kompakter, verdeckt aber, ob ein Effekt von der Anforderungs- oder von der Ressourcenseite kommt — bei einem KI-Tool die interessantere Frage. Die Wahl richtet sich nach den Hypothesen, nicht umgekehrt.</p>
+      <p>16 Items auf einer Seite sind viel. Im Umfragetool als Matrix setzen und am Smartphone prüfen; diese Vorschau zeigt die Smartphone-Variante mit einzeln untereinander stehenden Items.</p></div>`,
   },
   {
     block: "Manipulationscheck", titel: "Noch ein paar Fragen zur Situation", min: 0.75, variiert: "KI-Tool",
@@ -602,7 +602,7 @@ const SEITEN = [
       <p>Isabella Dietrich · FOM Hochschule</p>
       <div class="regie"><div class="kopf">Regie · was noch offen ist</div>
         <p>Diese Seite ist zugleich das Debriefing — kurz, ohne die Hypothese zu nennen, damit niemand sie weitererzählt.</p>
-        <p><strong>Noch zu produzieren:</strong> Sprachnachricht aufnehmen (ca. 50 Sek.), Personenübersicht als Grafik mit drei Kärtchen, und die vier Bildschirmansichten als Bilder für das Umfragetool — Mailbox mit Absender „Thomas Krämer · Einkauf Velto“, Chat ohne Emoji, Unzustellbar-Meldung grau, Arbeitsmittel mit Ordner „Aktionen“ und neuen Betreffs. Die Fassungen in dieser Vorschau kannst du als Vorlage nehmen.</p>
+        <p><strong>Noch zu produzieren:</strong> Sprachnachricht aufnehmen (ca. 50 Sek.), Personenübersicht als Grafik mit drei Kärtchen, und die vier Bildschirmansichten als Bilder für das Umfragetool — Mailbox mit Absender „Thomas Krämer · Einkauf Velto“, Chat ohne Emoji, Unzustellbar-Meldung grau, Arbeitsmittel mit Ordner „Aktionen“ und neuen Betreffs. Die Fassungen in dieser Vorschau dienen dafür als Vorlage.</p>
         <p><strong>Noch zu entscheiden:</strong> abhängige Variable (Stressindex oder Bedrohung und Selbstkonzept getrennt) · Stichprobe (nur Berufstätige oder auch Studierende) · Position des BFI-10 · Antwortformat der Manipulationschecks.</p>
         <p><strong>Zweiter Pretest:</strong> Realismus („könnte so in einem Unternehmen vorkommen“) und Belastung („wäre für mich belastend“) abfragen und den PASA auf einen Deckeneffekt prüfen — die Zuspitzung könnte sonst zu weit gegangen sein.</p></div>`,
     items: () => [],
