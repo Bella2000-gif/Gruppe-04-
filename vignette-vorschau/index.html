@@ -10,7 +10,9 @@
   --rule:#d7dce3; --rule-2:#e8ebf0;
   --blue:#2560c4; --blue-soft:#e8f0fc;
   --regie:#8c4a2f; --regie-soft:#f7ece5; --regie-rule:#e0c7b6;
-  --ok:#2f7049; --warn:#b4522e; --violet:#5b4fc7;
+  --ok:#2f7049; --warn:#b4522e; --violet:#5b4fc7; --violet-soft:#eeecfb;
+  --mock-bg:#e8ebf0; --mock-win:#ffffff; --mock-head:#f2f4f7; --mock-line:#e2e6eb;
+  --mock-ink:#1f2937; --mock-muted:#6b7684;
   --sans:"Source Sans 3",system-ui,sans-serif;
   --serif:"Newsreader",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,monospace;
@@ -22,7 +24,9 @@
     --rule:#2d343f; --rule-2:#262d37;
     --blue:#76abf0; --blue-soft:#1b2a3f;
     --regie:#e3a37c; --regie-soft:#2b2019; --regie-rule:#4a382c;
-    --ok:#73b68d; --warn:#e0906b; --violet:#9b91ea;
+    --ok:#73b68d; --warn:#e0906b; --violet:#7a6fd8; --violet-soft:#262240;
+    --mock-bg:#0f1319; --mock-win:#1a1f27; --mock-head:#232a33; --mock-line:#2b323c;
+    --mock-ink:#e3e8ee; --mock-muted:#929daa;
   }
 }
 :root[data-theme="dark"]{
@@ -31,7 +35,9 @@
   --rule:#2d343f; --rule-2:#262d37;
   --blue:#76abf0; --blue-soft:#1b2a3f;
   --regie:#e3a37c; --regie-soft:#2b2019; --regie-rule:#4a382c;
-  --ok:#73b68d; --warn:#e0906b; --violet:#9b91ea;
+  --ok:#73b68d; --warn:#e0906b; --violet:#7a6fd8; --violet-soft:#262240;
+  --mock-bg:#0f1319; --mock-win:#1a1f27; --mock-head:#232a33; --mock-line:#2b323c;
+  --mock-ink:#e3e8ee; --mock-muted:#929daa;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -154,6 +160,63 @@ body.ohne-regie .frage .nr{display:none}
 .trenner{max-width:620px;margin:30px auto 14px;display:flex;align-items:center;gap:13px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--regie)}
 .trenner::after{content:"";flex:1;height:1px;background:var(--regie-rule)}
+/* Simulierte Bildschirmansichten */
+.mock{background:var(--mock-bg);border:1px solid var(--rule);border-radius:4px;padding:14px;margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.win{background:var(--mock-win);border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden}
+.win-bar{background:var(--mock-head);border-bottom:1px solid var(--mock-line);padding:8px 13px;display:flex;gap:9px;align-items:center;font-size:12.5px;font-weight:600;color:var(--mock-ink)}
+.ampel{display:flex;gap:5px;flex:none}
+.ampel i{width:9px;height:9px;border-radius:50%;display:block}
+.win-leib{padding:14px 15px;color:var(--mock-ink);font-size:14px;line-height:1.5}
+.win-leib .mm{color:var(--mock-muted)}
+.kopfzeile{display:flex;gap:12px;align-items:flex-start;margin-bottom:13px}
+.avatar{width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:14px;font-weight:700;letter-spacing:.02em}
+.kopfzeile .wer{flex:1;min-width:0}
+.kopfzeile .wer b{display:block;font-size:16px;color:var(--mock-ink)}
+.kopfzeile .wer span{display:block;font-size:13px;color:var(--mock-muted);margin-top:1px}
+.kopfzeile .rechts{text-align:right;font-size:12px;color:var(--mock-muted);flex:none}
+.marker{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 7px;border-radius:3px;margin-bottom:4px}
+.abspieler{display:flex;gap:12px;align-items:center;background:var(--mock-head);border-radius:5px;padding:10px 13px;margin-bottom:14px}
+.abspieler .play{width:32px;height:32px;border-radius:50%;background:var(--blue);display:grid;place-items:center;flex:none}
+.welle{flex:1;display:flex;gap:2px;align-items:center;height:26px;overflow:hidden}
+.welle i{flex:1;background:var(--mock-muted);opacity:.65;border-radius:1px;display:block;min-width:2px}
+.abspieler .zeit{font-family:var(--mono);font-size:11.5px;color:var(--mock-muted);flex:none}
+.feldlabel{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--mock-muted);margin-bottom:7px}
+.blase{max-width:84%;padding:10px 13px;font-size:14px;line-height:1.5;border-radius:12px;margin-bottom:9px}
+.blase.ich{background:var(--blue);color:#fff;margin-left:auto;border-bottom-right-radius:3px}
+.blase.du{background:var(--mock-head);color:var(--mock-ink);border-bottom-left-radius:3px}
+.blase .uhr{display:block;font-size:11px;opacity:.7;margin-top:5px}
+.systemkasten{background:var(--mock-head);border:1px solid var(--mock-line);border-radius:5px;padding:12px 14px;color:var(--mock-muted);margin-bottom:14px}
+.zitat{border-left:2px solid var(--mock-line);padding-left:14px;color:var(--mock-muted);font-size:13.5px}
+.ordner{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.ordner li{display:flex;gap:9px;align-items:center;font-size:13.5px}
+.ordner i{width:13px;height:11px;border-radius:1px 2px 2px 2px;background:#e9b949;flex:none;display:block}
+.mails{list-style:none;margin:0;padding:0}
+.mails li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--mock-line);font-size:13.5px}
+.mails li:last-child{border-bottom:0}
+.mails .wer{font-weight:600;flex:0 0 108px;color:var(--mock-ink)}
+.mails .betr{flex:1;color:var(--mock-muted)}
+.mails .tag{flex:none;font-family:var(--mono);font-size:11.5px;color:var(--mock-muted)}
+.suchzeile{background:var(--mock-head);border:1px solid var(--mock-line);border-radius:5px;padding:9px 13px;
+  font-size:13.5px;color:var(--mock-muted);margin-bottom:11px}
+.stamm{list-style:none;margin:0;padding:0}
+.stamm li{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px solid var(--mock-line);font-size:13.5px}
+.stamm li:last-child{border-bottom:0}
+.stamm .k{color:var(--mock-muted)}
+.stamm .v{color:var(--mock-ink);text-align:right}
+.win.assistent{border:1px solid var(--violet)}
+.win.assistent .win-bar{background:var(--violet);color:#fff;border-bottom-color:var(--violet)}
+.beispiel{background:var(--violet-soft);color:var(--mock-ink);border-radius:5px;padding:9px 12px;margin-bottom:7px;font-size:13.5px}
+.eingabe{border:1px solid var(--mock-line);border-radius:5px;padding:10px 13px;color:var(--mock-muted);font-size:13.5px;margin-top:10px}
+
+/* Personenübersicht */
+.personen{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px;margin:18px 0}
+.person{border:1px solid var(--rule);border-radius:3px;padding:13px 14px;background:var(--card-2)}
+.person .rolle{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.person b{display:block;font-size:15.5px}
+.person span{display:block;font-size:13.5px;color:var(--ink-2);margin-top:3px}
+
 @media (max-width:620px){ .karte-innen{padding:22px 18px} .leiste-innen{padding:9px 14px} .buehne{padding:18px 14px 70px} }
 </style>
 
@@ -266,9 +329,9 @@ const PASA = [
 
 function manipulation(g) {
   const items = [
-    { id: "MC1", text: "Ich wüsste, wie ich bei der Reklamation vorgehen muss.", typ: "skala", skala: S_PASA, pflicht: true },
-    { id: "MC2", text: "Ich wüsste, an wen ich mich wenden kann.", typ: "skala", skala: S_PASA, pflicht: true },
-    { id: "MC3", text: "Ich wüsste, was dem Kunden bisher zugesagt wurde.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC1", text: "Ich wüsste aus meinem eigenen Wissen heraus, wie ich in dieser Situation vorgehen muss.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC2", text: "Ich wüsste aus meinem eigenen Wissen heraus, an wen ich mich intern wenden kann.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC3", text: "Ich wüsste aus meinem eigenen Wissen heraus, was dem Kunden bisher zugesagt wurde.", typ: "skala", skala: S_PASA, pflicht: true },
     { id: "MC4", text: "In der beschriebenen Situation stand mir ein KI-Assistent zur Verfügung.", typ: "radio", optionen: ["ja", "nein"], pflicht: true },
   ];
   if (GRUPPEN[g].tool === "mit")
@@ -276,6 +339,81 @@ function manipulation(g) {
   return items;
 }
 
+/* ====================== Bildschirmansichten ====================== */
+const AMPEL = `<span class="ampel"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>`;
+const WELLE = Array.from({ length: 44 },
+  (_, i) => `<i style="height:${26 + Math.round(70 * Math.abs(Math.sin(i * 1.9)))}%"></i>`).join("");
+
+const win = (titel, leib, klasse = "") =>
+  `<div class="win ${klasse}"><div class="win-bar">${klasse === "assistent" ? "" : AMPEL}<span>${titel}</span></div>
+   <div class="win-leib">${leib}</div></div>`;
+
+const MAILBOX = win("Telefonie · Mailbox", `
+  <div class="kopfzeile">
+    <span class="avatar" style="background:var(--blue-soft);color:var(--blue)">TK</span>
+    <span class="wer"><b>Thomas Krämer</b><span>Einkauf · Drogerie Velto</span></span>
+    <span class="rechts"><span class="marker" style="background:var(--mock-head);color:var(--warn)">Neue Sprachnachricht</span><br>Heute, 15:42 · 0:50 Min.</span>
+  </div>
+  <div class="abspieler">
+    <span class="play"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><polygon points="8,5 19,12 8,19" fill="#fff"/></svg></span>
+    <span class="welle">${WELLE}</span>
+    <span class="zeit">0:00 / 0:50</span>
+  </div>
+  <div class="feldlabel">Transkription</div>
+  <p style="margin:0">„Guten Tag, hier spricht Thomas Krämer vom Einkauf der Drogerie Velto. Es geht um Ihre Lieferung von heute Morgen. Vier von vierzehn Paletten fehlen, darunter alle Nikolaus-Geschenksets. Die sind ab morgen in unserem Wochenprospekt beworben, in allen 85 Filialen, und nach Nikolaus verkaufen wir die nicht mehr. Wenn die Regale morgen leer sind, haben wir enttäuschte Kundschaft und für die Werbung umsonst bezahlt. Frau Berger hat uns zugesagt, dass Lumora bei Aktionsware sofort nachliefert, und im Frühjahr gab es in so einem Fall auch eine Gutschrift. Ich muss das heute noch meiner Geschäftsleitung melden, und in zwei Wochen sprechen wir über Ihr Sortiment für nächstes Jahr. <strong>Rufen Sie mich bitte bis 17:30 Uhr zurück</strong> und sagen Sie mir, wie Sie das lösen. Danke.“</p>`);
+
+const CHAT = win("Chat", `
+  <div class="kopfzeile">
+    <span class="avatar" style="background:var(--mock-head);color:var(--ok)">KB</span>
+    <span class="wer"><b>Katrin Berger</b><span>Produktmanagement · Verfügbar</span></span>
+  </div>
+  <div class="blase ich">Hallo Katrin, Herr Krämer von Velto meldet fehlende Nikolaus-Sets und erwähnt eine Zusage von dir zur Nachlieferung. Hast du kurz Zeit?<span class="uhr">15:49</span></div>
+  <div class="blase du">Hallo, ja, das war die Vereinbarung für Aktionsware. Die Unterlagen habe ich dir bei der Übergabe gezeigt, sie liegen im Kundenordner unter <strong>Velto › Aktionen</strong>. Ruf gern an, wenn etwas unklar ist.<span class="uhr">15:53</span></div>`);
+
+const UNZUSTELLBAR = win("Posteingang", `
+  <div class="kopfzeile">
+    <span class="wer"><b>Unzustellbar: Kurze Frage zu Velto</b><span>Von: Mail-Systemdienst · Heute, 15:51</span></span>
+  </div>
+  <div class="systemkasten">Ihre Nachricht an <strong>Katrin Berger</strong> konnte nicht zugestellt werden.<br>
+    Das Postfach ist nicht mehr aktiv. Die Empfängerin ist nicht mehr im Unternehmen tätig.</div>
+  <div class="feldlabel">Ihre ursprüngliche Nachricht</div>
+  <div class="zitat">Hallo Frau Berger,<br>ich habe die Betreuung der Drogerie Velto übernommen. Herr Krämer vom Einkauf bei Velto bezieht sich auf eine Zusage von Ihnen zur Nachlieferung von Aktionsware. Können Sie mir sagen, was damals vereinbart wurde und wo ich die Unterlagen finde?</div>`);
+
+const ORDNER = ["01_Kunden", "02_Angebote", "03_Konditionen", "04_Reklamationen", "05_Aktionen",
+  "06_Jahresgespräche", "07_Protokolle", "Neuorganisation_2026"];
+const MAILS_LISTE = [
+  ["K. Berger", "Zusage Aktionsware", "Fr"],
+  ["T. Krämer", "Nikolaus-Aktion – Liefertermine", "Do"],
+  ["Logistik", "Avis Drogerie Velto", "Mi"],
+  ["K. Berger", "Velto – offene Punkte", "Di"],
+  ["Vertrieb Nord", "Neue Zuständigkeiten", "Mo"],
+];
+const STAMM = [["Kundennummer", "40 2187"], ["Einstufung", "Strategischer Schlüsselkunde"],
+  ["Filialen", "85"], ["Ansprechpartner", "Thomas Krämer, Einkauf"],
+  ["Betreuung", "Sie, seit 2 Wochen"], ["Offene Vorgänge", "3"]];
+
+const ARBEITSMITTEL =
+  win("Laufwerk V: › Vertrieb", `
+    <ul class="ordner">${ORDNER.map((o) => `<li><i></i>${o}</li>`).join("")}</ul>
+    <p class="mm" style="margin:11px 0 0;font-size:12.5px">11 Ordner · 1.284 Dateien</p>`) +
+  win("E-Mail-Archiv", `
+    <div class="suchzeile">Suchen …</div>
+    <p class="mm" style="margin:0 0 9px;font-size:12.5px">Kundenordner Velto · 247 E-Mails</p>
+    <ul class="mails">${MAILS_LISTE.map(([w, b, t]) =>
+      `<li><span class="wer">${w}</span><span class="betr">${b}</span><span class="tag">${t}</span></li>`).join("")}</ul>`) +
+  win("Kundensystem", `
+    <p style="margin:0 0 4px;font-size:16px;font-weight:600">Drogerie Velto</p>
+    <p class="mm" style="margin:0 0 11px;font-size:13px">Regionaler Handel</p>
+    <ul class="stamm">${STAMM.map(([k, v]) =>
+      `<li><span class="k">${k}</span><span class="v">${v}</span></li>`).join("")}</ul>`);
+
+const ASSISTENT = win("✦ KI-Wissensassistent", `
+  <p style="margin:0 0 13px">Hallo! Ich durchsuche für Sie <strong>Ablage, E-Mails und Kundensystem</strong> und berücksichtige dabei bereits die <strong>neuen Abläufe und Zuständigkeiten</strong>. Ich greife nur auf dokumentierte Informationen zurück und nenne zu jeder Antwort meine Quellen.</p>
+  <div class="feldlabel">Beispielfragen</div>
+  <div class="beispiel">Was wurde mit einem Kunden bisher vereinbart?</div>
+  <div class="beispiel">Wie läuft ein bestimmter Prozess aktuell ab?</div>
+  <div class="beispiel">Wer ist für ein Thema zuständig oder hat ähnliche Fälle bearbeitet?</div>
+  <div class="eingabe">Frage stellen …</div>`, "assistent");
 /* ====================== Seiten ====================== */
 const SEITEN = [
   {
@@ -315,7 +453,7 @@ const SEITEN = [
     items: () => BLOCK_B,
     regie: `<div class="regie"><div class="kopf">Regie · Quelle und Auswertung</div>
       <p>Novotny, Weber, Kern &amp; Kreuter (2025), Anhang A1, nach Stein et al. (2024). 7-stufig, nur die Endpunkte beschriftet.</p>
-      <p>Auswertung: Mittelwert über B1–B6, keine Umpolung, hoher Wert = positive Einstellung. Reliabilität im Original α = .95. Die Facetten (kognitiv / affektiv / behavioral) gehören nur in deine Auswertung, nicht in den Fragebogen — deshalb stehen sie hier auch nicht an den Items.</p></div>`,
+      <p>Auswertung: Mittelwert über B1–B6, keine Umpolung, hoher Wert = positive Einstellung. Reliabilität im Original α = .95. Die Facetten (kognitiv / affektiv / behavioral) gehören nur in deine Auswertung, nicht in den Fragebogen.</p></div>`,
   },
   {
     block: "Block C", titel: "Inwieweit treffen die folgenden Aussagen auf Sie zu?", min: 1.25,
@@ -329,8 +467,8 @@ const SEITEN = [
         <li><strong>Kovariate, vor allem Neurotizismus.</strong> Der stabilste Einzelprädiktor dafür, wie bedrohlich jemand eine Situation bewertet. Als Kovariate aufgenommen senkt er die Fehlervarianz im Stressindex und schärft den Test der Manipulation.</li>
         <li><strong>Puffer.</strong> Trennt die explizite KI-Abfrage in Block B von der Vignette, damit das Tool in Szene 4 nicht als deren Fortsetzung gelesen wird.</li>
       </ul>
-      <p><strong>Grenze:</strong> zwei Items pro Dimension, entsprechend niedrige interne Konsistenzen — beim BFI-10 bekannt und bewusst in Kauf genommen, berichtet wird dort die Retest-Reliabilität. Als Kovariate vertretbar, als Moderator nicht: dafür reichen weder Messgenauigkeit noch Fallzahl.</p>
-      <p><strong>Haken an der Pufferlogik:</strong> C4 („lasse mich durch Stress nicht aus der Ruhe bringen“) und C9 („werde leicht nervös und unsicher“) sprechen Stressreaktivität direkt an — unmittelbar vor einer Vignette, deren Erleben der PASA misst. Der Wortlaut gehört zum Instrument und ist nicht änderbar. Also entweder in die Limitationen, oder der Block wandert hinter die Manipulationschecks — dann entfällt die Pufferwirkung und die Demand-Gefahr bei MC5 steigt.</p>
+      <p><strong>Grenze:</strong> zwei Items pro Dimension, entsprechend niedrige interne Konsistenzen — beim BFI-10 bekannt und bewusst in Kauf genommen, berichtet wird dort die Retest-Reliabilität. Als Kovariate vertretbar, als Moderator nicht.</p>
+      <p><strong>Haken an der Pufferlogik:</strong> C4 („lasse mich durch Stress nicht aus der Ruhe bringen“) und C9 („werde leicht nervös und unsicher“) sprechen Stressreaktivität direkt an — unmittelbar vor einer Vignette, deren Erleben der PASA misst. Der Wortlaut gehört zum Instrument und ist nicht änderbar. Steht bei dir als offene Entscheidung: vor der Vignette lassen und in die Limitationen, oder hinter die Manipulationschecks schieben — dann entfällt die Pufferwirkung.</p>
       <p>Auswertung: C1, C3, C4, C5, C7 umpolen (6 − x), dann je Dimension der Mittelwert aus zwei Items. Wortlaut vor Übernahme gegen den ZIS-Eintrag prüfen.</p></div>`,
   },
   {
@@ -343,84 +481,92 @@ const SEITEN = [
     items: () => [],
   },
   {
-    block: "Vignette · Szene 1", titel: "Ihr Unternehmen im Wandel", min: 0.75, variiert: "Wissenslücke",
+    block: "Vignette · Szene 1", titel: "Ihr Unternehmen im Wandel", min: 1, variiert: "Wissenslücke",
     text: (g) => `
       <p class="intro">Auf den folgenden Seiten erleben Sie eine Situation aus dem Arbeitsalltag. Bitte versetzen Sie sich so gut wie möglich in die beschriebene Person, als wären Sie es selbst. Wenn möglich, schalten Sie bitte den Ton ein.</p>
       <div class="bild"><img src="bilder/szene1-arbeitsplatz.webp" alt="Person am Schreibtisch in einem Großraumbüro, im Hintergrund ein Organigramm am Whiteboard."></div>
-      <p>Sie arbeiten bei der <strong>Lumora Cosmetics GmbH</strong>, einem Hersteller von Haut- und Körperpflegeprodukten mit rund 1.100 Beschäftigten. Die Geschäftsführung hat vor einigen Monaten eine umfassende Neuorganisation beschlossen. Der Vertrieb wurde neu aufgestellt: Kundenzuständigkeiten wurden neu verteilt, Teams neu zusammengesetzt und neue Rollen geschaffen. Unter anderem wurde ein telefonischer Vertrieb für regionale Handelskunden aufgebaut, den es bei Lumora bisher nicht gab.</p>
+      <p>Sie arbeiten bei der <strong>Lumora Cosmetics GmbH</strong>, einem Hersteller von Haut- und Körperpflegeprodukten mit rund 1.100 Beschäftigten. Die Geschäftsführung hat vor einigen Monaten eine umfassende Neuorganisation beschlossen. Der Vertrieb wurde neu aufgestellt: Kundenzuständigkeiten wurden neu verteilt, Teams neu zusammengesetzt und neue Rollen geschaffen. Zugleich hat die Geschäftsführung <strong>fünf strategische Schlüsselkunden</strong> festgelegt, die besonders sorgfältig betreut werden sollen. Einer davon ist die <strong>Drogerie Velto</strong>, eine regionale Drogeriekette mit 85 Filialen.</p>
       ${GRUPPEN[g].luecke === "niedrig" ? `
-      <p>Sie arbeiten seit mehreren Jahren als <strong>Key Account Manager/in</strong>. Ihre Rolle und Ihre Führungskraft sind durch die Neuorganisation gleich geblieben, Ihr Team wurde aber neu zusammengesetzt, sodass Sie nun auch mit einigen neuen Kolleginnen und Kollegen zusammenarbeiten. Sie kennen Ihre Aufgaben und Abläufe, wissen, wer intern wofür zuständig ist und wo Unterlagen abgelegt werden. Vor zwei Wochen haben Sie zusätzlich die <strong>Velto Drogeriemärkte</strong> übernommen, eine regionale Drogeriekette mit 85 Filialen.</p>` : `
-      <p>Sie wurden vor zwei Wochen in die neu geschaffene Rolle als <strong>Tele Sales Manager/in</strong> versetzt. Die Aufgaben, die Abläufe und Ihr Team sind für Sie neu. Oft wissen Sie noch nicht genau, wie bestimmte Dinge hier gehandhabt werden, wer wofür zuständig ist und wo Unterlagen abgelegt sind. Zu Ihren Kunden gehören seitdem die <strong>Velto Drogeriemärkte</strong>, eine regionale Drogeriekette mit 85 Filialen.</p>`}`,
+      <p>Sie sind seit mehreren Jahren bei Lumora und arbeiten als <strong>Key Account Manager/in</strong>. Ihre Rolle ist durch die Neuorganisation gleich geblieben. Ihr Team wurde neu zusammengesetzt, Sie berichten weiterhin an dieselbe Vertriebsleiterin. Sie kennen Ihre Aufgaben und Abläufe, wissen, wer intern wofür zuständig ist und wo Unterlagen abgelegt sind. Vor zwei Wochen haben Sie zusätzlich die Betreuung der Drogerie Velto übernommen.</p>` : `
+      <p>Sie sind seit mehreren Jahren bei Lumora. Vor zwei Wochen haben Sie die neu geschaffene Rolle als <strong>Partner Sales Manager/in</strong> übernommen. Ihr Team wurde neu zusammengesetzt, Sie berichten weiterhin an dieselbe Vertriebsleiterin. Die Aufgaben und Abläufe dieser Rolle sind für Sie neu: Oft wissen Sie noch nicht genau, wie bestimmte Dinge hier gehandhabt werden, wer intern wofür zuständig ist und wo Unterlagen abgelegt sind. Mit der neuen Rolle haben Sie auch die Betreuung der Drogerie Velto übernommen.</p>`}
+      <p>In dieser Situation kommen drei Personen vor:</p>
+      <div class="personen">
+        <div class="person"><div class="rolle">Sie selbst</div><b>Sie</b><span>zuständig bei Lumora für den Kunden Velto</span></div>
+        <div class="person"><div class="rolle">Beim Kunden</div><b>Thomas Krämer</b><span>Einkäufer bei Velto, Ihr Ansprechpartner dort</span></div>
+        <div class="person"><div class="rolle">Bei Lumora</div><b>Katrin Berger</b><span>Ihre Kollegin, die Velto vor Ihnen betreut hat</span></div>
+      </div>`,
     items: () => [],
     regie: (g) => `<div class="regie"><div class="kopf">Regie · hier variiert die Wissenslücke</div>
-      <p>Der erste Absatz (Unternehmen und Neuorganisation) ist in allen vier Gruppen wortgleich. Der zweite Absatz trägt die Manipulation:</p>
+      <p>Erster Absatz wortgleich in allen vier Gruppen. Der zweite trägt die Manipulation — und zwar nur noch über die <strong>Neuartigkeit der Rolle</strong>:</p>
       <ul>
-        <li><strong>Niedrig (V3, V4):</strong> Key Account Manager/in seit Jahren, Rolle und Führungskraft unverändert, Aufgaben bekannt.</li>
-        <li><strong>Hoch (V1, V2):</strong> Tele Sales Manager/in seit zwei Wochen, Rolle und Aufgaben neu — Kompetenzlücke nach Nicholson (1984).</li>
+        <li><strong>Niedrig (V3, V4):</strong> Key Account Manager/in, Rolle unverändert, Aufgaben bekannt.</li>
+        <li><strong>Hoch (V1, V2):</strong> Partner Sales Manager/in, Rolle vor zwei Wochen übernommen, Aufgaben neu — Kompetenzlücke nach Nicholson (1984).</li>
       </ul>
-      <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "niedrige Wissenslücke" : "hohe Wissenslücke"}</strong>. Konstant in beiden: derselbe Wandel, dieselbe Kundenübernahme vor zwei Wochen.</p></div>`,
+      <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "niedrige Wissenslücke" : "hohe Wissenslücke"}</strong>.</p>
+      <p><strong>Neu in dieser Fassung:</strong> Betriebszugehörigkeit („seit mehreren Jahren bei Lumora“) und Führungskraft („dieselbe Vertriebsleiterin“) sind jetzt in beiden Bedingungen gleich. Damit unterscheidet sich zwischen den Gruppen wirklich nur noch das Wissen — vorher trug die hohe Lücke unbeabsichtigt auch Neuheit im Unternehmen mit. „Übernommen“ statt „versetzt“ nimmt zusätzlich den Beiklang von Fremdbestimmung heraus. Der Satz zum telefonischen Vertrieb ist entfallen, die Rolle heißt jetzt Partner Sales Manager/in.</p>
+      <p><strong>Personenübersicht:</strong> wortgleich in allen vier Gruppen, bewusst <em>ohne</em> den Status von Frau Berger — der kommt erst in Szene 3, sonst nähme er der Manipulation die Wirkung. In der Erhebung als kleine Grafik mit drei Kärtchen umsetzen.</p></div>`,
   },
   {
     block: "Vignette · Szene 2", titel: "Donnerstag, 15:42 Uhr", min: 1.25,
     text: () => `
-      <p>Sie kommen aus einem Meeting zurück. Auf Ihrem Telefon wartet eine Sprachnachricht von <strong>Thomas Krämer</strong>, Einkäufer bei Velto.</p>
+      <p>Sie kommen aus einem Meeting zurück. Auf Ihrem Telefon wartet eine Sprachnachricht von <strong>Thomas Krämer</strong>. Er ist Einkäufer bei Velto und Ihr Ansprechpartner beim Kunden.</p>
       <div class="bild"><img src="bilder/szene2-sprachnachricht.webp" alt="Person kommt mit Tasche an den Arbeitsplatz zurück und hört auf dem Smartphone eine Sprachnachricht ab."></div>
-      <div class="bild"><img src="bilder/szene2-mailbox.webp" alt="Mailbox-Fenster mit der Sprachnachricht von Thomas Krämer, Abspielleiste und vollständiger Transkription."></div>
-      <div class="audio"><span class="sym">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><polygon points="7,5 19,12 7,19" fill="#fff"/></svg></span>
-        <span>Sprachnachricht · 0:46 Min. — das Transkript bleibt für Teilnehmende ohne Ton immer sichtbar.</span></div>
-      <div class="transkript"><div class="kopf">Transkription</div>
-        „Guten Tag, hier spricht Thomas Krämer von Velto. Es geht um Ihre Lieferung von heute Morgen. Vier von vierzehn Paletten sind durchnässt angekommen, die Kartons sind eingedrückt, und bei der Winterpflege-Handcreme sind die Faltschachteln kaputt. Die Tuben selbst sind in Ordnung. Wir behalten die Ware, weil morgen unsere Winter-Pflegewochen in allen 85 Filialen starten und die Regale voll sein müssen. Aber meine Leute müssen heute Abend umpacken, und beschädigte Schachteln verkaufen sich schlecht. Frau Berger hat uns bei so einem Fall im Frühjahr eine Gutschrift zugesagt, und ich gehe davon aus, dass wir das wieder so regeln. Ich muss das morgen Vormittag meiner Geschäftsleitung berichten. <strong>Rufen Sie mich bitte morgen um 10 Uhr an.</strong> Danke.“</div>`,
+      <div class="mock">${MAILBOX}</div>`,
     items: () => [],
     regie: () => `<div class="regie"><div class="kopf">Regie · in allen vier Gruppen identisch</div>
-      <p>Derselbe Schaden, dieselbe Sprachnachricht, derselbe Zeitdruck (Rückruf morgen 10 Uhr). Der Kunde ist sachlich und bestimmt, aber nicht aggressiv — es soll kein zusätzlicher Konflikt entstehen, der die Belastung erklärt.</p>
-      <p><strong>Noch zu produzieren:</strong> die Audiodatei. Regieanweisung aus deinem Dokument: ca. 45 Sekunden, Sprecher männlich, 45–55 Jahre, bestimmt und unter Zeitdruck, freundlich-sachlich, nicht wütend.</p></div>`,
+      <p>Derselbe Vorfall, dieselbe Sprachnachricht, derselbe Zeitdruck. <strong>Noch aufzunehmen:</strong> ca. 50 Sekunden, männlich, 45–55 Jahre, bestimmt und unter Zeitdruck, sachlich, nicht wütend. Das Transkript bleibt immer sichtbar, damit Teilnehmende ohne Ton dieselbe Information bekommen.</p>
+      <p><strong>Warum zugespitzt:</strong> fehlende Aktionsware statt beschädigter Ware, beworben im Prospekt, nach Nikolaus unverkäuflich, dazu das Sortimentsgespräch in zwei Wochen und die Frist 17:30 Uhr. Ressourcen puffern vor allem dann, wenn die Anforderung hoch ist (Bakker &amp; Demerouti, 2007, S. 320) — bei einer lauen Anforderung hätte das KI-Tool wenig zu puffern und der Interaktionseffekt bliebe aus. Ob die Zuspitzung trägt, ohne einen Deckeneffekt im PASA zu erzeugen, prüft der zweite Pretest (Aguinis &amp; Bradley, 2014).</p>
+      <p>Kein Kalenderdatum im Text, nur der Wochentag — damit die Vignette nicht an einen Erhebungszeitraum gebunden ist.</p></div>`,
   },
   {
-    block: "Vignette · Szene 3", titel: "Frau Berger", min: 0.5, variiert: "Wissenslücke",
+    block: "Vignette · Szene 3", titel: "Ihre Vorgängerin Katrin Berger", min: 0.5, variiert: "Wissenslücke",
     text: (g) => GRUPPEN[g].luecke === "niedrig" ? `
       <p>Velto wurde bisher von Ihrer Kollegin <strong>Katrin Berger</strong> betreut. Sie ist im Zuge der Neuorganisation intern ins Produktmanagement gewechselt. Vor ihrem Wechsel hat sie Ihnen den Kunden in einem ausführlichen Gespräch übergeben und eine Übergabenotiz mit offenen Vorgängen, Ansprechpartnern und Ablageorten hinterlassen. Sie ist bei Rückfragen weiterhin erreichbar. Sie schreiben ihr kurz:</p>
-      <div class="bild"><img src="bilder/szene3-chat-berger.webp" alt="Chatfenster mit Katrin Berger, Status verfügbar. Sie antwortet, die Unterlagen lägen im Kundenordner unter Velto, Reklamationen."></div>` : `
-      <p>Velto wurde bisher von Ihrer Kollegin <strong>Katrin Berger</strong> betreut. Sie hat das Unternehmen kurz vor Ihrem Wechsel verlassen. Eine Übergabe hat nicht stattgefunden. Sie versuchen trotzdem, sie zu erreichen:</p>
-      <div class="bild"><img src="bilder/szene3-unzustellbar.webp" alt="Posteingang mit einer Unzustellbarkeitsmeldung: das Postfach von Katrin Berger ist nicht mehr aktiv."></div>`,
+      <div class="mock">${CHAT}</div>` : `
+      <p>Velto wurde bisher von Ihrer Kollegin <strong>Katrin Berger</strong> betreut. Sie hat das Unternehmen kurz vor Ihrem Rollenwechsel verlassen. Eine Übergabe hat nicht stattgefunden. Sie versuchen trotzdem, sie zu erreichen:</p>
+      <div class="mock">${UNZUSTELLBAR}</div>`,
     items: () => [],
     regie: (g) => `<div class="regie"><div class="kopf">Regie · zweite Ursache der Wissenslücke</div>
-      <p>Hier wird nicht die Rolle variiert, sondern der <strong>Wissensverlust durch den Weggang der Vorgängerin</strong> (Ren &amp; Argote, 2011; Probst et al., 2010):</p>
+      <p>Hier wirkt der <strong>Wissensverlust durch den Weggang der Vorgängerin</strong> (Ren &amp; Argote, 2011; Probst et al., 2010):</p>
       <ul>
         <li><strong>Niedrig (V3, V4):</strong> intern gewechselt, erreichbar, Übergabegespräch und Übergabenotiz.</li>
         <li><strong>Hoch (V1, V2):</strong> ausgeschieden, nicht erreichbar, keine Übergabe.</li>
       </ul>
-      <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "Chat mit Frau Berger, sie antwortet" : "Unzustellbarkeits-Meldung"}</strong>. In beiden Fällen ist das Wissen im Unternehmen dokumentiert vorhanden — es ist nur unterschiedlich leicht zugänglich.</p></div>`,
+      <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "den Chat, Frau Berger antwortet" : "die Unzustellbarkeits-Meldung"}</strong>. In beiden Fällen ist das Wissen im Unternehmen dokumentiert vorhanden — es ist nur unterschiedlich leicht zugänglich.</p>
+      <p><strong>Neu in dieser Fassung:</strong> beide Darstellungen sind neutral gehalten — kein Emoji im Chat, keine rote Warnfarbe und kein Ausrufezeichen bei der Systemmeldung. Sonst transportiert die Gestaltung selbst eine Dringlichkeit, die nur eine der beiden Gruppen abbekommt.</p></div>`,
   },
   {
-    block: "Vignette · Szene 4", titel: "Sie bereiten den Rückruf vor", min: 1, variiert: "KI-Tool",
+    block: "Vignette · Szene 4", titel: "Sie bereiten den Rückruf vor", min: 1.25, variiert: "Wissenslücke × KI-Tool",
     text: (g) => `
-      <p>Für Reklamationen gibt es bei Lumora einen festgelegten Ablauf, und die bisherige Korrespondenz mit Velto ist in den Systemen gespeichert. Um den Rückruf vorzubereiten, müssen Sie klären, <strong>wie Sie bei der Reklamation vorgehen</strong>, <strong>wer intern zuständig ist</strong> und <strong>was Velto bereits zugesagt wurde</strong>. Mit der Suche haben Sie noch nicht begonnen.</p>
+      <p>Für Reklamationen und Nachlieferungen gibt es bei Lumora einen festgelegten Ablauf, und die bisherige Korrespondenz mit Velto ist in den Systemen gespeichert. Um den Rückruf vorzubereiten, müssen Sie klären, <strong>wie Sie vorgehen</strong>, <strong>wer intern eine Express-Nachlieferung und eine Gutschrift freigibt</strong> und <strong>was Velto genau zugesagt wurde</strong>. Mit der Suche haben Sie noch nicht begonnen.</p>
+      ${GRUPPEN[g].luecke === "niedrig"
+        ? `<p>Mit der Übergabenotiz und dem Hinweis von Frau Berger wissen Sie, wo Sie anfangen. Die Einzelheiten müssen Sie noch nachlesen.</p>` : ""}
       ${GRUPPEN[g].tool === "ohne" ? `
-      <p>Für die Suche stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente.</p>
-      <div class="bild"><img src="bilder/szene4-ohne-tool.webp" alt="Drei Fenster nebeneinander: Laufwerksablage mit zehn Ordnern, E-Mail-Archiv mit 247 E-Mails zum Kunden, Kundensystem mit den Stammdaten von Velto."></div>
-      <p>Um die drei Fragen zu klären, müssten Sie diese E-Mails und Dokumente nacheinander öffnen und durchlesen. Welche davon für Ihren Fall relevant und aktuell sind und wer die Gutschrift freigeben muss, müssen Sie selbst herausfinden.</p>` : `
-      <p>Für die Suche stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente. Zusätzlich gibt es seit der Neuorganisation einen <strong>KI-gestützten Wissensassistenten</strong>. Er durchsucht Ablage, E-Mails und Kundensystem, berücksichtigt bereits die neuen Abläufe und Zuständigkeiten, beantwortet Fragen in normaler Sprache, greift nur auf dokumentierte Informationen zurück und nennt seine Quellen.</p>
-      <div class="bild"><img src="bilder/szene4-mit-tool.webp" alt="Dieselben drei Fenster, zusätzlich das Fenster des KI-Wissensassistenten mit Beschreibung, drei Beispielfragen und einem Eingabefeld."></div>
-      <p>Statt die E-Mails und Dokumente nacheinander zu öffnen und durchzulesen, können Sie dem Assistenten Ihre Fragen stellen. Welche Unterlagen für Ihren Fall relevant und aktuell sind und wer die Gutschrift freigeben muss, sucht er für Sie heraus.</p>`}`,
+      <p>Dafür stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente.</p>
+      <div class="mock">${ARBEITSMITTEL}</div>` : `
+      <p>Dafür stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente. Zusätzlich gibt es seit der Neuorganisation einen <strong>KI-gestützten Wissensassistenten</strong>. Er durchsucht Ablage, E-Mails und Kundensystem, berücksichtigt die neuen Abläufe und Zuständigkeiten, beantwortet Fragen in normaler Sprache, greift nur auf dokumentierte Informationen zurück und nennt seine Quellen.</p>
+      <div class="mock">${ARBEITSMITTEL}${ASSISTENT}</div>`}`,
     items: () => [],
-    regie: (g) => `<div class="regie"><div class="kopf">Regie · hier variiert das KI-Tool</div>
-      <p>Die drei Fenster sind in beiden Bildern identisch; mit Tool kommt nur das Assistentenfenster hinzu. <strong>Keines der Bilder zeigt ein Suchergebnis oder eine Antwort.</strong> Variiert wird die verfügbare Ressource, nicht das Wissen selbst — die Wissenslücke ist in beiden Bedingungen noch offen.</p>
-      <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].tool === "ohne" ? "nur die Arbeitsmittel" : "Arbeitsmittel plus KI-Assistent"}</strong>.</p>
-      <p>Das ist zugleich die wichtigste Limitation: Die Teilnehmenden nutzen das Tool nicht selbst. Erfasst wird die Bewertung der Situation bei <em>verfügbarer</em> Ressource, nicht die Wirkung tatsächlicher Nutzung.</p></div>`,
+    regie: (g) => `<div class="regie"><div class="kopf">Regie · hier treffen beide Faktoren aufeinander</div>
+      <p><strong>KI-Tool:</strong> dieselben drei Arbeitsmittel in allen Gruppen; mit Tool kommt nur das Assistentenfenster hinzu — ohne Suchergebnis, ohne Antwort. Variiert wird die verfügbare Ressource, nicht das Wissen selbst. Diese Gruppe sieht: <strong>${GRUPPEN[g].tool === "ohne" ? "nur die Arbeitsmittel" : "Arbeitsmittel plus KI-Assistent"}</strong>.</p>
+      <p><strong>Wissenslücke:</strong> bei niedriger Lücke steht hier ein zusätzlicher Satz („Mit der Übergabenotiz … wissen Sie, wo Sie anfangen“). Das löst den Widerspruch der vorigen Fassung auf: Wer in Szene 3 eine brauchbare Auskunft bekommen hat, kann in Szene 4 nicht völlig ratlos vor derselben Ablage stehen. Diese Gruppe sieht den Satz: <strong>${GRUPPEN[g].luecke === "niedrig" ? "ja" : "nein"}</strong>.</p>
+      <p><strong>Gestrichen:</strong> der Aufwand-Kontrast („nacheinander öffnen und durchlesen“ gegen „statt … einfach fragen“). Der hat die Bewertung vorweggenommen, die der PASA erst messen soll.</p>
+      <p><strong>Zu den Bildern:</strong> hier sind die Fenster für diese Vorschau in HTML nachgebaut, damit sie den neuen Stand zeigen — Ordner „05_Aktionen“ ergänzt, E-Mail-Betreffs angepasst, Kundensystem mit der Einstufung als Schlüsselkunde. Für die Erhebung brauchst du sie als Bilder; diese Ansicht kannst du als Vorlage dafür nehmen. In der Erhebung stehen die drei Fenster nebeneinander, das Assistentenfenster liegt darüber.</p>
+      <p>In den E-Mail-Betreffs stehen Wochentage statt Datumsangaben — sonst wäre die Vignette doch wieder an einen Kalender gebunden.</p></div>`,
   },
   {
     block: "Vignette · Abschluss", titel: "Es ist 16:30 Uhr", min: 0.75,
     text: () => `
-      <p>Bis zum Rückruf morgen um 10 Uhr müssen Sie noch klären, ob und in welcher Höhe Sie Velto eine Gutschrift anbieten, die nötige interne Freigabe einholen und das Gespräch mit Herrn Krämer vorbereiten, der seiner Geschäftsleitung berichten muss.</p>`,
+      <p>Bis <strong>17:30 Uhr</strong> müssen Sie Herrn Krämer vom Einkauf bei Velto sagen, ob und wie die fehlenden Nikolaus-Geschenksets bis morgen früh bei Velto sind. Die letzte Express-Abholung im Lager ist um <strong>18 Uhr</strong>, und dafür brauchen Sie vorher die interne Freigabe.</p>`,
     items: () => [{ id: "OF1", text: "Was würden Sie als Nächstes tun? Notieren Sie kurz Ihre ersten Schritte.", typ: "text", hinweis: "freiwillig" }],
     regie: () => `<div class="regie"><div class="kopf">Regie</div>
-      <p>Die offene Frage ist in deinem Dokument als optional markiert. Sie kostet Bearbeitungszeit, liefert dir aber qualitatives Material für die Diskussion — und sie zwingt zur Auseinandersetzung mit der Situation, bevor der PASA kommt. Wenn du sie behältst: als freiwilliges Textfeld, nicht als Pflichtfeld.</p></div>`,
+      <p>Die Zeitachse schließt sich hier: 16:30 Uhr jetzt, 17:30 Uhr Rückruf, 18 Uhr letzte Express-Abholung. Die Freigabe muss also vor der Abholung stehen — das macht die interne Zuständigkeitsfrage aus Szene 4 handlungsrelevant statt nur lästig.</p>
+      <p>Die offene Frage bleibt freiwillig. Sie kostet Bearbeitungszeit, liefert dir aber qualitatives Material und zwingt zur Auseinandersetzung mit der Situation, bevor der PASA kommt.</p></div>`,
   },
   {
     block: "PASA", titel: "Wie würden Sie die Situation erleben?", min: 2,
     text: () => `
-      <p>Wenn Sie an den morgigen Rückruf denken: Bitte beantworten Sie die folgenden Fragen so, wie Sie sich jetzt fühlen würden.</p>
+      <p>Wenn Sie an den Rückruf um <strong>17:30 Uhr</strong> denken: Bitte beantworten Sie die folgenden Fragen so, wie Sie sich jetzt fühlen würden.</p>
       <p class="intro">Die folgenden Aussagen beziehen sich auf die konkrete Situation. Bitte geben Sie bei jeder Aussage an, wie stark sie im Augenblick für Sie persönlich zutrifft. Dabei haben Sie die Möglichkeit, jede Aussage als «ganz falsch», «ziemlich falsch» oder «etwas falsch» zurückzuweisen oder ihr mit «etwas richtig», «ziemlich richtig» oder «ganz richtig» zuzustimmen. Die Zustimmung nimmt damit von links nach rechts kontinuierlich zu.</p>
       <p><strong>Diese Aussage ist für mich zur Zeit …</strong></p>`,
     items: () => PASA,
@@ -430,9 +576,10 @@ const SEITEN = [
         <li>Bedrohung: 1, 5, 9, 13 · Herausforderung: 2, 6, 10, 14</li>
         <li>Selbstkonzept: 3, 7, 11, 15 · Kontrollüberzeugung: 4, 8, 12, 16</li>
         <li>Erstbewertung = (Bedrohung + Herausforderung) / 2 · Zweitbewertung = (Selbstkonzept + Kontrollüberzeugung) / 2</li>
-        <li><strong>Stressindex = Erstbewertung − Zweitbewertung</strong> — das ist deine abhängige Variable.</li>
+        <li>Stressindex = Erstbewertung − Zweitbewertung</li>
       </ul>
-      <p>16 Items auf einer Seite sind viel. Im Tool als Matrix setzen und unbedingt am Smartphone prüfen; hier siehst du die Smartphone-Variante mit einzeln untereinander stehenden Items.</p></div>`,
+      <p><strong>Offene Entscheidung:</strong> ob der Stressindex deine abhängige Variable wird oder Bedrohung und Selbstkonzept getrennt. Der Index ist kompakter, verdeckt aber, ob ein Effekt von der Anforderungs- oder von der Ressourcenseite kommt — und genau das ist bei einem KI-Tool die interessantere Frage. Das sollte zu deinen Hypothesen passen, nicht umgekehrt.</p>
+      <p>16 Items auf einer Seite sind viel. Im Tool als Matrix setzen und am Smartphone prüfen; hier siehst du die Smartphone-Variante mit einzeln untereinander stehenden Items.</p></div>`,
   },
   {
     block: "Manipulationscheck", titel: "Noch ein paar Fragen zur Situation", min: 0.75, variiert: "KI-Tool",
@@ -442,9 +589,10 @@ const SEITEN = [
       <ul>
         <li><strong>MC1–MC3</strong> prüfen die Wissenslücke. Erwartung: niedriger bei hoher Lücke (V1, V2).</li>
         <li><strong>MC4</strong> prüft die Tool-Bedingung. Erwartung: „ja“ nur in V2 und V4.</li>
-        <li><strong>MC5</strong> wird nur in V2 und V4 gezeigt — ${GRUPPEN[g].tool === "mit" ? "diese Gruppe sieht das Item" : "diese Gruppe sieht es nicht"}.</li>
+        <li><strong>MC5</strong> nur in V2 und V4 — ${GRUPPEN[g].tool === "mit" ? "diese Gruppe sieht das Item" : "diese Gruppe sieht es nicht"}.</li>
       </ul>
-      <p><strong>Noch zu entscheiden:</strong> das Antwortformat für MC1–MC3 und MC5. Hier sind sie der Einfachheit halber im PASA-Format (1–6) dargestellt. Eine fünfstufige Zustimmungsskala wäre genauso vertretbar — nur einheitlich sollte es sein.</p></div>`,
+      <p><strong>Neu in dieser Fassung:</strong> „aus meinem eigenen Wissen heraus“ in MC1–MC3. Ohne den Zusatz hätten Teilnehmende mit KI-Tool die Items plausibel mit „ja, wüsste ich — ich frage ja den Assistenten“ beantwortet. Dann hätte der Check für die Wissenslücke teilweise die Tool-Bedingung mitgemessen, und beide Manipulationen wären nicht mehr sauber getrennt.</p>
+      <p><strong>Noch zu entscheiden:</strong> das Antwortformat für MC1–MC3 und MC5. Hier im PASA-Format (1–6) dargestellt. Eine fünfstufige Zustimmungsskala wäre genauso vertretbar — nur einheitlich sollte es sein.</p></div>`,
   },
   {
     block: "Abschluss", titel: "Vielen Dank für Ihre Teilnahme", min: 0.25,
@@ -452,11 +600,15 @@ const SEITEN = [
       <p>Ihre Angaben wurden gespeichert. In dieser Studie ging es darum, wie Menschen eine Arbeitssituation in einem Unternehmen erleben, das sich gerade neu organisiert hat, und welche Rolle dabei der Zugang zu Wissen spielt. Dazu wurden vier Varianten derselben Situation eingesetzt; welche Sie gesehen haben, wurde zufällig bestimmt.</p>
       <p>Wenn Sie Fragen zur Studie oder Interesse an den Ergebnissen haben, erreichen Sie mich unter <strong>[E-Mail]</strong>.</p>
       <p>Isabella Dietrich · FOM Hochschule</p>
-      <div class="regie"><div class="kopf">Regie</div>
-        <p>Diese Seite ist zugleich das Debriefing. Weil die Teilnehmenden nicht erfahren haben, dass es vier Varianten gibt, gehört die Aufklärung hierhin — kurz, ohne die Hypothese zu nennen, damit niemand sie weitererzählt.</p></div>`,
+      <div class="regie"><div class="kopf">Regie · was noch offen ist</div>
+        <p>Diese Seite ist zugleich das Debriefing — kurz, ohne die Hypothese zu nennen, damit niemand sie weitererzählt.</p>
+        <p><strong>Noch zu produzieren:</strong> Sprachnachricht aufnehmen (ca. 50 Sek.), Personenübersicht als Grafik mit drei Kärtchen, und die vier Bildschirmansichten als Bilder für das Umfragetool — Mailbox mit Absender „Thomas Krämer · Einkauf Velto“, Chat ohne Emoji, Unzustellbar-Meldung grau, Arbeitsmittel mit Ordner „Aktionen“ und neuen Betreffs. Die Fassungen in dieser Vorschau kannst du als Vorlage nehmen.</p>
+        <p><strong>Noch zu entscheiden:</strong> abhängige Variable (Stressindex oder Bedrohung und Selbstkonzept getrennt) · Stichprobe (nur Berufstätige oder auch Studierende) · Position des BFI-10 · Antwortformat der Manipulationschecks.</p>
+        <p><strong>Zweiter Pretest:</strong> Realismus („könnte so in einem Unternehmen vorkommen“) und Belastung („wäre für mich belastend“) abfragen und den PASA auf einen Deckeneffekt prüfen — die Zuspitzung könnte sonst zu weit gegangen sein.</p></div>`,
     items: () => [],
   },
 ];
+
 
 /* ====================== Zustand ====================== */
 let gruppe = "V1", modus = "klick", seite = 0;
