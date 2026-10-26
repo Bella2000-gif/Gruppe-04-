@@ -412,6 +412,7 @@ const ASSISTENT = win("✦ KI-Wissensassistent", `
   <div class="feldlabel">Beispielfragen</div>
   <div class="beispiel">Was wurde mit einem Kunden bisher vereinbart?</div>
   <div class="beispiel">Wie läuft ein bestimmter Prozess aktuell ab?</div>
+  <div class="beispiel">Welche Regelung gilt für einen bestimmten Fall?</div>
   <div class="beispiel">Wer ist für ein Thema zuständig oder hat ähnliche Fälle bearbeitet?</div>
   <div class="eingabe">Frage stellen …</div>`, "assistent");
 /* ====================== Seiten ====================== */
@@ -500,7 +501,7 @@ const SEITEN = [
       <p>Erster Absatz wortgleich in allen vier Gruppen. Der zweite trägt die Manipulation — und zwar nur noch über die <strong>Neuartigkeit der Rolle</strong>:</p>
       <ul>
         <li><strong>Niedrig (V3, V4):</strong> Key Account Manager/in, Rolle unverändert, Aufgaben bekannt.</li>
-        <li><strong>Hoch (V1, V2):</strong> Partner Sales Manager/in, Rolle vor zwei Wochen übernommen, Aufgaben neu — Kompetenzlücke nach Nicholson (1984).</li>
+        <li><strong>Hoch (V1, V2):</strong> Partner Sales Manager/in, Rolle vor zwei Wochen übernommen, Aufgaben neu — Kompetenzlücke: In der neuen Rolle fehlt das Wissen, wie Prozesse abgewickelt werden, um die Aufgaben zu erfüllen (fehlende Prozessklarheit).</li>
       </ul>
       <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "niedrige Wissenslücke" : "hohe Wissenslücke"}</strong>.</p>
       <p><strong>Neu in dieser Fassung:</strong> Betriebszugehörigkeit („seit mehreren Jahren bei Lumora“) und Führungskraft („dieselbe Vertriebsleiterin“) sind jetzt in beiden Bedingungen gleich. Damit unterscheidet sich zwischen den Gruppen wirklich nur noch das Wissen — vorher trug die hohe Lücke unbeabsichtigt auch Neuheit im Unternehmen mit. „Übernommen“ statt „versetzt“ nimmt zusätzlich den Beiklang von Fremdbestimmung heraus. Der Satz zum telefonischen Vertrieb ist entfallen, die Rolle heißt jetzt Partner Sales Manager/in.</p>
@@ -538,9 +539,9 @@ const SEITEN = [
   {
     block: "Vignette · Szene 4", titel: "Sie bereiten den Rückruf vor", min: 1.25, variiert: "Wissenslücke × KI-Tool",
     text: (g) => `
-      <p>Für Reklamationen und Nachlieferungen gibt es bei Lumora einen festgelegten Ablauf, und die bisherige Korrespondenz mit Velto ist in den Systemen gespeichert. Um den Rückruf vorzubereiten, müssen Sie klären, <strong>wie Sie vorgehen</strong>, <strong>wer intern eine Express-Nachlieferung und eine Gutschrift freigibt</strong> und <strong>was Velto genau zugesagt wurde</strong>. Mit der Suche haben Sie noch nicht begonnen.</p>
+      <p>Für Reklamationen und Nachlieferungen gibt es bei Lumora einen festgelegten Ablauf und eine schriftliche Kulanzregelung, und die bisherige Korrespondenz mit Velto ist in den Systemen gespeichert. Um den Rückruf vorzubereiten, müssen Sie klären, <strong>wie Sie vorgehen</strong>, <strong>welche Regelung für Gutschriften bei Aktionsware gilt</strong>, <strong>wer intern eine Express-Nachlieferung und eine Gutschrift freigibt</strong> und <strong>was Velto genau zugesagt wurde</strong>. Mit der Suche haben Sie noch nicht begonnen.</p>
       ${GRUPPEN[g].luecke === "niedrig"
-        ? `<p>Mit der Übergabenotiz und dem Hinweis von Frau Berger wissen Sie, wo Sie anfangen. Die Einzelheiten müssen Sie noch nachlesen.</p>` : ""}
+        ? `<p>Mit der Übergabenotiz und dem Hinweis von Frau Berger wissen Sie, wo Sie anfangen, und aus Ihrer Rolle wissen Sie, wen Sie intern wegen der Freigabe ansprechen. Die Einzelheiten müssen Sie noch nachlesen.</p>` : ""}
       ${GRUPPEN[g].tool === "ohne" ? `
       <p>Dafür stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente.</p>
       <div class="mock">${ARBEITSMITTEL}</div>` : `
@@ -550,6 +551,7 @@ const SEITEN = [
     regie: (g) => `<div class="regie"><div class="kopf">Regie · hier treffen beide Faktoren aufeinander</div>
       <p><strong>KI-Tool:</strong> dieselben drei Arbeitsmittel in allen Gruppen; mit Tool kommt nur das Assistentenfenster hinzu — ohne Suchergebnis, ohne Antwort. Variiert wird die verfügbare Ressource, nicht das Wissen selbst. Diese Gruppe sieht: <strong>${GRUPPEN[g].tool === "ohne" ? "nur die Arbeitsmittel" : "Arbeitsmittel plus KI-Assistent"}</strong>.</p>
       <p><strong>Wissenslücke:</strong> bei niedriger Lücke steht hier ein zusätzlicher Satz („Mit der Übergabenotiz … wissen Sie, wo Sie anfangen“). Das löst den Widerspruch der vorigen Fassung auf: Wer in Szene 3 eine brauchbare Auskunft bekommen hat, kann in Szene 4 nicht völlig ratlos vor derselben Ablage stehen. Diese Gruppe sieht den Satz: <strong>${GRUPPEN[g].luecke === "niedrig" ? "ja" : "nein"}</strong>.</p>
+      <p><strong>Neu in dieser Fassung:</strong> Der Satz bei niedriger Lücke nennt jetzt auch, dass die Person weiß, wen sie wegen der Freigabe anspricht — sonst widerspräche Szene 4 der Beschreibung aus Szene 1 („wissen, wer intern wofür zuständig ist“). Außerdem ist ein vierter Klärungspunkt ergänzt: <em>welche Regelung für Gutschriften bei Aktionsware gilt</em>. Damit bildet die Szene alle vier Fragecluster der Ambiguität ab (wer ist zuständig, wie gehe ich vor, welche Regeln gelten, was ist zu tun). Die Regel ist als schriftliche Kulanzregelung dokumentiert, liegt also innerhalb der Definition der Wissenslücke (existierendes, aber nicht zugängliches Wissen).</p>
       <p><strong>Gestrichen:</strong> der Aufwand-Kontrast („nacheinander öffnen und durchlesen“ gegen „statt … einfach fragen“). Der hat die Bewertung vorweggenommen, die der PASA erst messen soll.</p>
       <p><strong>Zu den Bildern:</strong> hier sind die Fenster für diese Vorschau in HTML nachgebaut, damit sie den neuen Stand zeigen — Ordner „05_Aktionen“ ergänzt, E-Mail-Betreffs angepasst, Kundensystem mit der Einstufung als Schlüsselkunde. Für die Erhebung werden sie als Bilder benötigt; diese Ansicht dient dafür als Vorlage. In der Erhebung stehen die drei Fenster nebeneinander, das Assistentenfenster liegt darüber.</p>
       <p>In den E-Mail-Betreffs stehen Wochentage statt Datumsangaben — sonst wäre die Vignette doch wieder an einen Kalender gebunden.</p></div>`,
