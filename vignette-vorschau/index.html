@@ -361,14 +361,14 @@ const MAILBOX = win("Telefonie · Mailbox", `
     <span class="zeit">0:00 / 0:35</span>
   </div>
   <div class="feldlabel">Transkription</div>
-  <p style="margin:0">„Guten Tag, Thomas Krämer, Radkontor. Unser vereinbarter Deal scheint gerade zu platzen: Die Räder sind heute nicht gekommen, und mir wurde ein neues Lieferdatum in zwei Wochen geschrieben. Unser großes Testevent ist aber am Samstag. Wir haben das Modell in genau dieser Farbe überall auf Social Media gespielt. Das geht so nicht. Wenn Sie Lieferprobleme haben, klären Sie das bitte – zur Not geht auch eine andere Farbe. Wir brauchen auf jeden Fall bis Freitag Räder. Wenn es eine andere Farbe wird, erwarten wir einen Preisnachlass – so hat Ihre Vorgängerin das bei uns bisher auch immer gemacht. <strong>Rufen Sie mich bitte bis 17:30 Uhr zurück</strong> und sagen Sie mir, was Sie mir anbieten können.“</p>`);
+  <p style="margin:0">„Guten Tag, Thomas Krämer, Radkontor. Unser vereinbarter Deal scheint gerade zu platzen: Die Räder sind heute nicht gekommen, und mir wurde ein neues Lieferdatum in zwei Wochen geschrieben. Unser großes Testevent ist aber am Samstag. Wir haben das Modell in genau dieser Farbe überall auf Social Media gespielt. Das geht so nicht. Wenn Sie Lieferprobleme haben, klären Sie das bitte – zur Not geht auch eine andere Farbe. Wir brauchen auf jeden Fall bis Freitag Räder. Wenn es eine andere Farbe wird, erwarten wir eine Gutschrift auf den gezahlten Betrag – so hat Ihre Vorgängerin das bei uns bisher auch immer gemacht. <strong>Rufen Sie mich bitte bis 17:30 Uhr zurück</strong> und sagen Sie mir, was Sie mir anbieten können.“</p>`);
 
 const CHAT = win("Chat", `
   <div class="kopfzeile">
     <span class="avatar" style="background:var(--mock-head);color:var(--ok)">KB</span>
     <span class="wer"><b>Katrin Berger</b><span>Produktmanagement · Verfügbar</span></span>
   </div>
-  <div class="blase ich">Hallo Katrin, Herr Krämer von Radkontor bezieht sich darauf, wie du Preisnachlässe bei Ersatzlieferungen gehandhabt hast. Hast du kurz Zeit?<span class="uhr">15:49</span></div>
+  <div class="blase ich">Hallo Katrin, Herr Krämer von Radkontor bezieht sich darauf, wie du Gutschriften bei Ersatzlieferungen gehandhabt hast. Hast du kurz Zeit?<span class="uhr">15:49</span></div>
   <div class="blase du">Hallo, ja, dafür gibt es eine Vereinbarung mit Radkontor. Die Unterlagen dazu stehen in meiner Übergabenotiz, sie liegen im Kundenordner unter <strong>Radkontor › Konditionen</strong>.<span class="uhr">15:53</span></div>`);
 
 const UNZUSTELLBAR = win("Posteingang", `
@@ -378,7 +378,7 @@ const UNZUSTELLBAR = win("Posteingang", `
   <div class="systemkasten">Ihre Nachricht an <strong>Katrin Berger</strong> konnte nicht zugestellt werden.<br>
     Das Postfach ist nicht mehr aktiv. Die Empfängerin ist nicht mehr im Unternehmen tätig.</div>
   <div class="feldlabel">Ihre ursprüngliche Nachricht</div>
-  <div class="zitat">Hallo Frau Berger,<br>ich betreue jetzt Radkontor. Herr Krämer bezieht sich darauf, wie Sie Preisnachlässe bei Ersatzlieferungen gehandhabt haben. Was wurde damals vereinbart, und wo finde ich die Unterlagen?</div>`);
+  <div class="zitat">Hallo Frau Berger,<br>ich betreue jetzt Radkontor. Herr Krämer bezieht sich darauf, wie Sie Gutschriften bei Ersatzlieferungen gehandhabt haben. Was wurde damals vereinbart, und wo finde ich die Unterlagen?</div>`);
 
 const ORDNER = ["01_Kunden", "02_Angebote", "03_Konditionen", "04_Reklamationen", "05_Aktionen",
   "06_Jahresgespräche", "07_Protokolle", "Neuorganisation_2026"];
@@ -522,7 +522,7 @@ const SEITEN = [
     items: () => [],
     regie: () => `<div class="regie"><div class="kopf">Regie · in allen vier Gruppen identisch</div>
       <p>Derselbe Vorfall, dieselbe Sprachnachricht, derselbe Zeitdruck. <strong>Noch aufzunehmen:</strong> ca. 35 Sekunden, männlich, 45–55 Jahre, bestimmt und unter Zeitdruck, sachlich, nicht wütend. Das Transkript bleibt immer sichtbar, damit Teilnehmende ohne Ton dieselbe Information bekommen.</p>
-      <p><strong>Warum zugespitzt:</strong> ein Standardfall aus dem Vertrieb — die bestätigte Lieferung bleibt aus, der neue Termin liegt nach dem großen Testevent am Samstag, das Modell ist in genau dieser Farbe auf Social Media beworben. Die Ausweichlösung (andere Farbe) gibt es nur mit preislichem Entgegenkommen, wie es die Vorgängerin gehandhabt hat. Dazu die Frist 17:30 Uhr. Bewusst in wenigen Sätzen und ohne Fachwissen verständlich. Ressourcen puffern vor allem dann, wenn die Anforderung hoch ist (Bakker &amp; Demerouti, 2007, S. 320) — bei einer lauen Anforderung hätte das KI-Tool wenig zu puffern und der Interaktionseffekt bliebe aus. Ob die Zuspitzung trägt, ohne einen Deckeneffekt im PASA zu erzeugen, prüft der zweite Pretest (Aguinis &amp; Bradley, 2014).</p>
+      <p><strong>Warum zugespitzt:</strong> ein Standardfall aus dem Vertrieb — die bestätigte Lieferung bleibt aus, der neue Termin liegt nach dem großen Testevent am Samstag, das Modell ist in genau dieser Farbe auf Social Media beworben. Die Ausweichlösung (andere Farbe) gibt es nur mit einer Gutschrift auf den gezahlten Betrag, wie es die Vorgängerin gehandhabt hat. Dazu die Frist 17:30 Uhr. Bewusst in wenigen Sätzen und ohne Fachwissen verständlich. Ressourcen puffern vor allem dann, wenn die Anforderung hoch ist (Bakker &amp; Demerouti, 2007, S. 320) — bei einer lauen Anforderung hätte das KI-Tool wenig zu puffern und der Interaktionseffekt bliebe aus. Ob die Zuspitzung trägt, ohne einen Deckeneffekt im PASA zu erzeugen, prüft der zweite Pretest (Aguinis &amp; Bradley, 2014).</p>
       <p>Kein Kalenderdatum im Text, nur der Wochentag — damit die Vignette nicht an einen Erhebungszeitraum gebunden ist. Das Testevent ist an keine Jahreszeit gebunden (vorher: Nikolaus-Aktion) und funktioniert unabhängig vom Erhebungszeitpunkt.</p></div>`,
   },
   {
@@ -550,7 +550,7 @@ const SEITEN = [
   {
     block: "Vignette · Szene 4", titel: "Sie bereiten den Rückruf vor", min: 1, variiert: "Wissenslücke × KI-Tool",
     text: (g) => `
-      <p>Für Lieferverzug und Ersatzlieferungen gibt es einen festgelegten Ablauf und eine schriftliche Kulanzregelung; die Korrespondenz mit Radkontor ist gespeichert. Für den Rückruf müssen Sie klären, <strong>wie Sie vorgehen</strong> (Lieferproblem klären oder andere Farbe liefern), <strong>welche Regelung für einen Preisnachlass bei Ersatzlieferungen gilt</strong>, <strong>wer Ersatzlieferung und Preisnachlass freigibt</strong> und <strong>was Radkontor bisher zugesagt wurde</strong>.</p>
+      <p>Für Lieferverzug und Ersatzlieferungen gibt es einen festgelegten Ablauf und eine schriftliche Kulanzregelung; die Korrespondenz mit Radkontor ist gespeichert. Für den Rückruf müssen Sie klären, <strong>wie Sie vorgehen</strong> (Lieferproblem klären oder andere Farbe liefern), <strong>welche Regelung für eine Gutschrift bei Ersatzlieferungen gilt</strong>, <strong>wer Ersatzlieferung und Gutschrift freigibt</strong> und <strong>was Radkontor bisher zugesagt wurde</strong>.</p>
       ${GRUPPEN[g].luecke === "niedrig"
         ? `<p>Dank Übergabenotiz und Frau Bergers Hinweis wissen Sie, wo Sie anfangen, und aus Ihrer Rolle, wen Sie wegen der Freigabe ansprechen. Die Einzelheiten müssen Sie noch nachlesen.</p>`
         : `<p>Ohne Übergabe wissen Sie nicht, wo Sie anfangen sollen, und in der neuen Rolle noch nicht, wen Sie wegen der Freigabe ansprechen. Auch die Einzelheiten müssen Sie erst finden.</p>`}
