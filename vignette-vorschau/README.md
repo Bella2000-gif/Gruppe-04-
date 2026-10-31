@@ -28,7 +28,7 @@ Pro Gruppe wird nur das jeweils zugewiesene Szenario angezeigt.
 | C | BFI-10, 10 Items | Rammstedt, Kemper, Klein, Beierlein & Kovaleva (2014), ZIS |
 | nach der Vignette | PASA, 16 Items | Gaab (2009) |
 
-Alle Namen in der Vignette (Lumora Cosmetics, Velto Drogeriemärkte,
+Alle Namen in der Vignette (Velonor Bikes, Fachhandelskette Radkontor,
 Thomas Krämer, Katrin Berger) sind frei erfunden; die Bildschirmansichten
 sind eigene Darstellungen.
 
