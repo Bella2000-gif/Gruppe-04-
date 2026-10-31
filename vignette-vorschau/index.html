@@ -383,11 +383,11 @@ const UNZUSTELLBAR = win("Posteingang", `
 const ORDNER = ["01_Kunden", "02_Angebote", "03_Konditionen", "04_Reklamationen", "05_Aktionen",
   "06_Jahresgespräche", "07_Protokolle", "Neuorganisation_2026"];
 const MAILS_LISTE = [
-  ["K. Berger", "Vereinbarung Ersatzlieferungen", "Fr"],
-  ["T. Krämer", "Testevent Samstag – Auftragsbestätigung", "Do"],
-  ["Logistik", "Lieferterminänderung Radkontor", "Mi"],
-  ["K. Berger", "Radkontor – offene Punkte", "Di"],
-  ["Vertrieb Nord", "Neue Zuständigkeiten", "Mo"],
+  ["Logistik", "Lieferterminänderung Radkontor", "Heute"],
+  ["T. Krämer", "Testevent Samstag – Auftragsbestätigung", "Mo"],
+  ["Vertrieb Nord", "Neue Zuständigkeiten", "vor 2 Wo."],
+  ["K. Berger", "Radkontor – offene Punkte", "vor 3 Wo."],
+  ["K. Berger", "Vereinbarung Ersatzlieferungen", "vor 4 Mon."],
 ];
 const STAMM = [["Kundennummer", "40 2187"], ["Einstufung", "Strategischer Schlüsselkunde"],
   ["Filialen", "45"], ["Ansprechpartner", "Thomas Krämer, Einkauf"],
@@ -514,7 +514,7 @@ const SEITEN = [
       <p><strong>Personenübersicht:</strong> wortgleich in allen vier Gruppen, bewusst <em>ohne</em> den Status von Frau Berger — der kommt erst in Szene 3, sonst nähme er der Manipulation die Wirkung. In der Erhebung als kleine Grafik mit drei Kärtchen umsetzen.</p></div>`,
   },
   {
-    block: "Vignette · Szene 2", titel: "Donnerstag, 15:42 Uhr", min: 1,
+    block: "Vignette · Szene 2", titel: "Mittwoch, 15:42 Uhr", min: 1,
     text: () => `
       <p>Sie kommen aus einem Meeting. Auf Ihrem Telefon wartet eine Sprachnachricht von <strong>Thomas Krämer</strong>, Ihrem Ansprechpartner im Einkauf bei Radkontor.</p>
       <div class="bild"><img src="bilder/szene2-sprachnachricht.webp" alt="Person kommt mit Tasche an den Arbeitsplatz zurück und hört auf dem Smartphone eine Sprachnachricht ab."></div>
@@ -573,15 +573,15 @@ const SEITEN = [
       </ul>
       <p><strong>Gestrichen:</strong> der Aufwand-Kontrast („nacheinander öffnen und durchlesen“ gegen „statt … einfach fragen“). Der hat die Bewertung vorweggenommen, die der PASA erst messen soll.</p>
       <p><strong>Zu den Bildern:</strong> hier sind die Fenster für diese Vorschau in HTML nachgebaut, damit sie den neuen Stand zeigen — Ordner „05_Aktionen“ ergänzt, E-Mail-Betreffs angepasst, Kundensystem mit der Einstufung als Schlüsselkunde. Für die Erhebung werden sie als Bilder benötigt; diese Ansicht dient dafür als Vorlage. In der Erhebung stehen die drei Fenster nebeneinander, das Assistentenfenster liegt darüber.</p>
-      <p>In den E-Mail-Betreffs stehen Wochentage statt Datumsangaben — sonst wäre die Vignette doch wieder an einen Kalender gebunden.</p></div>`,
+      <p>In der E-Mail-Liste stehen relative Zeitangaben („Heute“, „Mo“, „vor 3 Wo.“) statt Datumsangaben — sonst wäre die Vignette an einen Kalender gebunden. Die Mails von Frau Berger liegen bewusst mehr als zwei Wochen zurück, also vor ihrem Weggang bzw. Wechsel.</p></div>`,
   },
   {
     block: "Vignette · Abschluss", titel: "Es ist 16:30 Uhr", min: 0.25,
     text: () => `
-      <p>Bis <strong>17:30 Uhr</strong> müssen Sie Herrn Krämer sagen, ob bis Freitag Räder bei Radkontor sind – in der beworbenen oder einer anderen Farbe – und zu welchen Konditionen. Die letzte Express-Abholung ist um <strong>18 Uhr</strong> – vorher brauchen Sie die interne Freigabe.</p>`,
+      <p>Bis <strong>17:30 Uhr</strong> müssen Sie Herrn Krämer sagen, ob bis Freitag Räder bei Radkontor sind – in der beworbenen oder einer anderen Farbe – und zu welchen Konditionen. Damit die Räder bis Freitag ankommen, muss die Spedition sie heute um <strong>18 Uhr</strong> abholen – vorher brauchen Sie die interne Freigabe.</p>`,
     items: () => [],
     regie: () => `<div class="regie"><div class="kopf">Regie</div>
-      <p>Die Zeitachse schließt sich hier: 16:30 Uhr jetzt, 17:30 Uhr Rückruf, 18 Uhr letzte Express-Abholung. Die Freigabe muss also vor der Abholung stehen — das macht die interne Zuständigkeitsfrage aus Szene 4 handlungsrelevant statt nur lästig.</p>
+      <p>Die Zeitachse schließt sich hier: Mittwoch 16:30 Uhr jetzt, 17:30 Uhr Rückruf, 18 Uhr Abholung durch die Spedition, zwei Tage Transport bis Freitag, Event am Samstag. Die Nachricht kommt bewusst am Mittwoch: Bei Donnerstag bliebe für die Lieferung nur eine Nacht, was im Vertrieb unrealistisch wäre. Die Freigabe muss also vor der Abholung stehen — das macht die interne Zuständigkeitsfrage aus Szene 4 handlungsrelevant statt nur lästig.</p>
       <p><strong>Gestrichen: die offene Frage</strong> („Was würden Sie als Nächstes tun?“). Das KI-Tool wird nur als verfügbare Ressource gezeigt und kann nicht bedient werden; eine Frage nach den nächsten Schritten passte dazu nicht. Außerdem hätte schriftliches Planen vor dem PASA selbst als Bewältigung wirken und die Bewertung der Situation verändern können. Falls qualitatives Material gewünscht ist, gehört eine solche Frage optional hinter die Manipulationschecks.</p></div>`,
   },
   {
