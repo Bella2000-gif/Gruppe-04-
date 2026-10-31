@@ -177,6 +177,7 @@ body.ohne-regie .frage .nr{display:none}
 .kopfzeile .rechts{text-align:right;font-size:12px;color:var(--mock-muted);flex:none}
 .marker{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
   padding:3px 7px;border-radius:3px;margin-bottom:4px}
+.tonspur{display:block;width:100%;margin:0 0 14px}
 .abspieler{display:flex;gap:12px;align-items:center;background:var(--mock-head);border-radius:5px;padding:10px 13px;margin-bottom:14px}
 .abspieler .play{width:32px;height:32px;border-radius:50%;background:var(--blue);display:grid;place-items:center;flex:none}
 .welle{flex:1;display:flex;gap:2px;align-items:center;height:26px;overflow:hidden}
@@ -353,13 +354,12 @@ const MAILBOX = win("Telefonie · Mailbox", `
   <div class="kopfzeile">
     <span class="avatar" style="background:var(--blue-soft);color:var(--blue)">TK</span>
     <span class="wer"><b>Thomas Krämer</b><span>Einkauf · Radkontor</span></span>
-    <span class="rechts"><span class="marker" style="background:var(--mock-head);color:var(--warn)">Neue Sprachnachricht</span><br>Heute, 15:42 · 0:35 Min.</span>
+    <span class="rechts"><span class="marker" style="background:var(--mock-head);color:var(--warn)">Neue Sprachnachricht</span><br>Heute, 15:42 · 0:40 Min.</span>
   </div>
-  <div class="abspieler">
-    <span class="play"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><polygon points="8,5 19,12 8,19" fill="#fff"/></svg></span>
-    <span class="welle">${WELLE}</span>
-    <span class="zeit">0:00 / 0:35</span>
-  </div>
+  <audio class="tonspur" controls preload="metadata">
+    <source src="audio/sprachnachricht.m4a" type="audio/mp4">
+    <source src="audio/sprachnachricht.mp3" type="audio/mpeg">
+  </audio>
   <div class="feldlabel">Transkription</div>
   <p style="margin:0">„Guten Tag, Thomas Krämer, Radkontor. Unser vereinbarter Deal scheint gerade zu platzen: Die Räder sind heute nicht gekommen, und mir wurde ein neues Lieferdatum in zwei Wochen geschrieben. Unser großes Testevent ist aber am Samstag. Wir haben das Modell in genau dieser Farbe überall auf Social Media gespielt. Das geht so nicht. Wenn Sie Lieferprobleme haben, klären Sie das bitte – zur Not geht auch eine andere Farbe. Wir brauchen auf jeden Fall bis Freitag Räder. Wenn es eine andere Farbe wird, erwarten wir eine Gutschrift auf den gezahlten Betrag – so hat Ihre Vorgängerin das bei uns bisher auch immer gemacht. <strong>Rufen Sie mich bitte bis 17:30 Uhr zurück</strong> und sagen Sie mir, was Sie mir anbieten können.“</p>`);
 
@@ -521,7 +521,7 @@ const SEITEN = [
       <div class="mock">${MAILBOX}</div>`,
     items: () => [],
     regie: () => `<div class="regie"><div class="kopf">Regie · in allen vier Gruppen identisch</div>
-      <p>Derselbe Vorfall, dieselbe Sprachnachricht, derselbe Zeitdruck. <strong>Noch aufzunehmen:</strong> ca. 35 Sekunden, männlich, 45–55 Jahre, bestimmt und unter Zeitdruck, sachlich, nicht wütend. Das Transkript bleibt immer sichtbar, damit Teilnehmende ohne Ton dieselbe Information bekommen.</p>
+      <p>Derselbe Vorfall, dieselbe Sprachnachricht, derselbe Zeitdruck. <strong>Aufgenommen</strong> (ca. 41 Sekunden), männliche Stimme, mit dem aktuellen Text. Vor der Erhebung prüfen, ob die Aufnahme bestimmt und unter Zeitdruck, aber sachlich und nicht wütend klingt. Das Transkript bleibt immer sichtbar, damit Teilnehmende ohne Ton dieselbe Information bekommen.</p>
       <p><strong>Warum zugespitzt:</strong> ein Standardfall aus dem Vertrieb — die bestätigte Lieferung bleibt aus, der neue Termin liegt nach dem großen Testevent am Samstag, das Modell ist in genau dieser Farbe auf Social Media beworben. Die Ausweichlösung (andere Farbe) gibt es nur mit einer Gutschrift auf den gezahlten Betrag, wie es die Vorgängerin gehandhabt hat. Dazu die Frist 17:30 Uhr. Bewusst in wenigen Sätzen und ohne Fachwissen verständlich. Ressourcen puffern vor allem dann, wenn die Anforderung hoch ist (Bakker &amp; Demerouti, 2007, S. 320) — bei einer lauen Anforderung hätte das KI-Tool wenig zu puffern und der Interaktionseffekt bliebe aus. Ob die Zuspitzung trägt, ohne einen Deckeneffekt im PASA zu erzeugen, prüft der zweite Pretest (Aguinis &amp; Bradley, 2014).</p>
       <p>Kein Kalenderdatum im Text, nur der Wochentag — damit die Vignette nicht an einen Erhebungszeitraum gebunden ist. Das Testevent ist an keine Jahreszeit gebunden (vorher: Nikolaus-Aktion) und funktioniert unabhängig vom Erhebungszeitpunkt.</p></div>`,
   },
@@ -628,7 +628,7 @@ const SEITEN = [
       <p>Isabella Dietrich · FOM Hochschule</p>
       <div class="regie"><div class="kopf">Regie · was noch offen ist</div>
         <p>Diese Seite ist zugleich das Debriefing — kurz, ohne die Hypothese zu nennen, damit niemand sie weitererzählt.</p>
-        <p><strong>Noch zu produzieren:</strong> Sprachnachricht aufnehmen (ca. 50 Sek.), Personenübersicht als Grafik mit drei Kärtchen, und die vier Bildschirmansichten als Bilder für das Umfragetool — Mailbox mit Absender „Thomas Krämer · Einkauf Radkontor“, Chat ohne Emoji, Unzustellbar-Meldung grau, Arbeitsmittel mit Ordner „Aktionen“ und neuen Betreffs. Die Fassungen in dieser Vorschau dienen dafür als Vorlage.</p>
+        <p><strong>Noch zu produzieren:</strong> Personenübersicht als Grafik mit drei Kärtchen, und die vier Bildschirmansichten als Bilder für das Umfragetool — Mailbox mit Absender „Thomas Krämer · Einkauf Radkontor“, Chat ohne Emoji, Unzustellbar-Meldung grau, Arbeitsmittel mit Ordner „Aktionen“ und neuen Betreffs. Die Fassungen in dieser Vorschau dienen dafür als Vorlage.</p>
         <p><strong>Noch zu entscheiden:</strong> abhängige Variable (Stressindex oder Bedrohung und Selbstkonzept getrennt) · Stichprobe (nur Berufstätige oder auch Studierende) · Position des BFI-10 · Antwortformat der Manipulationschecks.</p>
         <p><strong>Zweiter Pretest:</strong> Realismus („könnte so in einem Unternehmen vorkommen“) und Belastung („wäre für mich belastend“) abfragen und den PASA auf einen Deckeneffekt prüfen — die Zuspitzung könnte sonst zu weit gegangen sein.</p></div>`,
     items: () => [],
