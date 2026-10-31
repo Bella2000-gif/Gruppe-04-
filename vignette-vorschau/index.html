@@ -329,13 +329,14 @@ const PASA = [
 
 function manipulation(g) {
   const items = [
-    { id: "MC1", text: "Ich wüsste aus meinem eigenen Wissen heraus, wie ich in dieser Situation vorgehen muss.", typ: "skala", skala: S_PASA, pflicht: true },
-    { id: "MC2", text: "Ich wüsste aus meinem eigenen Wissen heraus, an wen ich mich intern wenden kann.", typ: "skala", skala: S_PASA, pflicht: true },
-    { id: "MC3", text: "Ich wüsste aus meinem eigenen Wissen heraus, was dem Kunden bisher zugesagt wurde.", typ: "skala", skala: S_PASA, pflicht: true },
-    { id: "MC4", text: "In der beschriebenen Situation stand mir ein KI-Assistent zur Verfügung.", typ: "radio", optionen: ["ja", "nein"], pflicht: true },
+    { id: "MC1", text: "In der beschriebenen Situation wüsste ich – ohne weitere Hilfsmittel –, wie ich vorgehen muss.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC2", text: "In der beschriebenen Situation wüsste ich – ohne weitere Hilfsmittel –, an wen ich mich intern wenden kann.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC3", text: "In der beschriebenen Situation wüsste ich – ohne weitere Hilfsmittel –, wo ich die benötigten Informationen finde.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC4", text: "In der beschriebenen Situation wüsste ich – ohne weitere Hilfsmittel –, was dem Kunden bisher zugesagt wurde.", typ: "skala", skala: S_PASA, pflicht: true },
+    { id: "MC5", text: "In der beschriebenen Situation stand mir ein KI-Assistent zur Verfügung.", typ: "radio", optionen: ["ja", "nein"], pflicht: true },
   ];
   if (GRUPPEN[g].tool === "mit")
-    items.push({ id: "MC5", text: "Das beschriebene KI-Tool würde mir in dieser Situation helfen.", typ: "skala", skala: S_PASA, pflicht: true });
+    items.push({ id: "MC6", text: "Das beschriebene KI-Tool würde mir in dieser Situation helfen.", typ: "skala", skala: S_PASA, pflicht: true });
   return items;
 }
 
@@ -368,7 +369,7 @@ const CHAT = win("Chat", `
     <span class="wer"><b>Katrin Berger</b><span>Produktmanagement · Verfügbar</span></span>
   </div>
   <div class="blase ich">Hallo Katrin, Herr Krämer von Velto meldet fehlende Nikolaus-Sets und erwähnt eine Zusage von dir zur Nachlieferung. Hast du kurz Zeit?<span class="uhr">15:49</span></div>
-  <div class="blase du">Hallo, ja, das war die Vereinbarung für Aktionsware. Die Unterlagen habe ich dir bei der Übergabe gezeigt, sie liegen im Kundenordner unter <strong>Velto › Aktionen</strong>. Ruf gern an, wenn etwas unklar ist.<span class="uhr">15:53</span></div>`);
+  <div class="blase du">Hallo, ja, das war die Vereinbarung für Aktionsware. Die Unterlagen dazu stehen in meiner Übergabenotiz, sie liegen im Kundenordner unter <strong>Velto › Aktionen</strong>.<span class="uhr">15:53</span></div>`);
 
 const UNZUSTELLBAR = win("Posteingang", `
   <div class="kopfzeile">
@@ -408,7 +409,7 @@ const ARBEITSMITTEL =
       `<li><span class="k">${k}</span><span class="v">${v}</span></li>`).join("")}</ul>`);
 
 const ASSISTENT = win("✦ KI-Wissensassistent", `
-  <p style="margin:0 0 13px">Hallo! Ich durchsuche für Sie <strong>Ablage, E-Mails und Kundensystem</strong> und berücksichtige dabei bereits die <strong>neuen Abläufe und Zuständigkeiten</strong>. Ich greife nur auf dokumentierte Informationen zurück und nenne zu jeder Antwort meine Quellen.</p>
+  <p style="margin:0 0 13px">Hallo! Ich durchsuche für Sie <strong>Ablage, E-Mails und Kundensystem</strong> und berücksichtige dabei bereits die <strong>neuen Zuständigkeiten und die neue Ablagestruktur</strong>. Ich greife nur auf dokumentierte Informationen zurück und nenne zu jeder Antwort meine Quellen.</p>
   <div class="feldlabel">Beispielfragen</div>
   <div class="beispiel">Was wurde mit einem Kunden bisher vereinbart?</div>
   <div class="beispiel">Wie läuft ein bestimmter Prozess aktuell ab?</div>
@@ -486,10 +487,10 @@ const SEITEN = [
     text: (g) => `
       <p class="intro">Auf den folgenden Seiten erleben Sie eine Situation aus dem Arbeitsalltag. Bitte versetzen Sie sich so gut wie möglich in die beschriebene Person, als wären Sie es selbst. Wenn möglich, schalten Sie bitte den Ton ein.</p>
       <div class="bild"><img src="bilder/szene1-arbeitsplatz.webp" alt="Person am Schreibtisch in einem Großraumbüro, im Hintergrund ein Organigramm am Whiteboard."></div>
-      <p>Sie arbeiten bei der <strong>Lumora Cosmetics GmbH</strong>, einem Hersteller von Haut- und Körperpflegeprodukten mit rund 1.100 Beschäftigten. Die Geschäftsführung hat vor einigen Monaten eine umfassende Neuorganisation beschlossen. Der Vertrieb wurde neu aufgestellt: Kundenzuständigkeiten wurden neu verteilt, Teams neu zusammengesetzt und neue Rollen geschaffen. Zugleich hat die Geschäftsführung <strong>fünf strategische Schlüsselkunden</strong> festgelegt, die besonders sorgfältig betreut werden sollen. Einer davon ist die <strong>Drogerie Velto</strong>, eine regionale Drogeriekette mit 85 Filialen.</p>
+      <p>Sie arbeiten bei der <strong>Lumora Cosmetics GmbH</strong>, einem Hersteller von Haut- und Körperpflegeprodukten mit rund 1.100 Beschäftigten. Die Geschäftsführung hat vor einigen Monaten eine umfassende Neuorganisation beschlossen. Der Vertrieb wurde neu aufgestellt: Kundenzuständigkeiten wurden neu verteilt, Teams neu zusammengesetzt und neue Rollen geschaffen. Dabei wurden auch die internen Ansprechpartner neu zugeordnet und die Ablagestruktur neu geordnet. Der Freigabeprozess und die Regelungen gegenüber Kunden sind dagegen unverändert geblieben. Zugleich hat die Geschäftsführung <strong>fünf strategische Schlüsselkunden</strong> festgelegt, die besonders sorgfältig betreut werden sollen. Einer davon ist die <strong>Drogerie Velto</strong>, eine regionale Drogeriekette mit 85 Filialen.</p>
       ${GRUPPEN[g].luecke === "niedrig" ? `
-      <p>Sie sind seit mehreren Jahren bei Lumora und arbeiten als <strong>Key Account Manager/in</strong>. Ihre Rolle ist durch die Neuorganisation gleich geblieben. Ihr Team wurde neu zusammengesetzt, Sie berichten weiterhin an dieselbe Vertriebsleiterin. Sie kennen Ihre Aufgaben und Abläufe, wissen, wer intern wofür zuständig ist und wo Unterlagen abgelegt sind. Vor zwei Wochen haben Sie zusätzlich die Betreuung der Drogerie Velto übernommen.</p>` : `
-      <p>Sie sind seit mehreren Jahren bei Lumora. Vor zwei Wochen haben Sie die neu geschaffene Rolle als <strong>Partner Sales Manager/in</strong> übernommen. Ihr Team wurde neu zusammengesetzt, Sie berichten weiterhin an dieselbe Vertriebsleiterin. Die Aufgaben und Abläufe dieser Rolle sind für Sie neu: Oft wissen Sie noch nicht genau, wie bestimmte Dinge hier gehandhabt werden, wer intern wofür zuständig ist und wo Unterlagen abgelegt sind. Mit der neuen Rolle haben Sie auch die Betreuung der Drogerie Velto übernommen.</p>`}
+      <p>Sie sind seit mehreren Jahren bei Lumora und arbeiten als <strong>Key Account Manager/in</strong>. Ihre Rolle ist durch die Neuorganisation gleich geblieben. Ihr Team wurde neu zusammengesetzt, Sie berichten weiterhin an dieselbe Vertriebsleiterin. Ihre Aufgaben, die Abläufe und den Freigabeprozess kennen Sie. Welche Ansprechpartner seit der Neuorganisation wofür zuständig sind und wo Unterlagen jetzt abgelegt werden, ist allerdings auch für Sie teilweise neu. Vor zwei Wochen haben Sie zusätzlich die Betreuung der Drogerie Velto übernommen. Ihre Teamkolleg:innen haben mit Velto bisher nicht gearbeitet.</p>` : `
+      <p>Sie sind seit mehreren Jahren bei Lumora. Vor zwei Wochen haben Sie die neu geschaffene Rolle als <strong>Channel Sales Manager/in Drogeriehandel</strong> übernommen. Ihr Team wurde neu zusammengesetzt, Sie berichten weiterhin an dieselbe Vertriebsleiterin. Die Aufgaben und Abläufe dieser Rolle sind für Sie neu: Oft wissen Sie noch nicht genau, wie bestimmte Dinge in dieser Rolle gehandhabt werden, wer intern wofür zuständig ist und wo Unterlagen abgelegt sind. Mit der neuen Rolle haben Sie auch die Betreuung der Drogerie Velto übernommen. Ihre Teamkolleg:innen haben mit Velto bisher nicht gearbeitet.</p>`}
       <p>In dieser Situation kommen drei Personen vor:</p>
       <div class="personen">
         <div class="person"><div class="rolle">Sie selbst</div><b>Sie</b><span>zuständig bei Lumora für den Kunden Velto</span></div>
@@ -498,13 +499,15 @@ const SEITEN = [
       </div>`,
     items: () => [],
     regie: (g) => `<div class="regie"><div class="kopf">Regie · hier variiert die Wissenslücke</div>
-      <p>Erster Absatz wortgleich in allen vier Gruppen. Der zweite trägt die Manipulation — und zwar nur noch über die <strong>Neuartigkeit der Rolle</strong>:</p>
+      <p><strong>Definition:</strong> Wissenslücke = handlungsrelevantes, in der Organisation dokumentiertes Wissen ist für die Person in der Situation nicht zugänglich. Drei Facetten: wissen, <em>wie</em> man vorgeht · wissen, <em>wer</em> was weiß · wissen, <em>wo</em> was liegt. Sie entsteht auf zwei Wegen, die gemeinsam als Extremgruppen variiert werden. Implizites Wissen ist ausgeklammert.</p>
+      <p>Erster Absatz wortgleich in allen vier Gruppen. Er legt fest, was sich in der Neuorganisation für <em>alle</em> geändert hat (Ansprechpartner, Ablagestruktur) und was nicht (Freigabeprozess, Regelungen gegenüber Kunden). Der zweite Absatz trägt <strong>Weg 1: Neuartigkeit der Rolle</strong> — fehlendes Aufgaben- und Rollenwissen (Ostroff &amp; Kozlowski, 1992, S. 852):</p>
       <ul>
-        <li><strong>Niedrig (V3, V4):</strong> Key Account Manager/in, Rolle unverändert, Aufgaben bekannt.</li>
-        <li><strong>Hoch (V1, V2):</strong> Partner Sales Manager/in, Rolle vor zwei Wochen übernommen, Aufgaben neu — Kompetenzlücke: In der neuen Rolle fehlt das Wissen, wie Prozesse abgewickelt werden, um die Aufgaben zu erfüllen (fehlende Prozessklarheit).</li>
+        <li><strong>Niedrig (V3, V4):</strong> Key Account Manager/in, Rolle unverändert. Aufgaben, Abläufe und Freigabeprozess bekannt; nur Ansprechpartner und Ablage sind seit der Neuorganisation teilweise neu.</li>
+        <li><strong>Hoch (V1, V2):</strong> Channel Sales Manager/in Drogeriehandel, neu geschaffene Rolle, vor zwei Wochen übernommen. Aufgaben und Abläufe dieser Rolle neu — die Prozesse selbst haben sich nicht geändert, sie sind der Person nur in dieser Rolle noch nicht bekannt.</li>
       </ul>
+      <p>In allen Gruppen: „Ihre Teamkolleg:innen haben mit Velto bisher nicht gearbeitet.“ Damit fällt das Team als Informationsquelle weg (vgl. Ostroff &amp; Kozlowski, 1992, S. 851), und die Wege zum Wissen beschränken sich auf Vorgängerin, Ablage und — in V2/V4 — den Assistenten.</p>
       <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "niedrige Wissenslücke" : "hohe Wissenslücke"}</strong>.</p>
-      <p><strong>Neu in dieser Fassung:</strong> Betriebszugehörigkeit („seit mehreren Jahren bei Lumora“) und Führungskraft („dieselbe Vertriebsleiterin“) sind jetzt in beiden Bedingungen gleich. Damit unterscheidet sich zwischen den Gruppen wirklich nur noch das Wissen — vorher trug die hohe Lücke unbeabsichtigt auch Neuheit im Unternehmen mit. „Übernommen“ statt „versetzt“ nimmt zusätzlich den Beiklang von Fremdbestimmung heraus. Der Satz zum telefonischen Vertrieb ist entfallen, die Rolle heißt jetzt Partner Sales Manager/in.</p>
+      <p><strong>Neu in dieser Fassung:</strong> Die Rolle heißt Channel Sales Manager/in Drogeriehandel statt Partner Sales Manager/in — konkreter und passend zum Kunden; bewusst ohne „Digital“, damit die Rollenbezeichnung keine Technikaffinität nahelegt, die mit der KI-Bedingung zusammenspielen könnte. Betriebszugehörigkeit und Führungskraft bleiben in beiden Bedingungen gleich.</p>
       <p><strong>Personenübersicht:</strong> wortgleich in allen vier Gruppen, bewusst <em>ohne</em> den Status von Frau Berger — der kommt erst in Szene 3, sonst nähme er der Manipulation die Wirkung. In der Erhebung als kleine Grafik mit drei Kärtchen umsetzen.</p></div>`,
   },
   {
@@ -522,36 +525,47 @@ const SEITEN = [
   {
     block: "Vignette · Szene 3", titel: "Ihre Vorgängerin Katrin Berger", min: 0.5, variiert: "Wissenslücke",
     text: (g) => GRUPPEN[g].luecke === "niedrig" ? `
-      <p>Velto wurde bisher von Ihrer Kollegin <strong>Katrin Berger</strong> betreut. Sie ist im Zuge der Neuorganisation intern ins Produktmanagement gewechselt. Vor ihrem Wechsel hat sie Ihnen den Kunden in einem ausführlichen Gespräch übergeben und eine Übergabenotiz mit offenen Vorgängen, Ansprechpartnern und Ablageorten hinterlassen. Sie ist bei Rückfragen weiterhin erreichbar. Sie schreiben ihr kurz:</p>
+      <p>Velto wurde bisher von Ihrer Kollegin <strong>Katrin Berger</strong> betreut. Sie ist im Zuge der Neuorganisation intern ins Produktmanagement gewechselt. Vor ihrem Wechsel hat sie Ihnen eine Übergabenotiz mit offenen Vorgängen, Ansprechpartnern und Ablageorten hinterlassen. Sie ist bei Rückfragen weiterhin erreichbar. Sie schreiben ihr kurz:</p>
       <div class="mock">${CHAT}</div>` : `
-      <p>Velto wurde bisher von Ihrer Kollegin <strong>Katrin Berger</strong> betreut. Sie hat das Unternehmen kurz vor Ihrem Rollenwechsel verlassen. Eine Übergabe hat nicht stattgefunden. Sie versuchen trotzdem, sie zu erreichen:</p>
+      <p>Velto wurde bisher von Ihrer Kollegin <strong>Katrin Berger</strong> betreut. Sie hat sich kurz vor Ihrem Rollenwechsel beruflich verändert und ist nicht mehr bei Lumora tätig. Eine Übergabe hat nicht stattgefunden. Sie versuchen trotzdem, sie zu erreichen:</p>
       <div class="mock">${UNZUSTELLBAR}</div>`,
     items: () => [],
     regie: (g) => `<div class="regie"><div class="kopf">Regie · zweite Ursache der Wissenslücke</div>
-      <p>Hier wirkt der <strong>Wissensverlust durch den Weggang der Vorgängerin</strong> (Ren &amp; Argote, 2011; Probst et al., 2010):</p>
+      <p>Hier wirkt <strong>Weg 2: gestörtes transaktives Gedächtnis</strong>. Mit der Vorgängerin fällt die Person weg, die wusste, wer was weiß und wo was liegt — der „knowledge location expert“ im Sinne Wegners (1987; Ren &amp; Argote, 2011; Probst et al., 2010):</p>
       <ul>
-        <li><strong>Niedrig (V3, V4):</strong> intern gewechselt, erreichbar, Übergabegespräch und Übergabenotiz.</li>
-        <li><strong>Hoch (V1, V2):</strong> ausgeschieden, nicht erreichbar, keine Übergabe.</li>
+        <li><strong>Niedrig (V3, V4):</strong> intern gewechselt, erreichbar, Übergabenotiz mit offenen Vorgängen, Ansprechpartnern und Ablageorten.</li>
+        <li><strong>Hoch (V1, V2):</strong> nicht mehr im Unternehmen, nicht erreichbar, keine Übergabe.</li>
       </ul>
       <p>Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "den Chat, Frau Berger antwortet" : "die Unzustellbarkeits-Meldung"}</strong>. In beiden Fällen ist das Wissen im Unternehmen dokumentiert vorhanden — es ist nur unterschiedlich leicht zugänglich.</p>
-      <p><strong>Neu in dieser Fassung:</strong> beide Darstellungen sind neutral gehalten — kein Emoji im Chat, keine rote Warnfarbe und kein Ausrufezeichen bei der Systemmeldung. Sonst transportiert die Gestaltung selbst eine Dringlichkeit, die nur eine der beiden Gruppen abbekommt.</p></div>`,
+      <p><strong>Neu in dieser Fassung:</strong></p>
+      <ul>
+        <li><strong>Nur explizites Wissen in V3/V4.</strong> „In einem ausführlichen Gespräch übergeben“ und im Chat „bei der Übergabe gezeigt“ sowie „Ruf gern an“ sind gestrichen. Beides hätte einen Zugang zu implizitem Wissen eröffnet, den das KI-Tool grundsätzlich nicht ersetzen kann (Nonaka, 1994, S. 16, 19) — die Bedingungen hätten sich dann in mehr unterschieden als in der definierten Wissenslücke. Frau Berger bleibt erreichbar, gibt aber nur Fundorte weiter.</li>
+        <li><strong>Neutraler Weggang in V1/V2.</strong> „Hat sich beruflich verändert“ statt „hat das Unternehmen verlassen“, ohne Hinweis auf Kündigungen oder Unruhe. Sonst könnte die hohe Bedingung allgemeinen Stress im Wandel oder Arbeitsplatzunsicherheit transportieren statt fehlenden Wissenszugang. Im Pretest gezielt nachfragen, was Teilnehmende aus dem Weggang schließen.</li>
+        <li>Beide Darstellungen bleiben gestalterisch neutral — kein Emoji im Chat, keine rote Warnfarbe und kein Ausrufezeichen bei der Systemmeldung.</li>
+      </ul></div>`,
   },
   {
     block: "Vignette · Szene 4", titel: "Sie bereiten den Rückruf vor", min: 1.25, variiert: "Wissenslücke × KI-Tool",
     text: (g) => `
       <p>Für Reklamationen und Nachlieferungen gibt es bei Lumora einen festgelegten Ablauf und eine schriftliche Kulanzregelung, und die bisherige Korrespondenz mit Velto ist in den Systemen gespeichert. Um den Rückruf vorzubereiten, müssen Sie klären, <strong>wie Sie vorgehen</strong>, <strong>welche Regelung für Gutschriften bei Aktionsware gilt</strong>, <strong>wer intern eine Express-Nachlieferung und eine Gutschrift freigibt</strong> und <strong>was Velto genau zugesagt wurde</strong>. Mit der Suche haben Sie noch nicht begonnen.</p>
       ${GRUPPEN[g].luecke === "niedrig"
-        ? `<p>Mit der Übergabenotiz und dem Hinweis von Frau Berger wissen Sie, wo Sie anfangen, und aus Ihrer Rolle wissen Sie, wen Sie intern wegen der Freigabe ansprechen. Die Einzelheiten müssen Sie noch nachlesen.</p>` : ""}
+        ? `<p>Mit der Übergabenotiz und dem Hinweis von Frau Berger wissen Sie, wo Sie anfangen, und aus Ihrer Rolle wissen Sie, wen Sie intern wegen der Freigabe ansprechen. Die Einzelheiten müssen Sie noch nachlesen.</p>`
+        : `<p>Ohne Übergabe wissen Sie nicht, wo Sie anfangen sollen, und aus Ihrer neuen Rolle wissen Sie noch nicht, wen Sie intern wegen der Freigabe ansprechen. Auch die Einzelheiten müssen Sie erst finden.</p>`}
       ${GRUPPEN[g].tool === "ohne" ? `
       <p>Dafür stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente.</p>
       <div class="mock">${ARBEITSMITTEL}</div>` : `
-      <p>Dafür stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente. Zusätzlich gibt es seit der Neuorganisation einen <strong>KI-gestützten Wissensassistenten</strong>. Er durchsucht Ablage, E-Mails und Kundensystem, berücksichtigt die neuen Abläufe und Zuständigkeiten, beantwortet Fragen in normaler Sprache, greift nur auf dokumentierte Informationen zurück und nennt seine Quellen.</p>
+      <p>Dafür stehen Ihnen die Ablage auf dem Laufwerk, das E-Mail-Archiv und das Kundensystem zur Verfügung. Allein zu Velto liegen dort <strong>247 E-Mails</strong> und zahlreiche Dokumente. Zusätzlich gibt es seit der Neuorganisation einen <strong>KI-gestützten Wissensassistenten</strong>. Er durchsucht Ablage, E-Mails und Kundensystem, berücksichtigt die neuen Zuständigkeiten und die neue Ablagestruktur, beantwortet Fragen in normaler Sprache, greift nur auf dokumentierte Informationen zurück und nennt seine Quellen.</p>
       <div class="mock">${ARBEITSMITTEL}${ASSISTENT}</div>`}`,
     items: () => [],
     regie: (g) => `<div class="regie"><div class="kopf">Regie · hier treffen beide Faktoren aufeinander</div>
       <p><strong>KI-Tool:</strong> dieselben drei Arbeitsmittel in allen Gruppen; mit Tool kommt nur das Assistentenfenster hinzu — ohne Suchergebnis, ohne Antwort. Variiert wird die verfügbare Ressource, nicht das Wissen selbst. Diese Gruppe sieht: <strong>${GRUPPEN[g].tool === "ohne" ? "nur die Arbeitsmittel" : "Arbeitsmittel plus KI-Assistent"}</strong>.</p>
-      <p><strong>Wissenslücke:</strong> bei niedriger Lücke steht hier ein zusätzlicher Satz („Mit der Übergabenotiz … wissen Sie, wo Sie anfangen“). Das löst den Widerspruch der vorigen Fassung auf: Wer in Szene 3 eine brauchbare Auskunft bekommen hat, kann in Szene 4 nicht völlig ratlos vor derselben Ablage stehen. Diese Gruppe sieht den Satz: <strong>${GRUPPEN[g].luecke === "niedrig" ? "ja" : "nein"}</strong>.</p>
-      <p><strong>Neu in dieser Fassung:</strong> Der Satz bei niedriger Lücke nennt jetzt auch, dass die Person weiß, wen sie wegen der Freigabe anspricht — sonst widerspräche Szene 4 der Beschreibung aus Szene 1 („wissen, wer intern wofür zuständig ist“). Außerdem ist ein vierter Klärungspunkt ergänzt: <em>welche Regelung für Gutschriften bei Aktionsware gilt</em>. Damit bildet die Szene alle vier Fragecluster der Ambiguität ab (wer ist zuständig, wie gehe ich vor, welche Regeln gelten, was ist zu tun). Die Regel ist als schriftliche Kulanzregelung dokumentiert, liegt also innerhalb der Definition der Wissenslücke (existierendes, aber nicht zugängliches Wissen).</p>
+      <p><strong>Wissenslücke:</strong> beide Bedingungen bekommen hier einen Satz, der die drei Facetten (wie, wer, wo) für diese Situation zusammenfasst — gleich lang und gleich sachlich. Diese Gruppe sieht: <strong>${GRUPPEN[g].luecke === "niedrig" ? "„Mit der Übergabenotiz … wissen Sie, wo Sie anfangen …“" : "„Ohne Übergabe wissen Sie nicht, wo Sie anfangen sollen …“"}</strong>. Der Satz ist in V1/V2 bzw. V3/V4 wortgleich, mit und ohne Tool.</p>
+      <p><strong>Neu in dieser Fassung:</strong></p>
+      <ul>
+        <li><strong>Paralleler Satz für V1/V2.</strong> Bisher bekam nur die niedrige Lücke einen ausdrücklichen Satz; die hohe Lücke war nur implizit. Jetzt sind beide Bedingungen gleich ausführlich. Im Pretest prüfen, ob der Satz in V1/V2 zu stark lenkt.</li>
+        <li><strong>KI-Tool:</strong> „berücksichtigt die neuen Zuständigkeiten und die neue Ablagestruktur“ statt „neue Abläufe und Zuständigkeiten“ — die Abläufe haben sich laut Szene 1 nicht geändert; neu sind Ansprechpartner und Ablage. Gleiche Änderung im Begrüßungstext des Assistenten.</li>
+        <li><strong>Unverändert und tragend:</strong> Ablauf und Kulanzregelung sind schriftlich dokumentiert, die Korrespondenz gespeichert. Damit liegt alles Nötige innerhalb der Definition (existierendes, aber nicht zugängliches Wissen). Der Satz steht in allen vier Gruppen.</li>
+      </ul>
       <p><strong>Gestrichen:</strong> der Aufwand-Kontrast („nacheinander öffnen und durchlesen“ gegen „statt … einfach fragen“). Der hat die Bewertung vorweggenommen, die der PASA erst messen soll.</p>
       <p><strong>Zu den Bildern:</strong> hier sind die Fenster für diese Vorschau in HTML nachgebaut, damit sie den neuen Stand zeigen — Ordner „05_Aktionen“ ergänzt, E-Mail-Betreffs angepasst, Kundensystem mit der Einstufung als Schlüsselkunde. Für die Erhebung werden sie als Bilder benötigt; diese Ansicht dient dafür als Vorlage. In der Erhebung stehen die drei Fenster nebeneinander, das Assistentenfenster liegt darüber.</p>
       <p>In den E-Mail-Betreffs stehen Wochentage statt Datumsangaben — sonst wäre die Vignette doch wieder an einen Kalender gebunden.</p></div>`,
@@ -589,12 +603,17 @@ const SEITEN = [
     items: (g) => manipulation(g),
     regie: (g) => `<div class="regie"><div class="kopf">Regie · Manipulationschecks</div>
       <ul>
-        <li><strong>MC1–MC3</strong> prüfen die Wissenslücke. Erwartung: niedriger bei hoher Lücke (V1, V2).</li>
-        <li><strong>MC4</strong> prüft die Tool-Bedingung. Erwartung: „ja“ nur in V2 und V4.</li>
-        <li><strong>MC5</strong> nur in V2 und V4 — ${GRUPPEN[g].tool === "mit" ? "diese Gruppe sieht das Item" : "diese Gruppe sieht es nicht"}.</li>
+        <li><strong>MC1–MC4</strong> prüfen die Wissenslücke: MC1 wie vorgehen (Aufgaben- und Rollenwissen, Ostroff &amp; Kozlowski, 1992), MC2 an wen wenden und MC3 wo die Informationen finden (wer weiß was, wo liegt was; Wegner, 1987), MC4 was zugesagt wurde (der Inhalt, der über diese Wege gefunden wird). Erwartung: niedriger bei hoher Lücke (V1, V2). Die Items prüfen die Wissenslücke gemeinsam, nicht die beiden Wege getrennt.</li>
+        <li><strong>MC5</strong> prüft die Tool-Bedingung. Erwartung: „ja“ nur in V2 und V4.</li>
+        <li><strong>MC6</strong> nur in V2 und V4 — ${GRUPPEN[g].tool === "mit" ? "diese Gruppe sieht das Item" : "diese Gruppe sieht es nicht"}.</li>
       </ul>
-      <p><strong>Neu in dieser Fassung:</strong> „aus meinem eigenen Wissen heraus“ in MC1–MC3. Ohne den Zusatz hätten Teilnehmende mit KI-Tool die Items plausibel mit „ja, wüsste ich — ich frage ja den Assistenten“ beantwortet. Dann hätte der Check für die Wissenslücke teilweise die Tool-Bedingung mitgemessen, und beide Manipulationen wären nicht mehr sauber getrennt.</p>
-      <p><strong>Noch zu entscheiden:</strong> das Antwortformat für MC1–MC3 und MC5. Hier im PASA-Format (1–6) dargestellt. Eine fünfstufige Zustimmungsskala wäre genauso vertretbar — nur einheitlich sollte es sein.</p></div>`,
+      <p>Die Checks stehen nach dem PASA, damit sie das Erleben der Situation nicht vorab lenken.</p>
+      <p><strong>Neu in dieser Fassung:</strong></p>
+      <ul>
+        <li><strong>Neues Item MC3</strong> („wo ich die benötigten Informationen finde“) für die dritte Facette der Definition. Die bisherigen MC3–MC5 heißen jetzt MC4–MC6.</li>
+        <li><strong>Neuer Wortlaut</strong> „In der beschriebenen Situation wüsste ich – ohne weitere Hilfsmittel –, …“ statt „aus meinem eigenen Wissen heraus“. Der alte Wortlaut ließ sich als echtes, persönliches Wissen lesen — das Szenario ist aber fiktiv, Teilnehmende hätten dann unabhängig von der Bedingung niedrig geantwortet. „In der beschriebenen Situation“ verankert die Antwort in der Vignette; „ohne weitere Hilfsmittel“ verhindert weiterhin, dass Teilnehmende mit KI-Tool „ja, ich frage den Assistenten“ antworten und der Check die Tool-Bedingung mitmisst. Im Pretest nachfragen, ob an die Figur oder an sich selbst gedacht wurde.</li>
+      </ul>
+      <p><strong>Noch zu entscheiden:</strong> das Antwortformat für MC1–MC4 und MC6. Hier im PASA-Format (1–6) dargestellt. Eine fünfstufige Zustimmungsskala wäre genauso vertretbar — nur einheitlich sollte es sein.</p></div>`,
   },
   {
     block: "Abschluss", titel: "Vielen Dank für Ihre Teilnahme", min: 0.25,
