@@ -84,10 +84,10 @@ export const LETTERS: Letter[] = [
     signatur: "deine Bella",
     date: {
       titel: "Schlittschuhfahren",
-      kurz: "Kalte Nasen, wacklige Knie — und danach was Warmes.",
+      kurz: "Kalte Nasen, ein paar Runden — und danach was Warmes.",
       text: [
         "Am schönsten wäre es draußen, im Nymphenburger Schlosspark, wenn der Kanal zugefroren ist. Wenn es dafür noch nicht kalt genug ist, gehen wir ins Eisstadion. Ist auch schön.",
-        "Ein paar Runden, so lange, bis uns die Füße wehtun. Ich halte mich sowieso die ganze Zeit an dir fest, das wissen wir beide. Danach setzen wir uns irgendwo hin, wärmen uns die Hände an einer Tasse und haben den Rest des Abends nichts mehr vor.",
+        "Ein paar Runden, so lange, bis uns die Füße wehtun. Festhalten muss ich mich nicht, ich kann fahren. Danach setzen wir uns irgendwo hin, wärmen uns die Hände an einer Tasse und haben den Rest des Abends nichts mehr vor.",
       ],
       brauchtIhr: [
         "Handschuhe",
